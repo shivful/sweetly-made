@@ -4,65 +4,173 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sweetly Made by Kay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #fffaf5;
+      --primary: #fddbcf;
+      --secondary: #f9d0d2;
+      --text: #3e2f2f;
+      --accent: #ffb3b3;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      transition: all 0.3s ease;
+    }
+
     body {
-      font-family: 'Georgia', serif;
-      background-color: #fffaf5;
-      color: #3e2f2f;
       margin: 0;
-      padding: 0;
+      background: var(--bg);
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
     }
+
     header {
-      background-color: #fddbcf;
+      background: var(--primary);
+      padding: 4rem 1rem;
       text-align: center;
-      padding: 2rem;
+      box-shadow: var(--shadow);
     }
+
     header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
       margin: 0;
-      font-size: 2.5rem;
     }
+
     header p {
       font-style: italic;
+      font-size: 1.2rem;
       margin-top: 0.5rem;
     }
+
     nav {
-      text-align: center;
-      background-color: #f9d0d2;
-      padding: 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      font-size: 1.1rem;
-      color: #3e2f2f;
-      text-decoration: none;
-      padding: 0.5rem;
-    }
-    nav a:hover {
-      color: white;
-      background-color: #fddbcf;
-      border-radius: 5px;
-    }
-    .section {
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    .gallery {
+      background: var(--secondary);
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 2rem;
+      padding: 1rem;
+      font-size: 1.1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow);
     }
-    .gallery img {
-      width: 250px;
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #fddbcf, #fff0ea);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero a {
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding-top: 2rem;
+    }
+
+    .menu-item {
+      background: white;
+      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
+      text-align: center;
     }
+
+    .menu-item h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .menu-item span {
+      display: block;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact a {
+      color: var(--text);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #fddbcf;
+      background: var(--primary);
+      padding: 2rem 1rem;
+      margin-top: 4rem;
       font-size: 0.9rem;
     }
   </style>
@@ -74,62 +182,68 @@
     <p>Homemade baked goods, crafted with love</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
     <a href="#menu">Menu</a>
-    <a href="#ratings">Ratings</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- About Section -->
-  <section class="section" id="about">
+  <section class="hero">
+    <h2>Baking Smiles Since Day One</h2>
+    <p>From cupcakes to custom cakes, every bite is sweetly made by Kay. 💕</p>
+    <a href="#menu">See the Menu</a>
+  </section>
+
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      Hi, I’m Kay! I started baking in my tiny kitchen with a big heart and a sweet tooth. 
-      Whether it’s a dozen cookies or a custom cake for a special event, 
-      I put love and care into every bite. Based in Tyler, 
-      I bake for birthdays, holidays, and everything in between.
+      I’m Kay, a home baker with a passion for turning everyday treats into something special. 
+      Whether it's a cozy dozen cookies or a beautifully detailed birthday cake, 
+      I pour heart and flavor into everything I create.
     </p>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="section" id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/250?text=Chocolate+Chip+Cookies" alt="Chocolate Chip Cookies">
-      <img src="https://via.placeholder.com/250?text=Vanilla+Cupcakes" alt="Vanilla Cupcakes">
-      <img src="https://via.placeholder.com/250?text=Lemon+Loaf" alt="Lemon Loaf">
+  <section id="menu">
+    <h2>Menu Highlights</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>🍪 Chocolate Chip Cookies</h3>
+        <span>$12 / dozen</span>
+      </div>
+      <div class="menu-item">
+        <h3>🧁 Vanilla Cupcakes</h3>
+        <span>$18 / dozen</span>
+      </div>
+      <div class="menu-item">
+        <h3>🍋 Lemon Drizzle Loaf</h3>
+        <span>$15 / loaf</span>
+      </div>
+      <div class="menu-item">
+        <h3>🎂 Custom Cakes</h3>
+        <span>Contact for quote</span>
+      </div>
     </div>
   </section>
 
-  <!-- Menu Section -->
-  <section class="section" id="menu">
-    <h2>Menu</h2>
-    <ul>
-      <li>Chocolate Chip Cookies – $12/dozen</li>
-      <li>Vanilla Cupcakes – $18/dozen</li>
-      <li>Lemon Drizzle Loaf – $15/loaf</li>
-      <li>Custom Cakes – Price varies</li>
-    </ul>
+  <section id="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
+      <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
+      <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
+      <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
+    </div>
   </section>
 
-  <!-- Ratings Section -->
-  <section class="section" id="ratings">
-    <h2>Leave a Rating</h2>
-    <form action="#" method="post">
-      <label for="name">Your Name:</label><br>
-      <input type="text" id="name" name="name" required><br><br>
-      <label for="rating">Rating (1-5):</label><br>
-      <input type="number" id="rating" name="rating" min="1" max="5" required><br><br>
-      <label for="comments">Your Experience:</label><br>
-      <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Leave a comment..."></textarea><br><br>
-      <input type="submit" value="Submit">
-    </form>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/sweetlymadebykay" target="_blank">@sweetlymadebykay</a></p>
   </section>
 
   <footer>
-    © 2025 Sweetly Made by Kay | All rights reserved
+    &copy; 2025 Sweetly Made by Kay — built with love, butter, and maybe a little sugar 🍪
   </footer>
 
 </body>
