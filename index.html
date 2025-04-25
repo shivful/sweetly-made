@@ -7,57 +7,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fffaf5;
+      --bg: linear-gradient(135deg, #fffaf5, #fde3da);
       --primary: #fddbcf;
-      --secondary: #f9d0d2;
-      --text: #3e2f2f;
       --accent: #ffb3b3;
+      --text: #3e2f2f;
+      --glass: rgba(255, 255, 255, 0.4);
       --shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
-      transition: all 0.3s ease;
     }
 
     body {
       margin: 0;
-      background: var(--bg);
       font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
       color: var(--text);
     }
 
     header {
-      background: var(--primary);
-      padding: 4rem 1rem;
+      padding: 5rem 1rem 3rem;
       text-align: center;
-      box-shadow: var(--shadow);
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      margin: 0;
+      margin-bottom: 0.5rem;
     }
 
     header p {
       font-style: italic;
       font-size: 1.2rem;
-      margin-top: 0.5rem;
     }
 
     nav {
-      background: var(--secondary);
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 1rem;
-      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 10;
-      box-shadow: var(--shadow);
+      z-index: 1000;
     }
 
     nav a {
@@ -66,17 +61,18 @@
       font-weight: bold;
       padding: 0.5rem 1rem;
       border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
     nav a:hover {
       background: var(--accent);
-      color: white;
+      color: #fff;
     }
 
     .hero {
-      background: linear-gradient(to right, #fddbcf, #fff0ea);
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(to right, #fddbcf, #fff0ea);
     }
 
     .hero h2 {
@@ -103,7 +99,7 @@
 
     section {
       padding: 4rem 1.5rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -114,31 +110,20 @@
       text-align: center;
     }
 
-    .menu-grid {
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding-top: 2rem;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .menu-item {
-      background: white;
-      padding: 1.5rem;
+    .card {
+      background: var(--glass);
       border-radius: 12px;
+      padding: 1.5rem;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
       text-align: center;
-    }
-
-    .menu-item h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-
-    .menu-item span {
-      display: block;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      color: #555;
     }
 
     .gallery {
@@ -151,19 +136,8 @@
     .gallery img {
       width: 100%;
       height: auto;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: var(--shadow);
-    }
-
-    .contact {
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .contact a {
-      color: var(--text);
-      font-weight: bold;
-      text-decoration: none;
     }
 
     footer {
@@ -190,60 +164,58 @@
   </nav>
 
   <section class="hero">
-    <h2>Baking Smiles Since Day One</h2>
-    <p>From cupcakes to custom cakes, every bite is sweetly made by Kay. 💕</p>
-    <a href="#menu">See the Menu</a>
+    <h2>From My Oven to Your Heart</h2>
+    <p>Baking joy into every bite — cookies, cakes, and smiles since day one.</p>
+    <a href="#menu">Explore the Menu</a>
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m Kay, a home baker with a passion for turning everyday treats into something special. 
-      Whether it's a cozy dozen cookies or a beautifully detailed birthday cake, 
-      I pour heart and flavor into everything I create.
+    <h2>Meet Kay</h2>
+    <p style="text-align: center; max-width: 800px; margin: auto;">
+      I’m Kay — a baker who believes desserts should be made with intention, warmth, and a sprinkle of magic. From cozy cookies to elegant celebration cakes, each item is a tribute to homemade happiness.
     </p>
   </section>
 
   <section id="menu">
-    <h2>Menu Highlights</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
+    <h2>Our Sweet Menu</h2>
+    <div class="card-grid">
+      <div class="card">
         <h3>🍪 Chocolate Chip Cookies</h3>
-        <span>$12 / dozen</span>
+        <p>$12 / dozen</p>
       </div>
-      <div class="menu-item">
+      <div class="card">
         <h3>🧁 Vanilla Cupcakes</h3>
-        <span>$18 / dozen</span>
+        <p>$18 / dozen</p>
       </div>
-      <div class="menu-item">
-        <h3>🍋 Lemon Drizzle Loaf</h3>
-        <span>$15 / loaf</span>
+      <div class="card">
+        <h3>🍋 Lemon Loaf</h3>
+        <p>$15 / loaf</p>
       </div>
-      <div class="menu-item">
+      <div class="card">
         <h3>🎂 Custom Cakes</h3>
-        <span>Contact for quote</span>
+        <p>Contact for quote</p>
       </div>
     </div>
   </section>
 
   <section id="gallery">
-    <h2>Photo Gallery</h2>
+    <h2>Gallery</h2>
     <div class="gallery">
       <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
       <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
       <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
-      <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
+      <img src="https://via.placeholder.com/300x200?text=Cakes" alt="Cakes">
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/sweetlymadebykay" target="_blank">@sweetlymadebykay</a></p>
+    <p style="text-align: center;">Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a><br>
+    Instagram: <a href="https://instagram.com/sweetlymadebykay" target="_blank">@sweetlymadebykay</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Sweetly Made by Kay — built with love, butter, and maybe a little sugar 🍪
+    &copy; 2025 Sweetly Made by Kay | Made with sugar, spice & a whole lot of love 💕
   </footer>
 
 </body>
