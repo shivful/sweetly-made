@@ -4,7 +4,7 @@
   --accent: #ffb3b3;
   --text: #3e2f2f;
   --glass: rgba(255, 255, 255, 0.4);
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 * {
@@ -25,19 +25,22 @@ header {
   position: relative;
 }
 
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
   padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
-.navbar .logo {
+.logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   font-weight: bold;
