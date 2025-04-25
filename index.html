@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweetly Made by Kay</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fffaf5;
+      color: #3e2f2f;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fddbcf;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    nav {
+      text-align: center;
+      background-color: #f9d0d2;
+      padding: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      font-size: 1.1rem;
+      color: #3e2f2f;
+      text-decoration: none;
+      padding: 0.5rem;
+    }
+    nav a:hover {
+      color: white;
+      background-color: #fddbcf;
+      border-radius: 5px;
+    }
+    .section {
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fddbcf;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sweetly Made by Kay</h1>
+    <p>Homemade baked goods, crafted with love</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#menu">Menu</a>
+    <a href="#ratings">Ratings</a>
+  </nav>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Kay! I started baking in my tiny kitchen with a big heart and a sweet tooth. 
+      Whether it’s a dozen cookies or a custom cake for a special event, 
+      I put love and care into every bite. Based in Tyler, 
+      I bake for birthdays, holidays, and everything in between.
+    </p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/250?text=Chocolate+Chip+Cookies" alt="Chocolate Chip Cookies">
+      <img src="https://via.placeholder.com/250?text=Vanilla+Cupcakes" alt="Vanilla Cupcakes">
+      <img src="https://via.placeholder.com/250?text=Lemon+Loaf" alt="Lemon Loaf">
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section" id="menu">
+    <h2>Menu</h2>
+    <ul>
+      <li>Chocolate Chip Cookies – $12/dozen</li>
+      <li>Vanilla Cupcakes – $18/dozen</li>
+      <li>Lemon Drizzle Loaf – $15/loaf</li>
+      <li>Custom Cakes – Price varies</li>
+    </ul>
+  </section>
+
+  <!-- Ratings Section -->
+  <section class="section" id="ratings">
+    <h2>Leave a Rating</h2>
+    <form action="#" method="post">
+      <label for="name">Your Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="rating">Rating (1-5):</label><br>
+      <input type="number" id="rating" name="rating" min="1" max="5" required><br><br>
+      <label for="comments">Your Experience:</label><br>
+      <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Leave a comment..."></textarea><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Sweetly Made by Kay | All rights reserved
+  </footer>
+
+</body>
+</html>
