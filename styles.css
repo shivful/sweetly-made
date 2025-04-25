@@ -1,3 +1,8 @@
+/* ======================
+   Sweetly Made by Kay
+   Main Stylesheet
+   ====================== */
+
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
   --primary: #fddbcf;
@@ -25,6 +30,7 @@ header {
   position: relative;
 }
 
+/* Sticky Header */
 .sticky-nav {
   position: sticky;
   top: 0;
