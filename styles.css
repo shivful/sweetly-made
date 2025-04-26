@@ -334,9 +334,3 @@ input:checked + .slider .moon {
 input:checked + .slider:hover {
   box-shadow: 0 0 12px #ff6f91;
 }
-
-/* New Heartfelt Hero Subtitle */
-.hero-subtitle::after {
-  content: "Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!";
-  display: block;
-}
