@@ -11,6 +11,17 @@
   --shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
+body.dark-mode {
+  --bg: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  --primary: #444;
+  --accent: #ff8fa3;
+  --text: #fafafa;
+  --glass: rgba(255, 255, 255, 0.1);
+  --shadow: 0 8px 24px rgba(255,255,255,0.1);
+  background: var(--bg);
+  color: var(--text);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
