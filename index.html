@@ -20,11 +20,12 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="darkModeToggle">🌙</button>
     </div>
   </nav>
   <div class="hero-content">
     <h1 class="hero-title">Sweetly Made by Kay</h1>
-    <p class="hero-subtitle">Homemade treats crafted with love to sweeten your day!</p>
+    <p class="hero-subtitle">Homemade treats crafted just for you</p>
     <a href="#menu" class="cta-button">Explore Our Menu</a>
   </div>
 </header>
@@ -33,7 +34,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
+      <p>I’m Kay, a home baker passionate about creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
     </div>
   </section>
 
@@ -64,14 +65,11 @@
   <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
-      <div class="gallery-slider">
-        <div class="slides">
-          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
-          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
-          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
-        </div>
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
+      <div class="gallery-grid">
+        <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
+        <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
+        <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
+        <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
       </div>
     </div>
   </section>
@@ -79,15 +77,15 @@
   <section id="testimonials" class="section reveal">
     <div class="container">
       <h2>Testimonials</h2>
-      <blockquote>\"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special.\"</blockquote>
+      <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
     </div>
   </section>
 
   <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
+      <p>Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/sweetlymadebykay" target="_blank">@sweetlymadebykay</a></p>
     </div>
   </section>
 </main>
@@ -99,45 +97,26 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-const sections = document.querySelectorAll('.section');
+const reveals = document.querySelectorAll('.reveal');
 
 window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add('active');
     } else {
-      section.classList.remove('visible');
+      reveals[i].classList.remove('active');
     }
-  });
+  }
 });
 
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.opacity = (i === index) ? '1' : '0';
-  });
-}
-
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
-
-showSlide(slideIndex);
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 </script>
 
 </body>
