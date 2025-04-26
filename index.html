@@ -20,12 +20,11 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="darkModeToggle">🌙</button>
     </div>
   </nav>
   <div class="hero-content">
     <h1 class="hero-title">Sweetly Made by Kay</h1>
-    <p class="hero-subtitle">Homemade treats crafted just for you</p>
+    <p class="hero-subtitle">Homemade treats crafted with love to sweeten your day!</p>
     <a href="#menu" class="cta-button">Explore Our Menu</a>
   </div>
 </header>
@@ -34,7 +33,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m Kay, a home baker passionate about creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
     </div>
   </section>
 
@@ -65,11 +64,18 @@
   <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
-        <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
-        <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
-        <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
+      <div class="orbit-container" id="orbitContainer">
+        <div class="orbit-gallery" id="orbitGallery">
+          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
+          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
+          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
+        </div>
+        <div class="full-image" id="fullImage">
+          <img src="" alt="Selected">
+        </div>
+        <div class="thumbnail-grid" id="thumbnailGrid">
+          <!-- Thumbnails will auto-populate -->
+        </div>
       </div>
     </div>
   </section>
@@ -84,8 +90,8 @@
   <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/sweetlymadebykay" target="_blank">@sweetlymadebykay</a></p>
+      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
     </div>
   </section>
 </main>
@@ -97,25 +103,42 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
+const orbitContainer = document.getElementById('orbitContainer');
+const orbitGallery = document.getElementById('orbitGallery');
+const fullImage = document.getElementById('fullImage');
+const thumbnailGrid = document.getElementById('thumbnailGrid');
 
-window.addEventListener('scroll', () => {
-  for (let i = 0; i < reveals.length; i++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[i].getBoundingClientRect().top;
-    const elementVisible = 150;
+const images = orbitGallery.querySelectorAll('img');
+const centerX = 250;
+const centerY = 250;
+const radius = 200;
 
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add('active');
-    } else {
-      reveals[i].classList.remove('active');
-    }
-  }
+images.forEach((img, index) => {
+  const angle = (index / images.length) * (2 * Math.PI);
+  img.style.left = `${centerX + radius * Math.cos(angle) - 60}px`;
+  img.style.top = `${centerY + radius * Math.sin(angle) - 60}px`;
 });
 
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
+orbitContainer.addEventListener('mouseenter', () => {
+  orbitGallery.style.animationPlayState = 'paused';
+  thumbnailGrid.innerHTML = '';
+  images.forEach(img => {
+    const thumb = img.cloneNode(true);
+    thumbnailGrid.appendChild(thumb);
+    thumb.addEventListener('mouseenter', () => {
+      fullImage.style.display = 'block';
+      fullImage.querySelector('img').src = thumb.src;
+    });
+  });
+  thumbnailGrid.style.display = 'flex';
+  fullImage.style.display = 'block';
+  fullImage.querySelector('img').src = images[0].src;
+});
+
+orbitContainer.addEventListener('mouseleave', () => {
+  orbitGallery.style.animationPlayState = 'running';
+  thumbnailGrid.style.display = 'none';
+  fullImage.style.display = 'none';
 });
 </script>
 
