@@ -20,11 +20,7 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <!-- Dark Mode Toggle Slider -->
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider round"></span>
-      </label>
+      <button id="darkModeToggle">🌙</button>
     </div>
   </nav>
   <div class="hero-content">
@@ -69,19 +65,11 @@
   <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
-      <div class="orbit-container" id="orbitContainer">
-        <div class="orbit-gallery" id="orbitGallery">
-          <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
-          <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
-          <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
-          <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
-        </div>
-        <div class="full-image" id="fullImage">
-          <img src="" alt="Selected">
-        </div>
-        <div class="thumbnail-grid" id="thumbnailGrid">
-          <!-- Thumbnails will auto-populate -->
-        </div>
+      <div class="gallery-grid">
+        <img src="https://via.placeholder.com/300x200?text=Cookies" alt="Cookies">
+        <img src="https://via.placeholder.com/300x200?text=Cupcakes" alt="Cupcakes">
+        <img src="https://via.placeholder.com/300x200?text=Lemon+Loaf" alt="Lemon Loaf">
+        <img src="https://via.placeholder.com/300x200?text=Custom+Cakes" alt="Custom Cakes">
       </div>
     </div>
   </section>
@@ -128,7 +116,7 @@ window.addEventListener('scroll', () => {
 
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
+darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
 </script>
