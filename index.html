@@ -28,14 +28,14 @@
 </header>
 
 <main>
-  <section id="about" class="section">
+  <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
       <p>I’m Kay, a home baker passionate about creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
     </div>
   </section>
 
-  <section id="menu" class="section">
+  <section id="menu" class="section reveal">
     <div class="container">
       <h2>Menu</h2>
       <div class="menu-grid">
@@ -59,7 +59,7 @@
     </div>
   </section>
 
-  <section id="gallery" class="section">
+  <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
       <div class="gallery-grid">
@@ -71,14 +71,14 @@
     </div>
   </section>
 
-  <section id="testimonials" class="section">
+  <section id="testimonials" class="section reveal">
     <div class="container">
       <h2>Testimonials</h2>
       <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:sweetlymadebykay@gmail.com">sweetlymadebykay@gmail.com</a></p>
@@ -92,6 +92,24 @@
 </footer>
 
 <a href="#contact" class="order-button">Order Now</a>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add('active');
+    } else {
+      reveals[i].classList.remove('active');
+    }
+  }
+});
+</script>
 
 </body>
 </html>
