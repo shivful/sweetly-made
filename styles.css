@@ -203,7 +203,8 @@ body.dark-mode .sticky-nav {
 .slides img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   border-radius: 12px;
