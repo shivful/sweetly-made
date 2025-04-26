@@ -30,7 +30,6 @@
 </header>
 
 <main>
-  <!-- About Section -->
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
@@ -38,7 +37,6 @@
     </div>
   </section>
 
-  <!-- Menu Section -->
   <section id="menu" class="section reveal">
     <div class="container">
       <h2>Menu</h2>
@@ -63,27 +61,21 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
   <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
-      <div class="orbit-container" id="orbitContainer">
-        <div class="orbit-gallery" id="orbitGallery">
+      <div class="gallery-slider">
+        <div class="slides">
           <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
           <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
           <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
         </div>
-        <div class="full-image" id="fullImage">
-          <img src="" alt="Selected">
-        </div>
-        <div class="thumbnail-grid" id="thumbnailGrid">
-          <!-- Thumbnails will auto-populate -->
-        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
   <section id="testimonials" class="section reveal">
     <div class="container">
       <h2>Testimonials</h2>
@@ -91,7 +83,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
@@ -101,54 +92,52 @@
   </section>
 </main>
 
-<!-- Footer Section -->
 <footer>
   <p>&copy; 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
 </footer>
 
-<!-- Order Now Button -->
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-  // Orbit Gallery JavaScript to manage hover and display of images
-  const orbitContainer = document.getElementById('orbitContainer');
-  const orbitGallery = document.getElementById('orbitGallery');
-  const fullImage = document.getElementById('fullImage');
-  const thumbnailGrid = document.getElementById('thumbnailGrid');
+const sections = document.querySelectorAll('.section');
 
-  const images = orbitGallery.querySelectorAll('img');
-  const centerX = 250;
-  const centerY = 250;
-  const radius = 200;
-
-  // Positioning the images around the center for the orbit effect
-  images.forEach((img, index) => {
-    const angle = (index / images.length) * (2 * Math.PI);
-    img.style.left = `${centerX + radius * Math.cos(angle) - 60}px`;
-    img.style.top = `${centerY + radius * Math.sin(angle) - 60}px`;
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+    if (top < trigger) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
   });
+});
 
-  orbitContainer.addEventListener('mouseenter', () => {
-    orbitGallery.style.animationPlayState = 'paused';
-    thumbnailGrid.innerHTML = '';
-    images.forEach(img => {
-      const thumb = img.cloneNode(true);
-      thumbnailGrid.appendChild(thumb);
-      thumb.addEventListener('mouseenter', () => {
-        fullImage.style.display = 'block';
-        fullImage.querySelector('img').src = thumb.src;
-      });
-    });
-    thumbnailGrid.style.display = 'flex';
-    fullImage.style.display = 'block';
-    fullImage.querySelector('img').src = images[0].src;
-  });
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slides img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 
-  orbitContainer.addEventListener('mouseleave', () => {
-    orbitGallery.style.animationPlayState = 'running';
-    thumbnailGrid.style.display = 'none';
-    fullImage.style.display = 'none';
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.opacity = (i === index) ? '1' : '0';
   });
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+showSlide(slideIndex);
 </script>
 
 </body>
