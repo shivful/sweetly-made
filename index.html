@@ -131,6 +131,8 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
+const slider = document.querySelector('.gallery-slider');
+let slideInterval;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -140,21 +142,39 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  slides[slideIndex].style.opacity = '0';
   slideIndex = (slideIndex + 1) % slides.length;
-  slides[slideIndex].style.opacity = '1';
+  showSlide(slideIndex);
 }
 
 function prevSlide() {
-  slides[slideIndex].style.opacity = '0';
   slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  slides[slideIndex].style.opacity = '1';
+  showSlide(slideIndex);
 }
 
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
+function startSlideShow() {
+  slideInterval = setInterval(nextSlide, 4000);
+}
 
-setInterval(nextSlide, 4000);
+function stopSlideShow() {
+  clearInterval(slideInterval);
+}
+
+startSlideShow();
+
+prevBtn.addEventListener('click', () => {
+  stopSlideShow();
+  prevSlide();
+  startSlideShow();
+});
+
+nextBtn.addEventListener('click', () => {
+  stopSlideShow();
+  nextSlide();
+  startSlideShow();
+});
+
+slider.addEventListener('mouseenter', stopSlideShow);
+slider.addEventListener('mouseleave', startSlideShow);
 
 showSlide(slideIndex);
 </script>
