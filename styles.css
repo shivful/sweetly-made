@@ -1,5 +1,5 @@
 /* ======================
-   Sweetly Made by Marilyn
+   Sweetly Made
    ====================== */
 
 :root {
@@ -116,6 +116,7 @@ body.dark-mode .sticky-nav {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   animation: fadeInUp 1.2s ease;
+  font-style: italic;
 }
 
 .cta-button {
@@ -131,6 +132,7 @@ body.dark-mode .sticky-nav {
 .cta-button:hover {
   background: #ff6f91;
   transform: scale(1.05);
+  animation: bounce 0.6s;
 }
 
 .section {
@@ -138,6 +140,14 @@ body.dark-mode .sticky-nav {
   max-width: 1100px;
   margin: auto;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .menu-grid, .gallery-grid {
@@ -153,11 +163,11 @@ body.dark-mode .sticky-nav {
   border-radius: 12px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .menu-item:hover, .gallery-grid img:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -197,6 +207,7 @@ footer {
 .order-button:hover {
   background: #ff6f91;
   transform: scale(1.1);
+  animation: bounce 0.6s;
 }
 
 .reveal {
@@ -232,7 +243,15 @@ footer {
   }
 }
 
-/* Dark Mode Toggle Switch */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -314,4 +333,10 @@ input:checked + .slider .moon {
 
 input:checked + .slider:hover {
   box-shadow: 0 0 12px #ff6f91;
+}
+
+/* New Heartfelt Hero Subtitle */
+.hero-subtitle::after {
+  content: "Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!";
+  display: block;
 }
