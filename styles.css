@@ -29,7 +29,7 @@ body {
 /* Header Hero */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.5)), url('https://via.placeholder.com/1400x800?text=Homemade+Treats') center/cover no-repeat;
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.5)), url('bakery-hero.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
 }
