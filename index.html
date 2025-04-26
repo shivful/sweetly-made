@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweetly Made by Marilyn</title>
+  <title>Sweetly Made</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,7 +12,7 @@
 <header class="hero">
   <nav class="sticky-nav">
     <div class="nav-container">
-      <div class="logo">Sweetly Made by Marilyn</div>
+      <div class="logo">Sweetly Made</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
@@ -32,8 +32,8 @@
     </div>
   </nav>
   <div class="hero-content">
-    <h1 class="hero-title">Sweetly Made by Marilyn</h1>
-    <p class="hero-subtitle">Homemade treats crafted just for you</p>
+    <h1 class="hero-title">Sweetly Made</h1>
+    <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
     <a href="#menu" class="cta-button">Explore Our Menu</a>
   </div>
 </header>
@@ -42,7 +42,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m Marilyn, a home baker passionate about creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
     </div>
   </section>
 
@@ -85,40 +85,38 @@
   <section id="testimonials" class="section reveal">
     <div class="container">
       <h2>Testimonials</h2>
-      <blockquote>"The cupcakes were heavenly! Sweetly Made by Marilyn truly knows how to make every treat special."</blockquote>
+      <blockquote>"The cupcakes were heavenly! Sweetly Made truly knows how to make every treat special."</blockquote>
     </div>
   </section>
 
   <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sweetlymadebymarilyn@gmail.com">sweetlymadebymarilyn@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/sweetlymadebymarilyn" target="_blank">@sweetlymadebymarilyn</a></p>
+      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2025 Sweetly Made by Marilyn | Baked with love in every batch.</p>
+  <p>&copy; 2025 Sweetly Made | Baked with love in every batch.</p>
 </footer>
 
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
+const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
-  for (let i = 0; i < reveals.length; i++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[i].getBoundingClientRect().top;
-    const elementVisible = 150;
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add('active');
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+    if (top < trigger) {
+      section.classList.add('visible');
     } else {
-      reveals[i].classList.remove('active');
+      section.classList.remove('visible');
     }
-  }
+  });
 });
 
 const darkModeToggle = document.getElementById('darkModeToggle');
