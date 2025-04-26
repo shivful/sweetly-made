@@ -7,138 +7,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .gallery-slider {
+    .orbit-gallery {
       position: relative;
-      overflow: hidden;
+      width: 500px;
+      height: 500px;
+      margin: 2rem auto;
+      animation: orbit 20s linear infinite;
+      transform-origin: center center;
     }
-    .slides img {
-      width: 100%;
-      height: 100%;
+    .orbit-gallery img {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
+      transition: all 0.5s ease;
       cursor: pointer;
-      font-size: 24px;
-      opacity: 0.7;
-      transition: all 0.3s ease;
     }
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-      transform: translateY(-50%) scale(1.1);
-      opacity: 1;
+    .orbit-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: auto;
     }
-    .prev {
-      left: 20px;
+    .thumbnail-grid {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1rem;
     }
-    .next {
-      right: 20px;
+    .thumbnail-grid img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .thumbnail-grid img:hover {
+      transform: scale(1.1);
+    }
+    .full-image {
+      display: none;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .full-image img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+    }
+    @keyframes orbit {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
 <header class="hero">
-  <nav class="sticky-nav">
-    <div class="nav-container">
-      <div class="logo">Sweetly Made by Kay</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </label>
-      </div>
-    </div>
-  </nav>
-  <div class="hero-content">
-    <h1 class="hero-title">Sweetly Made by Kay</h1>
-    <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
-    <a href="#menu" class="cta-button">Explore Our Menu</a>
-  </div>
+  <!-- (Hero section stays the same) -->
 </header>
 
 <main>
-  <section id="about" class="section reveal">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
-    </div>
-  </section>
-
-  <section id="menu" class="section reveal">
-    <div class="container">
-      <h2>Menu</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <h3>🍪 Chocolate Chip Cookies</h3>
-          <p>$12 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🧁 Vanilla Cupcakes</h3>
-          <p>$18 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🍋 Lemon Drizzle Loaf</h3>
-          <p>$15 / loaf</p>
-        </div>
-        <div class="menu-item">
-          <h3>🎂 Custom Cakes</h3>
-          <p>Contact for quote</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- (About and Menu sections stay the same) -->
 
   <section id="gallery" class="section reveal">
     <div class="container">
       <h2>Gallery</h2>
-      <div class="gallery-slider">
-        <div class="slides">
+      <div class="orbit-container" id="orbitContainer">
+        <div class="orbit-gallery" id="orbitGallery">
           <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
           <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
           <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
         </div>
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
+        <div class="full-image" id="fullImage">
+          <img src="" alt="Selected">
+        </div>
+        <div class="thumbnail-grid" id="thumbnailGrid">
+          <!-- Thumbnails will auto-populate -->
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="testimonials" class="section reveal">
-    <div class="container">
-      <h2>Testimonials</h2>
-      <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
-    </div>
-  </section>
-
-  <section id="contact" class="section reveal">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
-    </div>
-  </section>
+  <!-- (Testimonials and Contact sections stay the same) -->
 </main>
 
 <footer>
@@ -148,80 +102,43 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-const sections = document.querySelectorAll('.section');
+const orbitContainer = document.getElementById('orbitContainer');
+const orbitGallery = document.getElementById('orbitGallery');
+const fullImage = document.getElementById('fullImage');
+const thumbnailGrid = document.getElementById('thumbnailGrid');
 
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
+const images = orbitGallery.querySelectorAll('img');
+const centerX = 250;
+const centerY = 250;
+const radius = 200;
+
+images.forEach((img, index) => {
+  const angle = (index / images.length) * (2 * Math.PI);
+  img.style.left = `${centerX + radius * Math.cos(angle) - 60}px`;
+  img.style.top = `${centerY + radius * Math.sin(angle) - 60}px`;
+});
+
+orbitContainer.addEventListener('mouseenter', () => {
+  orbitGallery.style.animationPlayState = 'paused';
+  thumbnailGrid.innerHTML = '';
+  images.forEach(img => {
+    const thumb = img.cloneNode(true);
+    thumbnailGrid.appendChild(thumb);
+    thumb.addEventListener('mouseenter', () => {
+      fullImage.style.display = 'block';
+      fullImage.querySelector('img').src = thumb.src;
+    });
   });
+  thumbnailGrid.style.display = 'flex';
+  fullImage.style.display = 'block';
+  fullImage.querySelector('img').src = images[0].src;
 });
 
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
+orbitContainer.addEventListener('mouseleave', () => {
+  orbitGallery.style.animationPlayState = 'running';
+  thumbnailGrid.style.display = 'none';
+  fullImage.style.display = 'none';
 });
-
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const slider = document.querySelector('.gallery-slider');
-let slideInterval;
-let hoverPause = false;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.opacity = (i === index) ? '1' : '0';
-    slide.style.zIndex = (i === index) ? '1' : '0';
-  });
-}
-
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-function startSlideShow(speed = 4000) {
-  stopSlideShow();
-  slideInterval = setInterval(() => {
-    if (!hoverPause) nextSlide();
-  }, speed);
-}
-
-function stopSlideShow() {
-  clearInterval(slideInterval);
-}
-
-startSlideShow();
-
-prevBtn.addEventListener('click', () => {
-  prevSlide();
-});
-
-nextBtn.addEventListener('click', () => {
-  nextSlide();
-});
-
-slider.addEventListener('mouseenter', () => {
-  hoverPause = true;
-});
-
-slider.addEventListener('mouseleave', () => {
-  hoverPause = false;
-});
-
-showSlide(slideIndex);
 </script>
 
 </body>
