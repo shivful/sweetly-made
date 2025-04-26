@@ -58,6 +58,10 @@ body {
   justify-content: space-between;
 }
 
+body.dark-mode .sticky-nav {
+  background: rgba(44, 44, 44, 0.9);
+}
+
 .nav-container {
   display: flex;
   align-items: center;
