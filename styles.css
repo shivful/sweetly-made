@@ -11,6 +11,29 @@
   --shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  cursor: default;
+  transition: background 0.5s, color 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
 body.dark-mode {
   --bg: linear-gradient(135deg, #2c2c2c, #1a1a1a);
   --primary: #444;
@@ -27,15 +50,6 @@ body.dark-mode {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  cursor: default;
-  transition: background 0.5s, color 0.5s;
 }
 
 .hero {
