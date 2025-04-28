@@ -275,7 +275,7 @@ body.dark-mode #darkModeToggle {
   color: #333;
   height: 26px;
   width: 26px;
-  border-radius: 50%;
+  border-radius: 50px;
   left: 4px;
   bottom: 4px;
   background-color: white;
