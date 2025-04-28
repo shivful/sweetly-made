@@ -270,7 +270,9 @@ body.dark-mode #darkModeToggle {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: "🌞";
+  font-size: 1.5rem;
+  color: #333;
   height: 26px;
   width: 26px;
   border-radius: 50px;
@@ -278,6 +280,9 @@ body.dark-mode #darkModeToggle {
   bottom: 4px;
   background-color: white;
   transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input:checked + .slider {
@@ -286,9 +291,9 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+  content: "🌙"; /* Moon icon when in dark mode */
 }
 
-/* Adding opacity and visibility adjustments */
-input:checked + .slider:before {
-  visibility: visible;
+input:checked + .slider {
+  background-color: #4caf50;
 }
