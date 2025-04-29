@@ -20,8 +20,8 @@ body.dark-mode {
 
 /* Sticky Navbar */
 .sticky-nav {
-  background: rgba(255, 255, 255, 0.8); /* semi-transparent white */
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.6); /* softer semi-transparent */
+  backdrop-filter: blur(6px);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -83,27 +83,27 @@ body.dark-mode {
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  filter: brightness(0.7) blur(2px); /* LIGHT and BLUR */
+  filter: brightness(0.85) blur(4px); /* brighter + stronger blur */
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  color: #fff; /* Light text on hero */
+  color: #fff;
 }
 
 .hero-title {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
-  color: #fff; /* White title */
+  color: #fff;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 20px;
-  color: #f1f1f1; /* Very light gray subtitle */
+  color: #f1f1f1;
 }
 
 .cta-button {
