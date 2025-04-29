@@ -45,7 +45,7 @@ a {
 
 .nav-links {
   list-style: none;
-  display: flex;
+  display: flex; /* ✅ Always flex for desktop */
   align-items: center;
 }
 
@@ -64,7 +64,7 @@ a {
 
 /* Hamburger (hidden by default) */
 .hamburger {
-  display: none;
+  display: none; /* ✅ Hidden by default */
   font-size: 2rem;
   cursor: pointer;
 }
@@ -355,7 +355,7 @@ footer {
   }
 
   .nav-links {
-    display: none;
+    display: none; /* ✅ Hide links on mobile */
     flex-direction: column;
     background-color: white;
     position: absolute;
