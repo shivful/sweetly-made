@@ -46,13 +46,11 @@ body.dark-mode {
   font-weight: bold;
 }
 
-/* Spacing for Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
   margin: 0;
-  margin-left: 40px; /* Space between Logo and About */
 }
 
 .nav-links li a {
@@ -66,9 +64,13 @@ body.dark-mode {
   color: #e94e77;
 }
 
-/* Spacing for Dark Mode Toggle */
+/* Add space between Logo -> About and Contact -> Toggle */
+.nav-links li:first-child {
+  margin-left: 30px;
+}
+
 .toggle-container {
-  margin-left: 40px; /* Space between Contact and toggle */
+  margin-left: 30px;
 }
 
 /* Hero Section */
