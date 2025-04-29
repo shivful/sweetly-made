@@ -29,7 +29,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: relative;
 }
 
 .logo {
@@ -38,15 +37,6 @@ body {
   font-weight: bold;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -73,7 +63,6 @@ body {
   margin-left: 10px;
 }
 
-/* Switch (Dark Mode Toggle) */
 .switch {
   position: relative;
   display: inline-block;
@@ -129,6 +118,8 @@ input:checked + .slider.round:before {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 40px;
   border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .hero-title {
@@ -258,7 +249,7 @@ footer {
   padding: 20px;
 }
 
-/* Order Button */
+/* Order Now Button */
 .order-button {
   position: fixed;
   bottom: 20px;
@@ -313,7 +304,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Mobile Styles */
+/* Mobile Friendly */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
@@ -334,28 +325,17 @@ footer {
   }
 
   .nav-links {
-    display: none;
     flex-direction: column;
     background-color: white;
     position: absolute;
     top: 60px;
     right: 20px;
-    width: 200px;
     border-radius: 10px;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
-  .nav-links.active {
-    display: flex;
-  }
-
   .nav-links li {
     margin: 10px 0;
-    text-align: center;
-  }
-
-  .hamburger {
-    display: block;
   }
 }
