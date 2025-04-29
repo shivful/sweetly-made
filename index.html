@@ -6,11 +6,48 @@
   <title>Sweetly Made by Kay</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-slider {
+      position: relative;
+      overflow: hidden;
+    }
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .prev {
+      left: 15px;
+    }
+    .next {
+      right: 15px;
+    }
+    .gallery-slider:hover .prev,
+    .gallery-slider:hover .next {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
 <header class="hero">
-  <img class="hero-background" src="bakery-hero2.jpg" alt="Bakery Background">
   <nav class="sticky-nav">
     <div class="nav-container">
       <div class="logo">Sweetly Made by Kay</div>
@@ -24,7 +61,10 @@
       <div class="toggle-container">
         <label class="switch">
           <input type="checkbox" id="darkModeToggle">
-          <span class="slider round"></span>
+          <span class="slider round">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
         </label>
       </div>
     </div>
@@ -40,7 +80,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
     </div>
   </section>
 
@@ -48,10 +88,22 @@
     <div class="container">
       <h2>Menu</h2>
       <div class="menu-grid">
-        <div class="menu-item"><h3>🍪 Chocolate Chip Cookies</h3><p>$12 / dozen</p></div>
-        <div class="menu-item"><h3>🧁 Vanilla Cupcakes</h3><p>$18 / dozen</p></div>
-        <div class="menu-item"><h3>🍋 Lemon Drizzle Loaf</h3><p>$15 / loaf</p></div>
-        <div class="menu-item"><h3>🎂 Custom Cakes</h3><p>Contact for quote</p></div>
+        <div class="menu-item">
+          <h3>🍪 Chocolate Chip Cookies</h3>
+          <p>$12 / dozen</p>
+        </div>
+        <div class="menu-item">
+          <h3>🧁 Vanilla Cupcakes</h3>
+          <p>$18 / dozen</p>
+        </div>
+        <div class="menu-item">
+          <h3>🍋 Lemon Drizzle Loaf</h3>
+          <p>$15 / loaf</p>
+        </div>
+        <div class="menu-item">
+          <h3>🎂 Custom Cakes</h3>
+          <p>Contact for quote</p>
+        </div>
       </div>
     </div>
   </section>
@@ -61,9 +113,9 @@
       <h2>Gallery</h2>
       <div class="gallery-slider">
         <div class="slides">
-          <img src="image1.jpg" alt="Gallery Image 1">
-          <img src="image2.jpg" alt="Gallery Image 2">
-          <img src="image3.jpg" alt="Gallery Image 3">
+          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
+          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
+          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -95,6 +147,7 @@
 
 <script>
 const sections = document.querySelectorAll('.section');
+
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
     const top = section.getBoundingClientRect().top;
@@ -125,25 +178,47 @@ function showSlide(index) {
     slide.style.zIndex = (i === index) ? '1' : '0';
   });
 }
+
 function nextSlide() {
   slideIndex = (slideIndex + 1) % slides.length;
   showSlide(slideIndex);
 }
+
 function prevSlide() {
   slideIndex = (slideIndex - 1 + slides.length) % slides.length;
   showSlide(slideIndex);
 }
-function startSlideShow() {
-  slideInterval = setInterval(nextSlide, 4000);
+
+function startSlideShow(speed = 4000) {
+  slideInterval = setInterval(nextSlide, speed);
 }
+
 function stopSlideShow() {
   clearInterval(slideInterval);
 }
+
 startSlideShow();
-prevBtn.addEventListener('click', () => { stopSlideShow(); prevSlide(); startSlideShow(); });
-nextBtn.addEventListener('click', () => { stopSlideShow(); nextSlide(); startSlideShow(); });
-slider.addEventListener('mouseenter', stopSlideShow);
-slider.addEventListener('mouseleave', startSlideShow);
+
+prevBtn.addEventListener('click', () => {
+  stopSlideShow();
+  prevSlide();
+  startSlideShow();
+});
+
+nextBtn.addEventListener('click', () => {
+  stopSlideShow();
+  nextSlide();
+  startSlideShow();
+});
+
+slider.addEventListener('mouseenter', () => {
+  stopSlideShow();
+});
+
+slider.addEventListener('mouseleave', () => {
+  startSlideShow(2000); // quicker resume after mouse leaves
+});
+
 showSlide(slideIndex);
 </script>
 
