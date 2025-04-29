@@ -13,7 +13,7 @@
   <nav class="sticky-nav">
     <div class="nav-container">
       <div class="logo">Sweetly Made by Kay</div>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -25,6 +25,9 @@
           <input type="checkbox" id="darkModeToggle">
           <span class="slider round"></span>
         </label>
+      </div>
+      <div class="hamburger" id="hamburger">
+        ☰
       </div>
     </div>
   </nav>
@@ -47,22 +50,10 @@
     <div class="container">
       <h2>Menu</h2>
       <div class="menu-grid">
-        <div class="menu-item">
-          <h3>🍪 Chocolate Chip Cookies</h3>
-          <p>$12 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🧁 Vanilla Cupcakes</h3>
-          <p>$18 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🍋 Lemon Drizzle Loaf</h3>
-          <p>$15 / loaf</p>
-        </div>
-        <div class="menu-item">
-          <h3>🎂 Custom Cakes</h3>
-          <p>Contact for quote</p>
-        </div>
+        <div class="menu-item"><h3>🍪 Chocolate Chip Cookies</h3><p>$12 / dozen</p></div>
+        <div class="menu-item"><h3>🧁 Vanilla Cupcakes</h3><p>$18 / dozen</p></div>
+        <div class="menu-item"><h3>🍋 Lemon Drizzle Loaf</h3><p>$15 / loaf</p></div>
+        <div class="menu-item"><h3>🎂 Custom Cakes</h3><p>Contact for quote</p></div>
       </div>
     </div>
   </section>
@@ -106,7 +97,6 @@
 
 <script>
 const sections = document.querySelectorAll('.section');
-
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
     const top = section.getBoundingClientRect().top;
@@ -137,43 +127,42 @@ function showSlide(index) {
     slide.style.zIndex = (i === index) ? '1' : '0';
   });
 }
-
 function nextSlide() {
   slideIndex = (slideIndex + 1) % slides.length;
   showSlide(slideIndex);
 }
-
 function prevSlide() {
   slideIndex = (slideIndex - 1 + slides.length) % slides.length;
   showSlide(slideIndex);
 }
-
 function startSlideShow() {
   slideInterval = setInterval(nextSlide, 4000);
 }
-
 function stopSlideShow() {
   clearInterval(slideInterval);
 }
-
 startSlideShow();
-
 prevBtn.addEventListener('click', () => {
   stopSlideShow();
   prevSlide();
   startSlideShow();
 });
-
 nextBtn.addEventListener('click', () => {
   stopSlideShow();
   nextSlide();
   startSlideShow();
 });
-
 slider.addEventListener('mouseenter', stopSlideShow);
 slider.addEventListener('mouseleave', startSlideShow);
-
 showSlide(slideIndex);
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 </script>
 
 </body>
