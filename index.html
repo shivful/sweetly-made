@@ -105,74 +105,75 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-const sections = document.querySelectorAll('.section');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
+  const sections = document.querySelectorAll('.section');
+
+  window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      const trigger = window.innerHeight * 0.8;
+      if (top < trigger) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
   });
-});
 
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const slider = document.querySelector('.gallery-slider');
-let slideInterval;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.opacity = (i === index) ? '1' : '0';
-    slide.style.zIndex = (i === index) ? '1' : '0';
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  darkModeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
   });
-}
 
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slides img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const slider = document.querySelector('.gallery-slider');
+  let slideInterval;
 
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = (i === index) ? '1' : '0';
+      slide.style.zIndex = (i === index) ? '1' : '0';
+    });
+  }
 
-function startSlideShow(speed = 4000) {
-  slideInterval = setInterval(nextSlide, speed);
-}
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
 
-function stopSlideShow() {
-  clearInterval(slideInterval);
-}
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
 
-startSlideShow();
+  function startSlideShow(speed = 4000) {
+    slideInterval = setInterval(nextSlide, speed);
+  }
 
-prevBtn.addEventListener('click', () => {
-  stopSlideShow();
-  prevSlide();
+  function stopSlideShow() {
+    clearInterval(slideInterval);
+  }
+
   startSlideShow();
-});
 
-nextBtn.addEventListener('click', () => {
-  stopSlideShow();
-  nextSlide();
-  startSlideShow();
-});
+  prevBtn.addEventListener('click', () => {
+    stopSlideShow();
+    prevSlide();
+    startSlideShow();
+  });
 
-slider.addEventListener('mouseenter', stopSlideShow);
-slider.addEventListener('mouseleave', () => startSlideShow(2000));
+  nextBtn.addEventListener('click', () => {
+    stopSlideShow();
+    nextSlide();
+    startSlideShow();
+  });
 
-showSlide(slideIndex);
+  slider.addEventListener('mouseenter', stopSlideShow);
+  slider.addEventListener('mouseleave', () => startSlideShow(2000));
+
+  showSlide(slideIndex);
 </script>
 
 </body>
