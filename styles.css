@@ -29,6 +29,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: relative;
 }
 
 .logo {
@@ -37,9 +38,19 @@ body {
   font-weight: bold;
 }
 
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
 }
 
 .nav-links li {
@@ -57,11 +68,53 @@ body {
   color: #e94e77;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 2rem;
+/* Dark Mode Switch inside nav */
+.dark-toggle {
+  margin-left: 10px;
+}
+
+/* Switch (Dark Mode Toggle) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider.round {
+  position: absolute;
   cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 22px;
+  transition: 0.4s;
+}
+
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider.round {
+  background-color: #e94e77;
+}
+
+input:checked + .slider.round:before {
+  transform: translateX(18px);
 }
 
 /* Hero Section */
@@ -69,8 +122,6 @@ body {
   text-align: center;
   padding: 100px 20px 50px 20px;
   background: url('https://shivful.github.io/sweetly-made/bakery-hero2.jpg') center/cover no-repeat;
-  background-size: cover;
-  background-position: center;
   color: #fff;
 }
 
@@ -283,19 +334,19 @@ footer {
   }
 
   .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: white;
-    flex-direction: column;
     width: 200px;
-    border-radius: 8px;
-    display: none;
+    border-radius: 10px;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
-  .nav-links.show {
+  .nav-links.active {
     display: flex;
   }
 
@@ -306,6 +357,5 @@ footer {
 
   .hamburger {
     display: block;
-    margin-left: 20px;
   }
 }
