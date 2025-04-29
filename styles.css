@@ -327,3 +327,41 @@ input:checked + .slider.round {
 input:checked + .slider.round:before {
   transform: translateX(26px);
 }
+
+/* =====================
+   📱 Mobile Responsive Polish
+   ===================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .order-button {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+
+  .gallery-slider {
+    height: 300px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .toggle-container {
+    margin-left: 20px;
+  }
+}
