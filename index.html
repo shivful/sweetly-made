@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweetly Made by Kay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-background" src="bakery-hero2.jpg" alt="Bakery Background">
+  <nav class="sticky-nav">
+    <div class="nav-container">
+      <div class="logo">Sweetly Made by Kay</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+  </nav>
+  <div class="hero-content">
+    <h1 class="hero-title">Sweetly Made by Kay</h1>
+    <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
+    <a href="#menu" class="cta-button">Explore Our Menu</a>
+  </div>
+</header>
+
+<main>
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
+    </div>
+  </section>
+
+  <section id="menu" class="section reveal">
+    <div class="container">
+      <h2>Menu</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><h3>🍪 Chocolate Chip Cookies</h3><p>$12 / dozen</p></div>
+        <div class="menu-item"><h3>🧁 Vanilla Cupcakes</h3><p>$18 / dozen</p></div>
+        <div class="menu-item"><h3>🍋 Lemon Drizzle Loaf</h3><p>$15 / loaf</p></div>
+        <div class="menu-item"><h3>🎂 Custom Cakes</h3><p>Contact for quote</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section reveal">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-slider">
+        <div class="slides">
+          <img src="image1.jpg" alt="Gallery Image 1">
+          <img src="image2.jpg" alt="Gallery Image 2">
+          <img src="image3.jpg" alt="Gallery Image 3">
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section reveal">
+    <div class="container">
+      <h2>Testimonials</h2>
+      <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
+    </div>
+  </section>
+
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
+</footer>
+
+<a href="#contact" class="order-button">Order Now</a>
+
+<script>
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+    if (top < trigger) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+});
+
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slides img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const slider = document.querySelector('.gallery-slider');
+let slideInterval;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.opacity = (i === index) ? '1' : '0';
+    slide.style.zIndex = (i === index) ? '1' : '0';
+  });
+}
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+function startSlideShow() {
+  slideInterval = setInterval(nextSlide, 4000);
+}
+function stopSlideShow() {
+  clearInterval(slideInterval);
+}
+startSlideShow();
+prevBtn.addEventListener('click', () => { stopSlideShow(); prevSlide(); startSlideShow(); });
+nextBtn.addEventListener('click', () => { stopSlideShow(); nextSlide(); startSlideShow(); });
+slider.addEventListener('mouseenter', stopSlideShow);
+slider.addEventListener('mouseleave', startSlideShow);
+showSlide(slideIndex);
+</script>
+
+</body>
+</html>
