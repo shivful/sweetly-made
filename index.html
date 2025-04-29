@@ -42,7 +42,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
     </div>
   </section>
 
@@ -108,6 +108,7 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
+// Scroll Reveal Animation
 const sections = document.querySelectorAll('.section');
 
 window.addEventListener('scroll', () => {
@@ -122,11 +123,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
 darkModeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
 });
 
+// Gallery Slider Logic
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
