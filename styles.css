@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #fff5f3; /* soft peach everywhere */
+  background-color: #fff5f3; /* soft peach */
   color: #333;
   transition: background-color 0.3s ease;
 }
@@ -20,7 +20,8 @@ body.dark-mode {
 
 /* Sticky Navbar */
 .sticky-nav {
-  background: white;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+  backdrop-filter: blur(5px);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -28,6 +29,7 @@ body.dark-mode {
   position: sticky;
   top: 0;
   z-index: 10;
+  border: none;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
@@ -81,24 +83,27 @@ body.dark-mode {
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  filter: brightness(0.7) blur(2px);
+  filter: brightness(0.7) blur(2px); /* LIGHT and BLUR */
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  color: #fff; /* Light text on hero */
 }
 
 .hero-title {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
+  color: #fff; /* White title */
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 20px;
+  color: #f1f1f1; /* Very light gray subtitle */
 }
 
 .cta-button {
@@ -228,14 +233,14 @@ footer {
   transform: scale(1.1);
 }
 
-/* Dark Mode Specific */
+/* Dark Mode */
 body.dark-mode {
   background-color: #1e1e1e;
   color: #f9f9f9;
 }
 
 body.dark-mode .sticky-nav {
-  background: #2a2a2a;
+  background: rgba(50, 50, 50, 0.8);
 }
 
 body.dark-mode .menu-item {
