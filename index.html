@@ -1,49 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sweetly Made by Kay</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .gallery-slider {
-      position: relative;
-      overflow: hidden;
-    }
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .prev {
-      left: 15px;
-    }
-    .next {
-      right: 15px;
-    }
-    .gallery-slider:hover .prev,
-    .gallery-slider:hover .next {
-      opacity: 1;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -60,11 +22,8 @@
       </ul>
       <div class="toggle-container">
         <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider round"></span>
         </label>
       </div>
     </div>
@@ -113,9 +72,9 @@
       <h2>Gallery</h2>
       <div class="gallery-slider">
         <div class="slides">
-          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
-          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
-          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
+          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1" />
+          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2" />
+          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3" />
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -147,7 +106,6 @@
 
 <script>
 const sections = document.querySelectorAll('.section');
-
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
     const top = section.getBoundingClientRect().top;
@@ -211,13 +169,8 @@ nextBtn.addEventListener('click', () => {
   startSlideShow();
 });
 
-slider.addEventListener('mouseenter', () => {
-  stopSlideShow();
-});
-
-slider.addEventListener('mouseleave', () => {
-  startSlideShow(2000); // quicker resume after mouse leaves
-});
+slider.addEventListener('mouseenter', stopSlideShow);
+slider.addEventListener('mouseleave', () => startSlideShow(2000));
 
 showSlide(slideIndex);
 </script>
