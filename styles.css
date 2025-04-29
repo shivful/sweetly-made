@@ -27,7 +27,7 @@ body.dark-mode {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
@@ -64,26 +64,29 @@ body.dark-mode {
 
 /* Hero Section */
 .hero {
-  background-image: url('https://shivful.github.io/sweetly-made/hero-bakery.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 200px 20px 150px 20px;
-  text-align: center;
   position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero::after {
-  content: '';
+.hero-background {
   position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* soft white overlay */
-  backdrop-filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  filter: brightness(0.7) blur(2px);
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  text-align: center;
 }
 
 .hero-title {
@@ -135,7 +138,7 @@ body.dark-mode {
 /* Menu Section */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
