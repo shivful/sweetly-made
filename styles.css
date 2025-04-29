@@ -102,27 +102,64 @@ body.dark-mode {
   margin-bottom: 10px;
 }
 
-/* Gallery Section */
-#gallery {
-  background-color: #fff5f3;
-  padding: 80px 20px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.gallery-grid img {
+/* Orbiting Gallery */
+.orbit-container {
+  position: relative;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.05);
+.orbit-gallery {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: orbit 15s infinite linear;
+}
+
+.orbit-gallery img {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.orbit-gallery img:hover {
+  opacity: 0.7;
+  transform: scale(1.2);
+}
+
+.thumbnail-grid {
+  display: none;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.thumbnail-grid img {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-grid img:hover {
+  opacity: 0.7;
+}
+
+.full-image {
+  display: none;
+  margin-top: 20px;
+}
+
+.full-image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 /* Testimonials Section */
@@ -136,16 +173,6 @@ blockquote {
 
 blockquote p {
   font-size: 1.2rem;
-}
-
-/* Contact Section */
-#contact {
-  background-color: #fff;
-  padding: 80px 20px;
-}
-
-#contact p {
-  font-size: 1.1rem;
 }
 
 /* Footer */
