@@ -6,44 +6,6 @@
   <title>Sweetly Made by Kay</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .gallery-slider {
-      position: relative;
-      overflow: hidden;
-    }
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .prev {
-      left: 15px;
-    }
-    .next {
-      right: 15px;
-    }
-    .gallery-slider:hover .prev,
-    .gallery-slider:hover .next {
-      opacity: 1;
-    }
-  </style>
 </head>
 <body>
 
@@ -57,18 +19,16 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="dark-toggle">
+          <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+          </label>
+        </li>
       </ul>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </label>
-      </div>
     </div>
   </nav>
+
   <div class="hero-content">
     <h1 class="hero-title">Sweetly Made by Kay</h1>
     <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
@@ -146,8 +106,8 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
+// Scroll Reveal
 const sections = document.querySelectorAll('.section');
-
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
     const top = section.getBoundingClientRect().top;
@@ -160,11 +120,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
 darkModeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
 });
 
+// Gallery Slider
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
@@ -189,8 +151,8 @@ function prevSlide() {
   showSlide(slideIndex);
 }
 
-function startSlideShow(speed = 4000) {
-  slideInterval = setInterval(nextSlide, speed);
+function startSlideShow() {
+  slideInterval = setInterval(nextSlide, 4000);
 }
 
 function stopSlideShow() {
@@ -211,13 +173,8 @@ nextBtn.addEventListener('click', () => {
   startSlideShow();
 });
 
-slider.addEventListener('mouseenter', () => {
-  stopSlideShow();
-});
-
-slider.addEventListener('mouseleave', () => {
-  startSlideShow(2000); // quicker resume after mouse leaves
-});
+slider.addEventListener('mouseenter', stopSlideShow);
+slider.addEventListener('mouseleave', startSlideShow);
 
 showSlide(slideIndex);
 </script>
