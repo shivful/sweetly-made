@@ -45,12 +45,12 @@ a {
 
 .nav-links {
   list-style: none;
-  display: flex; /* ✅ Always flex for desktop */
+  display: flex;
   align-items: center;
 }
 
 .nav-links li {
-  margin: 0 10px;
+  margin: 0 15px; /* ✅ Increase spacing between nav items */
 }
 
 .nav-links a {
@@ -62,16 +62,14 @@ a {
   color: #e94e77;
 }
 
-/* Hamburger (hidden by default) */
+/* Hamburger (hidden) */
 .hamburger {
-  display: none; /* ✅ Hidden by default */
-  font-size: 2rem;
-  cursor: pointer;
+  display: none;
 }
 
 /* Dark Mode Toggle */
 .dark-toggle {
-  margin-left: 10px;
+  margin-left: 25px; /* ✅ Add more space between last link and toggle */
 }
 
 .switch {
@@ -311,66 +309,4 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* ====================
-   Mobile-Friendly Tweaks
-   ==================== */
-@media (max-width: 768px) {
-  .hero {
-    padding: 80px 15px 40px 15px;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .hero-content {
-    padding: 30px;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .cta-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-  }
-
-  .menu-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .order-button {
-    font-size: 1.2rem;
-    padding: 12px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none; /* ✅ Hide links on mobile */
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    border-radius: 10px;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
-}
+/* No mobile changes yet — mobile polish comes next! */
