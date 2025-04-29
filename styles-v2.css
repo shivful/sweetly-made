@@ -34,6 +34,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: relative;
 }
 
 .logo {
@@ -59,6 +60,13 @@ a {
 
 .nav-links a:hover {
   color: #e94e77;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 /* Dark Mode Toggle */
@@ -342,7 +350,12 @@ footer {
     right: 15px;
   }
 
+  .hamburger {
+    display: block;
+  }
+
   .nav-links {
+    display: none;
     flex-direction: column;
     background-color: white;
     position: absolute;
@@ -351,7 +364,6 @@ footer {
     border-radius: 10px;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    display: none;
   }
 
   .nav-links.active {
