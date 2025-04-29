@@ -10,6 +10,7 @@
 <body>
 
 <header class="hero">
+  <img class="hero-background" src="https://shivful.github.io/sweetly-made/bakery-hero2.jpg" alt="Bakery Background">
   <nav class="sticky-nav">
     <div class="nav-container">
       <div class="logo">Sweetly Made by Kay</div>
@@ -20,15 +21,6 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </label>
-      </div>
     </div>
   </nav>
   <div class="hero-content">
@@ -42,7 +34,7 @@
   <section id="about" class="section reveal">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is filled with love and care.</p>
     </div>
   </section>
 
@@ -120,11 +112,6 @@ window.addEventListener('scroll', () => {
       section.classList.remove('visible');
     }
   });
-});
-
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
 });
 
 let slideIndex = 0;
