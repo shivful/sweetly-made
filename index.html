@@ -13,24 +13,27 @@
   <nav class="sticky-nav">
     <div class="nav-container">
       <div class="logo">Sweetly Made by Kay</div>
+
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="dark-toggle">
+          <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+          </label>
+        </li>
       </ul>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div class="hamburger" id="hamburger">
-        ☰
-      </div>
     </div>
   </nav>
+
   <div class="hero-content">
     <h1 class="hero-title">Sweetly Made by Kay</h1>
     <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
@@ -96,6 +99,7 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
+// Scroll Reveal
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
@@ -109,11 +113,13 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
 darkModeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
 });
 
+// Gallery Slider
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
@@ -156,12 +162,12 @@ slider.addEventListener('mouseenter', stopSlideShow);
 slider.addEventListener('mouseleave', startSlideShow);
 showSlide(slideIndex);
 
-// Hamburger menu
+// Hamburger Menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
+  navLinks.classList.toggle('active');
 });
 </script>
 
