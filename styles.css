@@ -102,64 +102,27 @@ body.dark-mode {
   margin-bottom: 10px;
 }
 
-/* Orbiting Gallery */
-.orbit-container {
-  position: relative;
+/* Gallery Section */
+#gallery {
+  background-color: #fff5f3;
+  padding: 80px 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
   width: 100%;
-  height: 500px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.orbit-gallery {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: orbit 15s infinite linear;
-}
-
-.orbit-gallery img {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.orbit-gallery img:hover {
-  opacity: 0.7;
-  transform: scale(1.2);
-}
-
-.thumbnail-grid {
-  display: none;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.thumbnail-grid img {
-  width: 80px;
-  height: 80px;
-  margin: 5px;
-  cursor: pointer;
+  height: auto;
   border-radius: 8px;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.thumbnail-grid img:hover {
-  opacity: 0.7;
-}
-
-.full-image {
-  display: none;
-  margin-top: 20px;
-}
-
-.full-image img {
-  max-width: 100%;
-  max-height: 400px;
-  object-fit: cover;
+.gallery-grid img:hover {
+  transform: scale(1.05);
 }
 
 /* Testimonials Section */
@@ -216,7 +179,70 @@ footer p {
   transform: scale(1.1);
 }
 
-/* Dark Mode Toggle Styles */
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode #darkModeToggle {
+  color: #f9f9f9;
+}
+
+/* Smooth Transitions for Section Changes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+  }
+
+  .order-button {
+    font-size: 1.2rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gallery - Adjust size on mobile */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode Toggle Slider Styles */
 .switch {
   position: relative;
   display: inline-block;
@@ -244,19 +270,14 @@ footer p {
 
 .slider:before {
   position: absolute;
-  content: "🌞";
-  font-size: 1.5rem;
-  color: #333;
+  content: "";
   height: 26px;
   width: 26px;
-  border-radius: 50%;
+  border-radius: 50px;
   left: 4px;
   bottom: 4px;
   background-color: white;
   transition: 0.4s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 input:checked + .slider {
@@ -265,40 +286,9 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
-  content: "🌙"; /* Moon icon when in dark mode */
 }
 
-input:checked + .slider {
-  background-color: #4caf50;
-}
-
-/* Ensure visibility of both icons (sun/moon) */
-.slider .icon-sun,
-.slider .icon-moon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  transition: opacity 0.4s ease;
-}
-
-.icon-sun {
-  left: 10px;
-}
-
-.icon-moon {
-  right: 10px;
-}
-
-/* Ensure smooth transition for icons */
-input:not(:checked) + .slider .icon-moon {
-  opacity: 0;
-}
-
-input:checked + .slider .icon-sun {
-  opacity: 0;
-}
-
-input:checked + .slider .icon-moon {
-  opacity: 1;
+/* Adding opacity and visibility adjustments */
+input:checked + .slider:before {
+  visibility: visible;
 }
