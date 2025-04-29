@@ -62,7 +62,7 @@ a {
   color: #e94e77;
 }
 
-/* Hamburger */
+/* Hamburger (hidden by default) */
 .hamburger {
   display: none;
   font-size: 2rem;
