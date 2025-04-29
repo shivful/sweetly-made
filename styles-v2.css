@@ -50,7 +50,7 @@ a {
 }
 
 .nav-links li {
-  margin: 0 15px; /* ✅ Increase spacing between nav items */
+  margin: 0 15px;
 }
 
 .nav-links a {
@@ -62,14 +62,16 @@ a {
   color: #e94e77;
 }
 
-/* Hamburger (hidden) */
+/* Hamburger */
 .hamburger {
   display: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 /* Dark Mode Toggle */
 .dark-toggle {
-  margin-left: 25px; /* ✅ Add more space between last link and toggle */
+  margin-left: 25px;
 }
 
 .switch {
@@ -309,4 +311,21 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* No mobile changes yet — mobile polish comes next! */
+/* Force Correct Desktop Behavior */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    background: none;
+    position: static;
+    box-shadow: none;
+  }
+
+  .nav-links li {
+    margin: 0 15px;
+  }
+}
