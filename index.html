@@ -78,7 +78,7 @@
   <section id="testimonials" class="section reveal">
     <div class="container">
       <h2 class="section-title decorated">Testimonials</h2>
-      <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
+      <blockquote>“The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special.”</blockquote>
     </div>
   </section>
 
@@ -98,6 +98,7 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
+  // Section reveal on scroll
   const sections = document.querySelectorAll('.section');
   window.addEventListener('scroll', () => {
     sections.forEach(section => {
@@ -111,6 +112,7 @@
     });
   });
 
+  // Gallery slider logic
   let slideIndex = 0;
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
@@ -157,17 +159,12 @@
     startSlideShow();
   });
 
-  slider.addEventListener('mouseenter', () => {
-    stopSlideShow();
-  });
-
-  slider.addEventListener('mouseleave', () => {
-    startSlideShow(2000);
-  });
+  slider.addEventListener('mouseenter', stopSlideShow);
+  slider.addEventListener('mouseleave', () => startSlideShow(2000));
 
   showSlide(slideIndex);
 
-  // Dark Mode Toggle
+  // Dark mode toggle
   const toggleSwitch = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme');
 
