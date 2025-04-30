@@ -1,14 +1,10 @@
-/* ======================
-   Sweetly Made by Kay Styles (Hero Video + Nav + Dark Mode Toggle + Auto-Hide Nav)
-   ====================== */
-
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
   --primary: #fddbcf;
   --accent: #ff8fa3;
   --text: #3e2f2f;
   --glass: rgba(255, 255, 255, 0.5);
-  --shadow: 0 8px 24px rgba(0,0,0,0.1);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -27,7 +23,7 @@ a {
 /* Navbar */
 .sticky-nav {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -172,10 +168,11 @@ input:checked + .slider:before {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(8px);
-  z-index: 1;
+  backdrop-filter: blur(12px);
+  margin-top: 2rem;
 }
 
+/* Call to Action */
 .cta-button {
   margin-top: 1.5rem;
   display: inline-block;
@@ -214,6 +211,7 @@ input:checked + .slider:before {
   margin: 0 auto;
 }
 
+/* Menu Grid */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -228,6 +226,7 @@ input:checked + .slider:before {
   box-shadow: var(--shadow);
 }
 
+/* Gallery */
 .gallery-slider {
   position: relative;
   overflow: hidden;
@@ -261,7 +260,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   font-size: 2rem;
@@ -279,6 +278,7 @@ input:checked + .slider:before {
   right: 10px;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -286,6 +286,7 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Floating Order Button */
 .order-button {
   position: fixed;
   bottom: 20px;
@@ -298,7 +299,7 @@ footer {
   z-index: 999;
 }
 
-/* Scroll animation */
+/* Scroll Animation */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -323,8 +324,8 @@ body.dark-mode .hero-subtitle {
 }
 
 body.dark-mode .glass-panel {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
 }
 
 body.dark-mode .sticky-nav {
