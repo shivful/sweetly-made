@@ -1,5 +1,5 @@
 /* ======================
-   Sweetly Made by Kay Styles (Restored + Subtle Sparkle Fade-In)
+   Sweetly Made by Kay Styles (Restored Original Pre-Glow)
    ====================== */
 
 :root {
@@ -71,27 +71,6 @@ a {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: glowFadeIn 2.5s ease-out forwards;
-  text-shadow: 0 0 8px var(--accent), 0 0 12px var(--accent);
-}
-
-@keyframes glowFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    text-shadow: 0 0 2px var(--accent);
-  }
-  50% {
-    opacity: 0.8;
-    text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    text-shadow: 0 0 6px var(--accent);
-  }
 }
 
 .hero-subtitle {
