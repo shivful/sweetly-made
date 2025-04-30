@@ -1,410 +1,94 @@
-/* ======================
-   Sweetly Made by Kay Styles
-   ====================== */
-
-:root {
-  --bg: linear-gradient(135deg, #fffaf5, #fde3da);
-  --primary: #fddbcf;
-  --accent: #ff8fa3;
-  --text: #3e2f2f;
-  --glass: rgba(255, 255, 255, 0.5);
-  --shadow: 0 8px 24px rgba(0,0,0,0.1);
-}
-
-html, body {
-  height: auto;
-  min-height: 100%;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background-color: #fffaf0;
+  color: #333;
   line-height: 1.6;
-  cursor: default;
-  transition: background 0.5s, color 0.5s;
-  display: flex;
-  flex-direction: column;
 }
 
-main {
-  flex: 1 0 auto;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-footer {
-  flex-shrink: 0;
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-body.dark-mode {
-  --bg: linear-gradient(135deg, #2c2c2c, #1a1a1a);
-  --primary: #444;
-  --accent: #ff8fa3;
-  --text: #fafafa;
-  --glass: rgba(255, 255, 255, 0.1);
-  --shadow: 0 8px 24px rgba(255,255,255,0.1);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-}
-
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.5)), url('https://shivful.github.io/sweetly-made/bakery-hero2.jpg') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.sticky-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-body.dark-mode .sticky-nav {
-  background: rgba(44, 44, 44, 0.9);
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.logo {
+.navbar .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  color: #d45a45;
 }
 
 .nav-links {
-  flex: 1;
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.nav-links li a {
+.nav-links a {
   text-decoration: none;
-  color: var(--text);
+  color: #333;
   font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: background 0.3s;
 }
 
-.nav-links li a:hover {
-  background: var(--accent);
+/* Hero Section */
+.hero {
+  background-image: url('bakery-hero2.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
+  text-align: center;
   color: #fff;
 }
 
-.hero-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.hero-title {
+.hero h2 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  margin-bottom: 1rem;
-  animation: fadeInDown 1s ease;
 }
 
-.hero-subtitle {
+.hero p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-  animation: fadeInUp 1.2s ease;
-  font-style: italic;
 }
 
-.cta-button {
-  background: var(--accent);
-  color: #fff;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
+/* Sections */
+section {
+  padding: 4rem 0;
 }
 
-.cta-button:hover {
-  background: #ff6f91;
-  transform: scale(1.05);
-  animation: bounce 0.6s;
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.section {
-  padding: 5rem 2rem;
-  max-width: 1100px;
-  margin: auto;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.menu-grid, .gallery-grid {
+/* Gallery */
+.gallery-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-.menu-item, .gallery-grid img {
-  background: var(--glass);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-
-.menu-item:hover, .gallery-grid img:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.gallery-slider {
-  position: relative;
+.gallery-images img {
   width: 100%;
-  max-width: 800px;
-  height: 500px;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
 
-.slides {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #fff;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 12px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 12px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  border: none;
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 50%;
-  user-select: none;
-  transition: background-color 0.3s;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-blockquote {
-  font-style: italic;
-  background: var(--glass);
-  padding: 2rem;
-  border-radius: 10px;
-  margin: 2rem auto;
-  max-width: 700px;
-  box-shadow: var(--shadow);
-}
-
-footer {
-  background: var(--primary);
+/* Footer */
+.footer {
+  background-color: #f5d9d4;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   font-size: 0.9rem;
-}
-
-.order-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--accent);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
-  z-index: 1000;
-  box-shadow: var(--shadow);
-  transition: background 0.3s, transform 0.3s;
-}
-
-.order-button:hover {
-  background: #ff6f91;
-  transform: scale(1.1);
-  animation: bounce 0.6s;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--accent);
-  transition: 0.4s;
-  border-radius: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5px;
-  font-size: 16px;
-  overflow: hidden;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 24px;
-  width: 24px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-  z-index: 2;
-}
-
-input:checked + .slider {
-  background-color: #ff6f91;
-}
-
-input:checked + .slider:before {
-  transform: translateX(30px);
-}
-
-.slider .icon {
-  position: relative;
-  z-index: 1;
-}
-
-.slider .moon {
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.slider .sun {
-  opacity: 1;
-  transition: opacity 0.4s;
-}
-
-input:checked + .slider .sun {
-  opacity: 0;
-}
-
-input:checked + .slider .moon {
-  opacity: 1;
-}
-
-.slider:hover {
-  box-shadow: 0 0 12px #ff8fa3;
-}
-
-input:checked + .slider:hover {
-  box-shadow: 0 0 12px #ff6f91;
 }
