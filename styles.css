@@ -33,10 +33,6 @@ a {
   transition: transform 0.3s ease;
 }
 
-.sticky-nav.hide {
-  transform: translateY(-100%);
-}
-
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -311,7 +307,10 @@ footer {
   transform: translateY(0);
 }
 
-/* Dark Mode */
+/* ===================== */
+/* DARK MODE STYLES HERE */
+/* ===================== */
+
 body.dark-mode {
   background-color: #121212;
   color: #ffffff;
@@ -346,4 +345,10 @@ body.dark-mode .order-button {
 body.dark-mode footer {
   background-color: #1e1e1e;
   color: #ffffff;
+}
+
+body.dark-mode .menu-item {
+  color: white;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
 }
