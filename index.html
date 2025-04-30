@@ -1,54 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sweetly Made by Kay</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .gallery-slider {
-      position: relative;
-      overflow: hidden;
-    }
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .prev {
-      left: 15px;
-    }
-    .next {
-      right: 15px;
-    }
-    .gallery-slider:hover .prev,
-    .gallery-slider:hover .next {
-      opacity: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="hero">
-  <nav class="sticky-nav">
+  <!-- Navbar -->
+  <header class="sticky-nav">
     <div class="nav-container">
       <div class="logo">Sweetly Made by Kay</div>
       <ul class="nav-links">
@@ -58,169 +20,83 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-          </span>
-        </label>
-      </div>
     </div>
-  </nav>
-  <div class="hero-content">
-    <h1 class="hero-title">Sweetly Made by Kay</h1>
-    <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
-    <a href="#menu" class="cta-button">Explore Our Menu</a>
-  </div>
-</header>
+  </header>
 
-<main>
-  <section id="about" class="section reveal">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="bakery-hero2.jpg" alt="Fresh baked goods" class="hero-image">
+    <div class="hero-text">
+      <h1>Homemade Goodness</h1>
+      <p>From my kitchen to your heart</p>
     </div>
   </section>
 
-  <section id="menu" class="section reveal">
-    <div class="container">
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="section-content">
+      <h2>About Kay</h2>
+      <p>Retired from the medical field, I now spend my days baking sweet treats for my community. I believe in homemade, heartfelt baking with every batch made fresh for you.</p>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="section menu-section">
+    <div class="section-content">
       <h2>Menu</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <h3>🍪 Chocolate Chip Cookies</h3>
-          <p>$12 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🧁 Vanilla Cupcakes</h3>
-          <p>$18 / dozen</p>
-        </div>
-        <div class="menu-item">
-          <h3>🍋 Lemon Drizzle Loaf</h3>
-          <p>$15 / loaf</p>
-        </div>
-        <div class="menu-item">
-          <h3>🎂 Custom Cakes</h3>
-          <p>Contact for quote</p>
-        </div>
-      </div>
+      <ul class="menu-list">
+        <li>Apple Pie</li>
+        <li>Cherry Pie</li>
+        <li>Pond Cake</li>
+        <li>Cookies & Cupcakes</li>
+        <li>Custom Orders Available!</li>
+      </ul>
     </div>
   </section>
 
-  <section id="gallery" class="section reveal">
-    <div class="container">
+  <!-- Gallery Section -->
+  <section id="gallery" class="section gallery-section">
+    <div class="section-content">
       <h2>Gallery</h2>
-      <div class="gallery-slider">
-        <div class="slides">
-          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
-          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
-          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
-        </div>
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
+      <div class="orbiting-gallery">
+        <img src="image1.jpg" alt="Cupcake 1">
+        <img src="image2.jpg" alt="Cookie 1">
+        <img src="image3.jpg" alt="Cupcake 2">
+
+        <!-- ✅ New Images Added -->
+        <img src="booth.jpg" alt="Booth">
+        <img src="apple pie.jpg" alt="Apple Pie">
+        <img src="cherry pie.jpg" alt="Cherry Pie">
+        <img src="pond cake.jpg" alt="Pond Cake">
       </div>
     </div>
   </section>
 
-  <section id="testimonials" class="section reveal">
-    <div class="container">
-      <h2>Testimonials</h2>
-      <blockquote>"The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special."</blockquote>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section testimonial-section">
+    <div class="section-content">
+      <h2>What People Are Saying</h2>
+      <blockquote>"Every bite tastes like home!"</blockquote>
+      <blockquote>"Kay's pies are unmatched. The crust alone is worth it!"</blockquote>
     </div>
   </section>
 
-  <section id="contact" class="section reveal">
-    <div class="container">
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="section-content">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com">sweetlymadebakes@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/sweetlymadebakes" target="_blank">@sweetlymadebakes</a></p>
+      <p>Have a question or want to place an order? Reach out!</p>
+      <p>Email: <a href="mailto:sweetlymadekay@example.com">sweetlymadekay@example.com</a></p>
     </div>
   </section>
-</main>
 
-<footer>
-  <p>&copy; 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
-</footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Sweetly Made by Kay. All rights reserved.</p>
+  </footer>
 
-<a href="#contact" class="order-button">Order Now</a>
-
-<script>
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
-  });
-});
-
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const slider = document.querySelector('.gallery-slider');
-let slideInterval;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.opacity = (i === index) ? '1' : '0';
-    slide.style.zIndex = (i === index) ? '1' : '0';
-  });
-}
-
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-function startSlideShow(speed = 4000) {
-  slideInterval = setInterval(nextSlide, speed);
-}
-
-function stopSlideShow() {
-  clearInterval(slideInterval);
-}
-
-startSlideShow();
-
-prevBtn.addEventListener('click', () => {
-  stopSlideShow();
-  prevSlide();
-  startSlideShow();
-});
-
-nextBtn.addEventListener('click', () => {
-  stopSlideShow();
-  nextSlide();
-  startSlideShow();
-});
-
-slider.addEventListener('mouseenter', () => {
-  stopSlideShow();
-});
-
-slider.addEventListener('mouseleave', () => {
-  startSlideShow(2000); // quicker resume after mouse leaves
-});
-
-showSlide(slideIndex);
-</script>
+  <!-- Floating Order Button -->
+  <a href="#contact" class="order-now-button">Order Now</a>
 
 </body>
 </html>
