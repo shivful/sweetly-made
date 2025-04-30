@@ -185,16 +185,16 @@
     }
   });
 
-  // Auto-hide navbar on scroll past hero
+  // Auto-hide navbar on scroll past hero and show from about section forward
   const nav = document.querySelector('.sticky-nav');
   const observerTarget = document.querySelector('#about');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        nav.classList.add('hide');
-      } else {
         nav.classList.remove('hide');
+      } else {
+        nav.classList.add('hide');
       }
     });
   }, {
