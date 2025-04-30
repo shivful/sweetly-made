@@ -5,46 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sweetly Made by Kay</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="sticky-nav">
-    <div class="nav-container">
-      <div class="logo">Sweetly Made by Kay</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Sweetly Made by Kay</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="bakery-hero2.jpg" alt="Fresh baked goods" class="hero-image">
-    <div class="hero-text">
-      <h1>Homemade Goodness</h1>
+    <div class="container">
+      <h2>Homemade Goodness</h2>
       <p>From my kitchen to your heart</p>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section about-section">
-    <div class="section-content">
+  <section id="about" class="about">
+    <div class="container">
       <h2>About Kay</h2>
       <p>Retired from the medical field, I now spend my days baking sweet treats for my community. I believe in homemade, heartfelt baking with every batch made fresh for you.</p>
     </div>
   </section>
 
   <!-- Menu Section -->
-  <section id="menu" class="section menu-section">
-    <div class="section-content">
+  <section id="menu" class="menu">
+    <div class="container">
       <h2>Menu</h2>
-      <ul class="menu-list">
+      <ul>
         <li>Apple Pie</li>
         <li>Cherry Pie</li>
         <li>Pond Cake</li>
@@ -55,15 +56,13 @@
   </section>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="section gallery-section">
-    <div class="section-content">
+  <section id="gallery" class="gallery">
+    <div class="container">
       <h2>Gallery</h2>
-      <div class="orbiting-gallery">
+      <div class="gallery-images">
         <img src="image1.jpg" alt="Cupcake 1">
         <img src="image2.jpg" alt="Cookie 1">
         <img src="image3.jpg" alt="Cupcake 2">
-
-        <!-- ✅ New Images Added -->
         <img src="booth.jpg" alt="Booth">
         <img src="apple pie.jpg" alt="Apple Pie">
         <img src="cherry pie.jpg" alt="Cherry Pie">
@@ -73,8 +72,8 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials" class="section testimonial-section">
-    <div class="section-content">
+  <section id="testimonials" class="testimonials">
+    <div class="container">
       <h2>What People Are Saying</h2>
       <blockquote>"Every bite tastes like home!"</blockquote>
       <blockquote>"Kay's pies are unmatched. The crust alone is worth it!"</blockquote>
@@ -82,8 +81,8 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section contact-section">
-    <div class="section-content">
+  <section id="contact" class="contact">
+    <div class="container">
       <h2>Contact</h2>
       <p>Have a question or want to place an order? Reach out!</p>
       <p>Email: <a href="mailto:sweetlymadekay@example.com">sweetlymadekay@example.com</a></p>
@@ -92,11 +91,10 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Sweetly Made by Kay. All rights reserved.</p>
+    <div class="container">
+      <p>© 2025 Sweetly Made by Kay. All rights reserved.</p>
+    </div>
   </footer>
-
-  <!-- Floating Order Button -->
-  <a href="#contact" class="order-now-button">Order Now</a>
 
 </body>
 </html>
