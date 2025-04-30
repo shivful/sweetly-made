@@ -171,12 +171,10 @@
   // Dark mode toggle logic
   const toggleSwitch = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme');
-
   if (currentTheme === 'dark') {
     document.body.classList.add('dark-mode');
     toggleSwitch.checked = true;
   }
-
   toggleSwitch.addEventListener('change', () => {
     if (toggleSwitch.checked) {
       document.body.classList.add('dark-mode');
@@ -186,6 +184,26 @@
       localStorage.setItem('theme', 'light');
     }
   });
+
+  // Auto-hide navbar on scroll past hero
+  const nav = document.querySelector('.sticky-nav');
+  const observerTarget = document.querySelector('#about');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        nav.classList.add('hide');
+      } else {
+        nav.classList.remove('hide');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  if (observerTarget) {
+    observer.observe(observerTarget);
+  }
 </script>
 
 </body>
