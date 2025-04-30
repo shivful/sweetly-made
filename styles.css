@@ -1,5 +1,5 @@
 /* ======================
-   Sweetly Made by Kay Styles (Shooting Star Text Animation)
+   Sweetly Made by Kay Styles (Restored Original)
    ====================== */
 
 :root {
@@ -71,45 +71,6 @@ a {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-}
-
-.hero-title span {
-  opacity: 0;
-  display: inline-block;
-  animation: revealLetter 0.05s forwards;
-}
-
-.hero-title span.shooting-star {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, white, var(--accent));
-  border-radius: 50%;
-  animation: flyAcross 2s linear forwards;
-  z-index: 1;
-}
-
-@keyframes flyAcross {
-  0% {
-    transform: translateX(0) translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) translateY(-20px) scale(0.5);
-    opacity: 0;
-  }
-}
-
-@keyframes revealLetter {
-  to {
-    opacity: 1;
-  }
 }
 
 .hero-subtitle {
