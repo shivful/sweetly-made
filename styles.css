@@ -25,6 +25,11 @@ body {
   box-sizing: border-box;
 }
 
+/* Fix for sections hiding under nav */
+section {
+  scroll-margin-top: 100px;
+}
+
 /* Navbar */
 .sticky-nav {
   position: fixed;
@@ -314,7 +319,7 @@ body.dark-mode footer {
   color: #ffffff;
 }
 
-/* Dark Mode Toggle */
+/* Toggle */
 .switch {
   position: relative;
   display: inline-block;
