@@ -98,7 +98,6 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-  // Section reveal on scroll
   const sections = document.querySelectorAll('.section');
   window.addEventListener('scroll', () => {
     sections.forEach(section => {
@@ -112,7 +111,6 @@
     });
   });
 
-  // Gallery slider logic
   let slideIndex = 0;
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
@@ -164,7 +162,7 @@
 
   showSlide(slideIndex);
 
-  // Dark mode toggle
+  // Dark Mode Toggle
   const toggleSwitch = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme');
 
