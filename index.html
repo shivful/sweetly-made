@@ -6,7 +6,7 @@
   <title>Sweetly Made by Kay</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="enhanced-styles.css"> <!-- New upgrade layer -->
+  <link rel="stylesheet" href="enhanced-styles.css">
 </head>
 <body>
 
@@ -51,10 +51,10 @@
     <div class="container">
       <h2 class="section-title decorated">Menu</h2>
       <div class="menu-grid">
-        <div class="menu-item"> <h3>🍪 Chocolate Chip Cookies</h3><p>$12 / dozen</p></div>
-        <div class="menu-item"> <h3>🧁 Vanilla Cupcakes</h3><p>$18 / dozen</p></div>
-        <div class="menu-item"> <h3>🍋 Lemon Drizzle Loaf</h3><p>$15 / loaf</p></div>
-        <div class="menu-item"> <h3>🎂 Custom Cakes</h3><p>Contact for quote</p></div>
+        <div class="menu-item"><h3>🍪 Chocolate Chip Cookies</h3><p>$12 / dozen</p></div>
+        <div class="menu-item"><h3>🧁 Vanilla Cupcakes</h3><p>$18 / dozen</p></div>
+        <div class="menu-item"><h3>🍋 Lemon Drizzle Loaf</h3><p>$15 / loaf</p></div>
+        <div class="menu-item"><h3>🎂 Custom Cakes</h3><p>Contact for quote</p></div>
       </div>
     </div>
   </section>
@@ -64,13 +64,13 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img src="https://shivful.github.io/sweetly-made/image1.jpg" alt="Gallery Image 1">
-          <img src="https://shivful.github.io/sweetly-made/image2.jpg" alt="Gallery Image 2">
-          <img src="https://shivful.github.io/sweetly-made/image3.jpg" alt="Gallery Image 3">
+          <img src="image1.jpg" alt="Gallery Image 1">
+          <img src="image2.jpg" alt="Gallery Image 2">
+          <img src="image3.jpg" alt="Gallery Image 3">
           <img src="booth.jpg" alt="Booth">
-          <img src="apple pie.jpg" alt="Apple Pie">
-          <img src="cherry pie.jpg" alt="Cherry Pie">
-          <img src="pond cake.jpg" alt="Pond Cake">
+          <img src="apple-pie.jpg" alt="Apple Pie">
+          <img src="cherry-pie.jpg" alt="Cherry Pie">
+          <img src="pond-cake.jpg" alt="Pond Cake">
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -101,7 +101,7 @@
 <a href="#contact" class="order-button">Order Now</a>
 
 <script>
-  // Scroll animation already exists in your JS, reusing
+  // Scroll reveal logic
   const sections = document.querySelectorAll('.section');
   window.addEventListener('scroll', () => {
     sections.forEach(section => {
@@ -114,6 +114,69 @@
       }
     });
   });
+
+  // Dark mode toggle
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  darkModeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Gallery slider
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slides img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const slider = document.querySelector('.gallery-slider');
+  let slideInterval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = (i === index) ? '1' : '0';
+      slide.style.zIndex = (i === index) ? '1' : '0';
+    });
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function startSlideShow(speed = 4000) {
+    slideInterval = setInterval(nextSlide, speed);
+  }
+
+  function stopSlideShow() {
+    clearInterval(slideInterval);
+  }
+
+  startSlideShow();
+
+  prevBtn.addEventListener('click', () => {
+    stopSlideShow();
+    prevSlide();
+    startSlideShow();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    stopSlideShow();
+    nextSlide();
+    startSlideShow();
+  });
+
+  slider.addEventListener('mouseenter', () => {
+    stopSlideShow();
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    startSlideShow(2000);
+  });
+
+  showSlide(slideIndex);
 </script>
 
 </body>
