@@ -20,6 +20,14 @@
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <!-- Dark Mode Toggle -->
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider">
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
     </div>
   </nav>
   <div class="hero-content glass-panel">
@@ -159,6 +167,25 @@
   });
 
   showSlide(slideIndex);
+
+  // Dark Mode Toggle
+  const toggleSwitch = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+  }
+
+  toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  });
 </script>
 
 </body>
