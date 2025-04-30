@@ -46,18 +46,21 @@ body.dark-mode {
 
 /* Navbar */
 .sticky-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 999;
-  background: rgba(255, 255, 255, 0.9);
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 body.dark-mode .sticky-nav {
-  background: rgba(44, 44, 44, 0.9);
+  background: rgba(44, 44, 44, 0.95);
 }
 
 .nav-container {
@@ -91,6 +94,11 @@ body.dark-mode .sticky-nav {
 .nav-links li a:hover {
   background: var(--accent);
   color: #fff;
+}
+
+/* Adjust page content so it doesn't sit behind the fixed nav */
+.hero {
+  padding-top: 100px; /* equal to or slightly larger than nav height */
 }
 
 /* Hero Section */
