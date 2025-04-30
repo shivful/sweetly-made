@@ -1,5 +1,5 @@
 /* ======================
-   Sweetly Made by Kay Styles (Hero Video + Nav + Dark Mode Toggle)
+   Sweetly Made by Kay Styles (Hero Video + Nav + Dark Mode Toggle + Auto-Hide Nav)
    ====================== */
 
 :root {
@@ -28,9 +28,17 @@ a {
 .sticky-nav {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.sticky-nav.hide {
+  transform: translateY(-100%);
 }
 
 .nav-container {
