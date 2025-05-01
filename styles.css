@@ -23,6 +23,7 @@ a {
   color: inherit;
 }
 
+/* === Navbar === */
 .sticky-nav {
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -31,17 +32,23 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 56px;
+  height: 60px;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 16px;
+  padding: 10px 20px;
   max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: bold;
 }
 
 .nav-links {
@@ -54,7 +61,7 @@ a {
 }
 
 .nav-links li {
-  margin: 0 8px;
+  margin: 0 10px;
 }
 
 .nav-links a {
@@ -63,53 +70,7 @@ a {
   padding: 4px 8px;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #fff;
-}
-
-.glass-panel {
-  background-color: var(--glass);
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  margin-top: 2rem;
-}
-
-.cta-button,
-.order-button {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  background-color: var(--accent);
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover,
-.order-button:hover {
-  background-color: #e2788f;
-}
-
+/* === Toggle Switch === */
 .switch {
   position: relative;
   display: inline-block;
@@ -170,13 +131,80 @@ input:checked + .slider.round:before {
   transform: translateX(27px);
 }
 
-footer {
+/* === Hero Section === */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 40px 20px;
-  background: var(--primary);
-  font-size: 0.9rem;
+  overflow: hidden;
 }
 
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #fff;
+}
+
+.glass-panel {
+  background-color: var(--glass);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  margin-top: 2rem;
+}
+
+/* === CTA & Floating Button === */
+.cta-button,
+.order-button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover,
+.order-button:hover {
+  background-color: #e2788f;
+}
+
+.order-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* === Reveal Animation === */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -188,6 +216,15 @@ footer {
   transform: translateY(0);
 }
 
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--primary);
+  font-size: 0.9rem;
+}
+
+/* === Dark Mode === */
 body.dark-mode {
   background-color: #121212;
   color: #ffffff;
