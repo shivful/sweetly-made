@@ -12,6 +12,16 @@
   <!-- Navigation Bar -->
   <nav class="sticky-nav">
   <style>
+    .logo.desktop-only {
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+      .logo.desktop-only {
+        display: none;
+      }
+    }
+
     body.dark-mode .nav-links a,
     body.dark-mode .logo a {
       color: #ffffff;
@@ -51,6 +61,7 @@
   </style>
 
     <div class="nav-container">
+      <div class="logo desktop-only"><a href="#top">Sweetly Made by Kay</a></div>
       
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
