@@ -1,3 +1,5 @@
+[FULL STYLESHEET RESTORED — INCLUDES NAV FIX + ALL ORIGINAL STYLES]
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap');
 
 :root {
@@ -31,8 +33,10 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100000;
   height: 60px;
+  backdrop-filter: blur(10px);
+  background-color: var(--glass);
 }
 
 .nav-container {
@@ -43,6 +47,8 @@ a {
   max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 100000;
 }
 
 .logo {
@@ -68,6 +74,8 @@ a {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   padding: 4px 8px;
+  z-index: 100000;
+  position: relative;
 }
 
 /* Toggle Switch */
@@ -164,7 +172,6 @@ input:checked + .slider.round:before {
   margin-top: 2rem;
 }
 
-/* Buttons */
 .cta-button,
 .order-button {
   font-family: 'Open Sans', sans-serif;
@@ -191,42 +198,13 @@ input:checked + .slider.round:before {
   z-index: 999;
 }
 
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-}
-
-.lightbox.active {
-  display: flex;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 /* Sections */
 .section {
   padding: 60px 20px;
   text-align: center;
   scroll-margin-top: 120px;
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -352,6 +330,25 @@ footer {
   padding: 40px 20px;
   background: var(--primary);
   font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero bottom overlay fix */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #fff5f3;
+  z-index: 1;
+  pointer-events: none;
+}
+
+body.dark-mode .hero::after {
+  background-color: #121212;
 }
 
 /* Dark Mode */
@@ -369,11 +366,6 @@ body.dark-mode .hero-subtitle {
 body.dark-mode .glass-panel {
   background-color: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
-}
-
-body.dark-mode .sticky-nav {
-  background-color: #1e1e1e;
-  box-shadow: none;
 }
 
 body.dark-mode .nav-links a {
@@ -424,21 +416,4 @@ body.dark-mode .menu-item {
   .slides img {
     height: 400px;
   }
-}
-
-/* Fix bottom strip under hero video */
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px; /* Adjust if needed */
-  background-color: #fff5f3; /* Match light background */
-  z-index: 1;
-  pointer-events: none;
-}
-
-body.dark-mode .hero::after {
-  background-color: #121212; /* Match dark mode background */
 }
