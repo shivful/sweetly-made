@@ -22,6 +22,15 @@
     }
 
     .nav-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10px;
+      gap: 10px;
+    }
+
+    .nav-container {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -44,10 +53,11 @@
     }
 
     .switch {
-      margin-left: 10px;
-      margin-top: 0;
-      align-self: center;
-    }
+  margin-left: auto;
+  margin-right: 0;
+  padding: 0;
+  align-self: center;
+}
   }
 
   body.dark-mode .nav-links a,
