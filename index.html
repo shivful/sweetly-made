@@ -22,10 +22,36 @@
       backdrop-filter: blur(10px);
     }
   
+      .mobile-logo-tab {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .mobile-logo-tab {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+        font-family: 'Playfair Display', serif;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        text-decoration: none;
+        z-index: 1001;
+      }
+
+      body.dark-mode .mobile-logo-tab {
+        background-color: rgba(30, 30, 30, 0.9);
+        color: #fff;
+      }
+    }
   </style>
 
     <div class="nav-container">
-      <div class="logo"><a href="#top">Sweetly Made by Kay</a></div>
+      
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
@@ -111,7 +137,8 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
-  </footer>
+  <a href="#top" class="mobile-logo-tab">Sweetly Made by Kay</a>
+
 
   <!-- Order Now Button -->
   <a href="#contact" class="order-button">Order Now</a>
