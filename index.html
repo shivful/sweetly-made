@@ -126,9 +126,9 @@
   }
 
   function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
 
   function prevSlide() {
     slideIndex = (slideIndex - 1 + slides.length) % slides.length;
@@ -140,25 +140,16 @@
 
   window.addEventListener('resize', () => showSlide(slideIndex));
   showSlide(slideIndex);
-  setInterval(nextSlide, 4000);
 
-  const toggleSwitch = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggleSwitch.checked = true;
-  }
-  toggleSwitch.addEventListener('change', () => {
-    if (toggleSwitch.checked) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
+  let autoSlideInterval = setInterval(nextSlide, 4000);
+  const gallerySlider = document.querySelector('.gallery-slider');
+  gallerySlider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+  gallerySlider.addEventListener('mouseleave', () => {
+    autoSlideInterval = setInterval(nextSlide, 4000);
   });
-  let startX = 0;
+
   const slideContainer = document.querySelector('.slides');
+  let startX = 0;
 
   slideContainer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
@@ -174,6 +165,22 @@
       } else {
         prevSlide();
       }
+    }
+  });
+
+  const toggleSwitch = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+  }
+  toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
     }
   });
 </script>
