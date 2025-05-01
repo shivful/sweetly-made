@@ -235,9 +235,7 @@
       nextVideo = temp;
 
       activeVideo.onended = () => {
-        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-        playSeamless();
-      };
+        
     }, { once: true });
       currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
       playSeamless();
