@@ -24,26 +24,27 @@ a {
 /* Navbar */
 .sticky-nav {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  height: 56px;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 6px 16px;
   max-width: 1200px;
   margin: auto;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
@@ -52,14 +53,17 @@ a {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
 .nav-links a {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  padding: 4px 8px;
 }
 
 /* Toggle Switch */
@@ -143,8 +147,6 @@ input:checked + .slider:before {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-
-  /* iOS-specific rendering fix */
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
 }
