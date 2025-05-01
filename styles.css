@@ -29,8 +29,6 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
-  transform: translateY(0);
-  transition: transform 0.3s ease;
 }
 
 .nav-container {
@@ -143,7 +141,7 @@ input:checked + .slider:before {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(0.6);
+  transition: opacity 0.4s ease-in-out;
 }
 
 .hero-title {
@@ -230,7 +228,7 @@ input:checked + .slider:before {
   max-width: 875px;
   margin: 2rem auto;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   background: white;
 }
 
@@ -322,7 +320,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Order Button */
+/* Order Now Button */
 .order-button {
   position: fixed;
   bottom: 20px;
@@ -335,7 +333,7 @@ footer {
   z-index: 999;
 }
 
-/* Scroll Animation */
+/* Reveal Scroll Animations */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
