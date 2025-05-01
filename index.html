@@ -206,7 +206,7 @@
 
 
   
-  const heroVideoEl = document.getElementById("heroVideo");
+  let heroVideoEl = document.getElementById("heroVideo");
   const videoSources = [
     "bakery-tour-part-one.mp4",
     "bakery-tour-part-two.mp4",
@@ -216,11 +216,18 @@
   let currentVideoIndex = 0;
 
   function playNextVideo() {
-    heroVideoEl.innerHTML = "";
-    const src = document.createElement("source");
-    src.src = videoSources[currentVideoIndex];
-    src.type = "video/mp4";
-    heroVideoEl.appendChild(src);
+    const video = document.createElement("video");
+    video.src = videoSources[currentVideoIndex];
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.className = "hero-video fade";
+    video.addEventListener("ended", () => {
+      currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+      playNextVideo();
+    });
+    heroVideoEl.replaceWith(video);
+    video.play();
     heroVideoEl.load();
     heroVideoEl.play();
   }
