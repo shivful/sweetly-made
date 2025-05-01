@@ -1,3 +1,5 @@
+/* Full updated styles.css with fixed gallery height and consistent image display */
+
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
   --primary: #fddbcf;
@@ -226,7 +228,8 @@ input:checked + .slider:before {
 .gallery-slider {
   position: relative;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 500px;
+  max-height: 500px;
 }
 
 .slides {
@@ -234,17 +237,22 @@ input:checked + .slider:before {
   display: flex;
   gap: 20px;
   flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .slides img {
-  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   border-radius: 10px;
   transition: opacity 0.5s;
   opacity: 0;
   position: absolute;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: auto;
+  object-fit: contain;
 }
 
 .slides img:first-child {
@@ -307,10 +315,7 @@ footer {
   transform: translateY(0);
 }
 
-/* ===================== */
-/* DARK MODE STYLES HERE */
-/* ===================== */
-
+/* Dark Mode */
 body.dark-mode {
   background-color: #121212;
   color: #ffffff;
