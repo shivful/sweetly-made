@@ -16,6 +16,92 @@
     display: block;
   }
 
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .nav-links li a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 28px;
+    margin-left: 15px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider.round {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+
+  .slider.round:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider.round {
+    background-color: #ff8fa3;
+  }
+
+  input:checked + .slider.round:before {
+    transform: translateX(26px);
+  }
+
+  .slider .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+  }
+
+  .slider .sun {
+    left: 6px;
+  }
+
+  .slider .moon {
+    right: 6px;
+  }
+
   @media screen and (max-width: 768px) {
     .logo.desktop-only {
       display: none;
@@ -25,7 +111,7 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 12px 16px;
-      gap: 8px;
+      gap: 10px;
     }
 
     .nav-links {
@@ -35,6 +121,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      justify-content: space-between;
     }
 
     .nav-links li {
@@ -44,95 +131,6 @@
 
     .switch {
       margin-left: auto;
-    }
-
-    .mobile-logo-tab {
-      display: block;
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #333;
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      padding: 8px 16px;
-      border-radius: 8px 8px 0 0;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      text-decoration: none;
-      z-index: 1001;
-    }
-
-    body.dark-mode .mobile-logo-tab {
-      background-color: rgba(30, 30, 30, 0.9);
-      color: #fff;
-    }
-  }
-
-    .nav-container {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 10px 16px;
-      gap: 10px;
-    }
-
-    .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      width: 100%;
-    }
-
-    .nav-links li {
-      flex: 1;
-      text-align: center;
-    }
-
-    .row-one {
-      justify-content: space-around;
-    }
-
-    .row-two {
-      justify-content: space-around;
-    }
-
-    .toggle-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      flex: 1;
-    }
-
-    .switch {
-      margin-right: 10px;
-    }
-
-    .mobile-logo-tab {
-      display: block;
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #333;
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      padding: 8px 16px;
-      border-radius: 8px 8px 0 0;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      text-decoration: none;
-      z-index: 1001;
-    }
-
-    body.dark-mode .mobile-logo-tab {
-      background-color: rgba(30, 30, 30, 0.9);
-      color: #fff;
     }
   }
 
