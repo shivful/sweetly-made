@@ -1,4 +1,4 @@
-/* Full updated styles.css with visible gallery images in fixed height */
+/* Full updated styles.css with fixed gallery layout showing all images properly */
 
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
@@ -226,51 +226,26 @@ input:checked + .slider:before {
 
 /* Gallery */
 .gallery-slider {
-  position: relative;
   overflow: hidden;
-  min-height: 500px;
-  max-height: 500px;
+  padding: 1rem 0;
 }
 
 .slides {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  gap: 20px;
 }
 
 .slides img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
-  opacity: 1;
-  position: static;
-  margin: 0;
 }
 
 .prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
+  display: none;
 }
 
 /* Footer */
