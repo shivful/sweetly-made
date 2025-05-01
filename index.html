@@ -239,14 +239,6 @@
   }
 
   playSeamless();
-    });
-    heroVideoEl.replaceWith(video);
-    heroVideoEl = video;
-  }
-
-  heroVideoEl.addEventListener("ended", () => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-    playNextVideo();
   });
 
   playNextVideo();
