@@ -126,9 +126,18 @@
   }
 
   function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
+  slideIndex++;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+    document.querySelector('.slides').style.transition = 'none';
+    document.querySelector('.slides').style.transform = `translateX(0px)`;
+    setTimeout(() => {
+      document.querySelector('.slides').style.transition = 'transform 1s ease-in-out';
+    }, 20);
+  } else {
     showSlide(slideIndex);
   }
+}
 
   function prevSlide() {
     slideIndex = (slideIndex - 1 + slides.length) % slides.length;
