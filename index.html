@@ -10,7 +10,8 @@
 <body id="top">
 
 <header class="hero">
-  <video class="hero-video" autoplay muted playsinline id="heroVideo"></video>
+  <video id="videoA" class="hero-video" autoplay muted playsinline></video>
+  <video id="videoB" class="hero-video" muted playsinline style="opacity: 0;"></video>
 
   <nav class="sticky-nav">
     <div class="nav-container">
@@ -206,25 +207,38 @@
 
 
   
-  let heroVideoEl = document.getElementById("heroVideo");
   const videoSources = [
     "bakery-tour-part-one.mp4",
     "bakery-tour-part-two.mp4",
     "bakery-tour-part-three.mp4",
     "bakery-tour-part-four.mp4"
   ];
-  let currentVideoIndex = 0;
 
-  function playNextVideo() {
-    const video = document.createElement("video");
-    video.src = videoSources[currentVideoIndex];
-    video.muted = true;
-    video.autoplay = true;
-    video.playsInline = true;
-    video.className = "hero-video fade";
-    video.addEventListener("ended", () => {
+  let currentVideoIndex = 0;
+  let activeVideo = document.getElementById("videoA");
+  let nextVideo = document.getElementById("videoB");
+
+  function playSeamless() {
+    nextVideo.src = videoSources[currentVideoIndex];
+    nextVideo.load();
+    nextVideo.play();
+
+    nextVideo.style.transition = "opacity 0.5s ease-in-out";
+    activeVideo.style.transition = "opacity 0.5s ease-in-out";
+    nextVideo.style.opacity = 1;
+    activeVideo.style.opacity = 0;
+
+    const temp = activeVideo;
+    activeVideo = nextVideo;
+    nextVideo = temp;
+
+    activeVideo.onended = () => {
       currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-      playNextVideo();
+      playSeamless();
+    };
+  }
+
+  playSeamless();
     });
     heroVideoEl.replaceWith(video);
     heroVideoEl = video;
