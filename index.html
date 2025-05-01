@@ -27,7 +27,6 @@
     <span class="icon moon" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px; z-index: 1; opacity: 0.4; transition: opacity 0.4s ease;">🌙</span>
   </span>
 </label>
-      </label>
     </div>
   </nav>
 
@@ -186,8 +185,7 @@
       toggleSwitch.checked = true;
     }
     document.querySelector('.icon.sun').style.opacity = toggleSwitch.checked ? '0.4' : '1';
-document.querySelector('.icon.moon').style.opacity = toggleSwitch.checked ? '1' : '0.4';
-$1
+    document.querySelector('.icon.moon').style.opacity = toggleSwitch.checked ? '1' : '0.4';
       if (toggleSwitch.checked) {
         document.body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark');
