@@ -17,55 +17,25 @@
   }
 
   @media screen and (max-width: 768px) {
-    .mobile-nav-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      width: 100%;
+    .logo.desktop-only {
+      display: none;
     }
 
-    .nav-links.nav-row-1,
-    .nav-links.nav-row-2 {
-      display: flex;
-      justify-content: center;
-      flex-wrap: nowrap;
-      gap: 12px;
-      width: 100%;
-    }
-
-    .toggle-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-grow: 1;
-    }
-
-    .sticky-nav {
-      padding: 10px 15px;
-    }
-    .mobile-nav-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
-    }
-
-    .mobile-nav-group .nav-links {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .toggle-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sticky-nav {
-      padding-bottom: 10px;
-    }
     .nav-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .switch {
+      align-self: center;
+    }
       flex-direction: column;
       align-items: stretch;
       gap: 8px;
@@ -191,28 +161,7 @@
     </span>
   </label>
 </div>
-      <div class="logo desktop-only"><a href="#top">Sweetly Made by Kay</a></div>
       
-      <div class="mobile-nav-group">
-  <ul class="nav-links nav-row-1">
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-  </ul>
-  <ul class="nav-links nav-row-2">
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li class="toggle-wrapper">
-      <label class="switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider round">
-          <span class="icon sun">☀️</span>
-          <span class="icon moon">🌙</span>
-        </span>
-      </label>
-    </li>
-  </ul>
-</div>
     </div>
   </nav>
 
