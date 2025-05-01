@@ -1,5 +1,3 @@
-/* Full styles.css with improved gallery visuals, 25% larger image area, and lightbox support */
-
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
   --primary: #fddbcf;
@@ -17,7 +15,212 @@ body {
   padding: 0;
 }
 
-/* ... other styles remain unchanged ... */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.sticky-nav {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  font-size: 1rem;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+  margin-left: 15px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 30px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 0.8rem;
+}
+
+.slider .icon {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+input:checked + .slider .sun {
+  opacity: 0;
+}
+
+input:checked + .slider .moon {
+  opacity: 1;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(27px);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #fff;
+}
+
+.glass-panel {
+  background-color: var(--glass);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  margin-top: 2rem;
+}
+
+/* Call to Action */
+.cta-button {
+  margin-top: 1.5rem;
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+/* Sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  scroll-margin-top: 120px;
+}
+
+.section-title.decorated {
+  font-size: 2.2rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-title.decorated::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Menu */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.menu-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
 
 /* Gallery */
 .gallery-slider {
@@ -27,7 +230,7 @@ body {
   max-width: 875px;
   margin: 2rem auto;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background: white;
 }
 
@@ -80,7 +283,7 @@ body {
   right: 10px;
 }
 
-/* Lightbox Overlay */
+/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
@@ -111,4 +314,78 @@ body {
   to { opacity: 1; }
 }
 
-/* ... rest of styles remain unchanged ... */
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--primary);
+  font-size: 0.9rem;
+}
+
+/* Order Button */
+.order-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  z-index: 999;
+}
+
+/* Scroll Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle {
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+body.dark-mode .glass-panel {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+body.dark-mode .sticky-nav {
+  background-color: #1e1e1e;
+  box-shadow: none;
+}
+
+body.dark-mode .nav-links a {
+  color: #ffffff;
+}
+
+body.dark-mode .cta-button,
+body.dark-mode .order-button {
+  background: #ff8fa3;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .menu-item {
+  color: white;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
