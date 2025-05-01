@@ -34,20 +34,18 @@ a {
 
 .nav-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   max-width: 1200px;
   margin: auto;
-  gap: 20px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   font-weight: bold;
-  margin-right: auto;
 }
 
 .nav-links {
@@ -55,6 +53,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -378,37 +377,4 @@ body.dark-mode footer {
 
 body.dark-mode .nav-links a {
   color: #ffffff;
-}
-
-/* Responsive Mobile Nav Grid */
-@media screen and (max-width: 768px) {
-  .nav-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 2px;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .logo.desktop-only {
-    display: none;
-  }
-
-  .nav-links {
-    display: contents;
-  }
-
-  .nav-links li {
-    list-style: none;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-  }
-
-  .nav-links li:nth-child(1) { grid-column: 1; grid-row: 1; } /* About */
-  .nav-links li:nth-child(2) { grid-column: 3; grid-row: 1; } /* Menu */
-  .nav-links li:nth-child(3) { grid-column: 2; grid-row: 1; } /* Gallery */
-  .nav-links li:nth-child(4) { grid-column: 1; grid-row: 2; } /* Testimonials */
-  .nav-links li:nth-child(5) { grid-column: 2; grid-row: 2; } /* Contact */
-  .nav-links li.switch-wrapper { grid-column: 3; grid-row: 2; justify-self: end; }
 }
