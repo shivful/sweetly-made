@@ -10,8 +10,10 @@
 <body id="top">
 
 <header class="hero">
-  <video id="videoA" class="hero-video" autoplay muted playsinline></video>
-  <video id="videoB" class="hero-video" muted playsinline style="opacity: 0;"></video>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="bakery-tour-full.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
   <nav class="sticky-nav">
     <div class="nav-container">
@@ -98,6 +100,7 @@
 
 <a href="#contact" class="order-button">Order Now</a>
 
+<!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <img src="" alt="lightbox image">
 </div>
@@ -108,7 +111,11 @@
     sections.forEach(section => {
       const top = section.getBoundingClientRect().top;
       const trigger = window.innerHeight * 0.8;
-      section.classList.toggle('visible', top < trigger);
+      if (top < trigger) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
     });
   });
 
@@ -135,6 +142,7 @@
 
   nextBtn.addEventListener('click', nextSlide);
   prevBtn.addEventListener('click', prevSlide);
+
   window.addEventListener('resize', () => showSlide(slideIndex));
   showSlide(slideIndex);
 
@@ -147,10 +155,22 @@
 
   const slideContainer = document.querySelector('.slides');
   let startX = 0;
-  slideContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  slideContainer.addEventListener('touchend', e => {
-    const diffX = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diffX) > 50) diffX > 0 ? nextSlide() : prevSlide();
+
+  slideContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slideContainer.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
   });
 
   const toggleSwitch = document.getElementById('theme-toggle');
@@ -160,55 +180,45 @@
     toggleSwitch.checked = true;
   }
   toggleSwitch.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode', toggleSwitch.checked);
-    localStorage.setItem('theme', toggleSwitch.checked ? 'dark' : 'light');
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
   });
 
+  // Lightbox logic
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
-  slides.forEach(img => img.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-  }));
+
+  slides.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    });
+  });
+
   lightbox.addEventListener('click', () => {
     lightbox.classList.remove('active');
     lightboxImg.src = '';
     lightboxImg.alt = '';
   });
 
-  const videoSources = [
-    "bakery-tour-part-one.mp4",
-    "bakery-tour-part-two.mp4",
-    "bakery-tour-part-three.mp4",
-    "bakery-tour-part-four.mp4"
-  ];
-  let currentVideoIndex = 0;
-  let activeVideo = document.getElementById("videoA");
-  let nextVideo = document.getElementById("videoB");
 
-  function playSeamless() {
-    nextVideo.src = videoSources[currentVideoIndex];
-    nextVideo.load();
-    nextVideo.addEventListener("canplaythrough", () => {
-      nextVideo.play();
-      nextVideo.style.transition = "opacity 0.4s ease-in-out";
-      activeVideo.style.transition = "opacity 0.4s ease-in-out";
-      nextVideo.style.opacity = 1;
-      activeVideo.style.opacity = 0;
-
-      const temp = activeVideo;
-      activeVideo = nextVideo;
-      nextVideo = temp;
-
-      activeVideo.onended = () => {
-        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-        playSeamless();
+  
+  
+  
       };
     }, { once: true });
   }
+  }
 
   playSeamless();
+
 </script>
+
 </body>
 </html>
