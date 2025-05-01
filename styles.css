@@ -22,16 +22,15 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Add padding to body on mobile to offset fixed nav */
 @media screen and (max-width: 768px) {
   body {
     padding-top: 60px;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Navbar */
@@ -158,7 +157,6 @@ body.dark-mode .icon.moon {
   opacity: 1;
 }
 
-/* Blue Link Formatting for Contact Section */
 #contact a {
   color: #007bff;
   text-decoration: none;
