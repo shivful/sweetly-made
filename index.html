@@ -221,18 +221,24 @@
   function playSeamless() {
     nextVideo.src = videoSources[currentVideoIndex];
     nextVideo.load();
-    nextVideo.play();
 
-    nextVideo.style.transition = "opacity 0.5s ease-in-out";
-    activeVideo.style.transition = "opacity 0.5s ease-in-out";
-    nextVideo.style.opacity = 1;
-    activeVideo.style.opacity = 0;
+    nextVideo.addEventListener("canplaythrough", () => {
+      nextVideo.play();
 
-    const temp = activeVideo;
-    activeVideo = nextVideo;
-    nextVideo = temp;
+      nextVideo.style.transition = "opacity 0.4s ease-in-out";
+      activeVideo.style.transition = "opacity 0.4s ease-in-out";
+      nextVideo.style.opacity = 1;
+      activeVideo.style.opacity = 0;
 
-    activeVideo.onended = () => {
+      const temp = activeVideo;
+      activeVideo = nextVideo;
+      nextVideo = temp;
+
+      activeVideo.onended = () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+        playSeamless();
+      };
+    }, { once: true });
       currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
       playSeamless();
     };
