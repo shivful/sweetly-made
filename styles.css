@@ -34,11 +34,12 @@ a {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 10px 20px;
   max-width: 1200px;
   margin: auto;
+  gap: 20px;
   flex-wrap: nowrap;
 }
 
@@ -46,6 +47,7 @@ a {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   font-weight: bold;
+  margin-right: auto;
 }
 
 .nav-links {
@@ -372,6 +374,10 @@ body.dark-mode .glass-panel {
 
 body.dark-mode footer {
   background-color: #1e1e1e;
+}
+
+body.dark-mode .nav-links a {
+  color: #ffffff;
 }
 
 /* Responsive Mobile Nav Grid */
