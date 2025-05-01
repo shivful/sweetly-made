@@ -52,12 +52,15 @@ body.dark-mode .sticky-nav {
   max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 9999;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.9rem;
   font-weight: bold;
+  z-index: 9999;
 }
 
 .nav-links {
@@ -67,6 +70,7 @@ body.dark-mode .sticky-nav {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  z-index: 9999;
 }
 
 .nav-links li {
@@ -78,7 +82,7 @@ body.dark-mode .sticky-nav {
   font-size: 1rem;
   padding: 4px 8px;
   position: relative;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .switch {
