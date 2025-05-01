@@ -10,7 +10,7 @@
 <body id="top">
 
 <header class="hero">
-  <video class="hero-video" id="heroVideo" autoplay muted playsinline>
+  <video class="hero-video" autoplay muted loop playsinline>
     <source src="bakery-tour.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -208,13 +208,7 @@
   });
 
 
-  const heroVideo = document.getElementById('heroVideo');
-  let playReverse = false;
-
-  heroVideo.addEventListener('ended', () => {
-    playReverse = !playReverse;
-    heroVideo.playbackRate = playReverse ? -1 : 1;
-    heroVideo.play();
+  
   });
 </script>
 
