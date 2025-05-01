@@ -33,6 +33,7 @@ a {
   right: 0;
   z-index: 9999;
   height: 60px;
+  transform: translateZ(0); /* Fix for stacking context */
 }
 
 .nav-container {
@@ -441,4 +442,13 @@ body.dark-mode .menu-item {
 
 body.dark-mode .hero::after {
   background-color: #121212;
+}
+
+/* Ensure lower sections don't overlap navbar */
+.about,
+.menu-grid,
+.gallery-slider,
+footer {
+  position: relative;
+  z-index: 1;
 }
