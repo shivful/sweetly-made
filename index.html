@@ -22,6 +22,53 @@
     }
 
     .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 16px;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      flex: 1 1 30%;
+      text-align: left;
+    }
+
+    .switch {
+      margin-left: auto;
+    }
+
+    .mobile-logo-tab {
+      display: block;
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      z-index: 1001;
+    }
+
+    body.dark-mode .mobile-logo-tab {
+      background-color: rgba(30, 30, 30, 0.9);
+      color: #fff;
+    }
+  }
+
+    .nav-container {
       display: flex;
       flex-direction: column;
       align-items: stretch;
