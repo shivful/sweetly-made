@@ -67,13 +67,10 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img src="image1.jpg" alt="Gallery Image 1">
-          <img src="image2.jpg" alt="Gallery Image 2">
-          <img src="image3.jpg" alt="Gallery Image 3">
-          <img src="booth.jpg" alt="Booth">
           <img src="apple-pie.jpg" alt="Apple Pie">
           <img src="cherry-pie.jpg" alt="Cherry Pie">
           <img src="pond-cake.jpg" alt="Pond Cake">
+          <img src="booth.jpg" alt="Booth">
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -121,14 +118,10 @@
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
-  const slider = document.querySelector('.gallery-slider');
-  let slideInterval;
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.opacity = (i === index) ? '1' : '0';
-      slide.style.zIndex = (i === index) ? '1' : '0';
-    });
+    const slideWidth = slides[0].clientWidth;
+    document.querySelector('.slides').style.transform = `translateX(${-index * slideWidth}px)`;
   }
 
   function nextSlide() {
@@ -141,34 +134,12 @@
     showSlide(slideIndex);
   }
 
-  function startSlideShow(speed = 4000) {
-    slideInterval = setInterval(nextSlide, speed);
-  }
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
 
-  function stopSlideShow() {
-    clearInterval(slideInterval);
-  }
-
-  startSlideShow();
-
-  prevBtn.addEventListener('click', () => {
-    stopSlideShow();
-    prevSlide();
-    startSlideShow();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    stopSlideShow();
-    nextSlide();
-    startSlideShow();
-  });
-
-  slider.addEventListener('mouseenter', stopSlideShow);
-  slider.addEventListener('mouseleave', () => startSlideShow(2000));
-
+  window.addEventListener('resize', () => showSlide(slideIndex));
   showSlide(slideIndex);
 
-  // Dark mode toggle logic
   const toggleSwitch = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme');
   if (currentTheme === 'dark') {
