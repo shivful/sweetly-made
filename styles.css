@@ -33,7 +33,7 @@ a {
   right: 0;
   z-index: 9999;
   height: 60px;
-  transform: translateZ(0); /* Fix for stacking context */
+  transform: translateZ(0);
 }
 
 .nav-container {
@@ -44,12 +44,17 @@ a {
   max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
+
+  position: relative;
+  z-index: 9999;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.9rem;
   font-weight: bold;
+  position: relative;
+  z-index: 9999;
 }
 
 .nav-links {
@@ -59,6 +64,8 @@ a {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 9999;
 }
 
 .nav-links li {
@@ -427,7 +434,7 @@ body.dark-mode .menu-item {
   }
 }
 
-/* Fix bottom strip under hero video */
+/* Hero video bottom overlay */
 .hero::after {
   content: '';
   position: absolute;
@@ -444,7 +451,7 @@ body.dark-mode .hero::after {
   background-color: #121212;
 }
 
-/* Ensure lower sections don't overlap navbar */
+/* Lower sections layer fix */
 .about,
 .menu-grid,
 .gallery-slider,
