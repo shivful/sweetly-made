@@ -311,6 +311,10 @@ body.dark-mode .hero::after {
   background: white;
 }
 
+body.dark-mode .gallery-slider {
+  background-color: #1e1e1e;
+}
+
 .slides {
   display: flex;
   transition: transform 1s ease-in-out;
