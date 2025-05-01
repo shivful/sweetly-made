@@ -227,9 +227,7 @@
       playNextVideo();
     });
     heroVideoEl.replaceWith(video);
-    video.play();
-    heroVideoEl.load();
-    heroVideoEl.play();
+    heroVideoEl = video;
   }
 
   heroVideoEl.addEventListener("ended", () => {
