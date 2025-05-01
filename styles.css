@@ -23,7 +23,54 @@ a {
   color: inherit;
 }
 
-/* Restore hero and video */
+/* Navbar */
+.sticky-nav {
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+
+/* Hero section */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -45,6 +92,28 @@ a {
   z-index: -1;
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #fff;
+}
+
+.glass-panel {
+  background-color: var(--glass);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  margin-top: 2rem;
 }
 
 /* Button styles */
@@ -133,6 +202,3 @@ a {
     height: 400px;
   }
 }
-
-/* Existing styles retained */
-/* (Rest of your CSS remains as already loaded in canvas) */
