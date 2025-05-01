@@ -1,4 +1,4 @@
-/* Full updated styles.css with animated iPhone-style image slider */
+/* Full updated styles.css with animated iPhone-style image slider and hover-activated arrows */
 
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
@@ -245,7 +245,8 @@ input:checked + .slider:before {
   border-radius: 10px;
 }
 
-.prev, .next {
+.gallery-slider .prev,
+.gallery-slider .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -257,6 +258,13 @@ input:checked + .slider:before {
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-slider:hover .prev,
+.gallery-slider:hover .next {
+  opacity: 1;
 }
 
 .prev {
