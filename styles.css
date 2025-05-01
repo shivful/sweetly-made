@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
+:root {
+  --bg: linear-gradient(135deg, #fffaf5, #fde3da);
+  --primary: #fddbcf;
+  --accent: #ff8fa3;
+  --text: #3e2f2f;
+  --glass: rgba(255, 255, 255, 0.5);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff5f3;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body.dark-mode .hero::after {
   content: "";
   position: absolute;
@@ -99,4 +122,52 @@ input:checked + .slider.round .moon {
 
 input:checked + .slider.round:before {
   transform: translateX(27px);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--primary);
+  font-size: 0.9rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .glass-panel {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+body.dark-mode .sticky-nav {
+  background-color: #1e1e1e;
+  box-shadow: none;
+}
+
+body.dark-mode .nav-links a {
+  color: #ffffff;
+}
+
+body.dark-mode .cta-button,
+body.dark-mode .order-button {
+  background: #ff8fa3;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
 }
