@@ -109,6 +109,42 @@
 
     .nav-container {
       flex-direction: column;
+      align-items: stretch;
+      padding: 12px 16px;
+      gap: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 4px 0;
+    }
+
+    .nav-links:nth-of-type(1) {
+      padding-bottom: 4px;
+    }
+
+    .nav-links:nth-of-type(2) {
+      align-items: center;
+    }
+
+    .nav-links li {
+      flex: 1;
+      text-align: center;
+    }
+
+    .switch {
+      margin: 0;
+      align-self: center;
+    }
+  }
+
+    .nav-container {
+      flex-direction: column;
       align-items: flex-start;
       padding: 12px 16px;
       gap: 10px;
