@@ -40,6 +40,7 @@ a {
   padding: 6px 16px;
   max-width: 1200px;
   margin: auto;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -395,7 +396,43 @@ body.dark-mode .menu-item {
   border: 1px solid #333;
 }
 
-/* Responsive layout */
+/* iOS-specific navbar optimization */
+@media screen and (max-width: 500px) {
+  .sticky-nav {
+    height: 48px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-container {
+    padding: 4px 12px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .nav-links li {
+    margin: 4px 6px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 3px 6px;
+  }
+
+  .switch {
+    transform: scale(0.85);
+  }
+}
+
+/* General Responsive Layout */
 @media screen and (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
@@ -403,11 +440,6 @@ body.dark-mode .menu-item {
 
   .hero-subtitle {
     font-size: 1rem;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   .glass-panel {
@@ -421,5 +453,10 @@ body.dark-mode .menu-item {
 
   .slides img {
     height: 400px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
