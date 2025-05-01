@@ -10,10 +10,7 @@
 <body id="top">
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="bakery-tour.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <video class="hero-video" autoplay muted playsinline id="heroVideo"></video>
 
   <nav class="sticky-nav">
     <div class="nav-container">
@@ -210,6 +207,31 @@
 
   
   });
+  const heroVideoEl = document.getElementById("heroVideo");
+  const videoSources = [
+    "bakery-tour-part-one.mp4",
+    "bakery-tour-part-two.mp4",
+    "bakery-tour-part-three.mp4",
+    "bakery-tour-part-four.mp4"
+  ];
+  let currentVideoIndex = 0;
+
+  function playNextVideo() {
+    heroVideoEl.innerHTML = "";
+    const src = document.createElement("source");
+    src.src = videoSources[currentVideoIndex];
+    src.type = "video/mp4";
+    heroVideoEl.appendChild(src);
+    heroVideoEl.load();
+    heroVideoEl.play();
+  }
+
+  heroVideoEl.addEventListener("ended", () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    playNextVideo();
+  });
+
+  playNextVideo();
 </script>
 
 </body>
