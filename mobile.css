@@ -238,3 +238,26 @@
     width: auto;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav-links li.dark-toggle {
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .dark-mode-toggle {
+    padding: 10px;
+    border: none !important;
+    background: transparent !important;
+    width: auto;
+  }
+
+  body.dark-mode .nav-links li.dark-toggle {
+    background: transparent !important;
+  }
+
+  body.dark-mode .dark-mode-toggle {
+    background: transparent !important;
+  }
+}
