@@ -91,9 +91,6 @@
         <button class="prev">❮</button>
         <button class="next">❯</button>
       </div>
-      <div class="lightbox" id="lightbox">
-        <img src="" alt="lightbox image">
-      </div>
     </div>
   </section>
 
@@ -118,6 +115,10 @@
 </footer>
 
 <a href="#contact" class="order-button">Order Now</a>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="lightbox image">
+</div>
 
 <script>
   const sections = document.querySelectorAll('.section');
@@ -188,14 +189,12 @@
       lightbox.classList.add('active');
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
-      document.body.classList.add('lightbox-active'); // lock scroll
     });
   });
   lightbox.addEventListener('click', () => {
     lightbox.classList.remove('active');
     lightboxImg.src = '';
     lightboxImg.alt = '';
-    document.body.classList.remove('lightbox-active'); // unlock scroll
   });
 
   const navLinks = document.querySelector('.nav-links');
