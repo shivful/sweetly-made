@@ -445,3 +445,15 @@ body.dark-mode .menu-item {
     height: 400px;
   }
 }
+
+
+/* ======================
+   Cursor behavior fixes
+   ====================== */
+body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
+  cursor: default;
+}
+
+a, button, .cta-button, .order-button, .nav-links a {
+  cursor: pointer;
+}
