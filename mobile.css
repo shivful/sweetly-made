@@ -46,7 +46,6 @@
     color: white;
   }
 
-  /* Optional dark mode toggle as C3 */
   .nav-links .dark-toggle {
     grid-column: span 1;
     text-align: center;
@@ -108,7 +107,7 @@
   }
 }
 
-/* Optional: iOS-specific text scaling fix */
+/* iOS-specific adjustment */
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
