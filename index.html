@@ -19,7 +19,6 @@
   </style>
 </head>
 <body id="top">
-
 <!-- Navigation Bar -->
 <nav class="sticky-nav">
   <div class="nav-container">
@@ -44,7 +43,6 @@
     </ul>
   </div>
 </nav>
-
 <!-- Hero Section -->
 <header class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
@@ -57,7 +55,6 @@
     <a href="#menu" class="cta-button">Explore Our Menu</a>
   </div>
 </header>
-
 <main>
   <section id="about" class="section reveal">
     <div class="container glass-panel">
@@ -65,7 +62,6 @@
       <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
     </div>
   </section>
-
   <section id="menu" class="section reveal">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Menu</h2>
@@ -77,7 +73,6 @@
       </div>
     </div>
   </section>
-
   <section id="gallery" class="section reveal">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Gallery</h2>
@@ -93,14 +88,12 @@
       </div>
     </div>
   </section>
-
   <section id="testimonials" class="section reveal">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Testimonials</h2>
       <blockquote>“The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special.”</blockquote>
     </div>
   </section>
-
   <section id="contact" class="section reveal">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Contact</h2>
@@ -109,17 +102,13 @@
     </div>
   </section>
 </main>
-
 <footer>
   <p>&copy; 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
 </footer>
-
 <a href="#contact" class="order-button">Order Now</a>
-
 <div class="lightbox" id="lightbox">
   <img src="" alt="lightbox image">
 </div>
-
 <script>
   const sections = document.querySelectorAll('.section');
   window.addEventListener('scroll', () => {
@@ -133,39 +122,32 @@
       }
     });
   });
-
   let slideIndex = 0;
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
-
   function showSlide(index) {
     const slideWidth = slides[0].clientWidth;
     document.querySelector('.slides').style.transform = `translateX(${-index * slideWidth}px)`;
   }
-
   function nextSlide() {
     slideIndex = (slideIndex + 1) % slides.length;
     showSlide(slideIndex);
   }
-
   function prevSlide() {
     slideIndex = (slideIndex - 1 + slides.length) % slides.length;
     showSlide(slideIndex);
   }
-
   nextBtn.addEventListener('click', nextSlide);
   prevBtn.addEventListener('click', prevSlide);
   window.addEventListener('resize', () => showSlide(slideIndex));
   showSlide(slideIndex);
-
   let autoSlideInterval = setInterval(nextSlide, 4000);
   const gallerySlider = document.querySelector('.gallery-slider');
   gallerySlider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
   gallerySlider.addEventListener('mouseleave', () => {
     autoSlideInterval = setInterval(nextSlide, 4000);
   });
-
   const toggleSwitch = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme');
   if (currentTheme === 'dark') {
@@ -181,7 +163,6 @@
       localStorage.setItem('theme', 'light');
     }
   });
-
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
   slides.forEach(img => {
@@ -196,7 +177,6 @@
     lightboxImg.src = '';
     lightboxImg.alt = '';
   });
-
   const navLinks = document.querySelector('.nav-links');
   let lastScrollY = window.scrollY;
   window.addEventListener('scroll', () => {
