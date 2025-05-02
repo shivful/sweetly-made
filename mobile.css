@@ -57,6 +57,7 @@
     background: #e0e0e0;
     border-radius: 6px;
     font-size: 0.9rem;
+    transition: background 0.3s, color 0.3s;
   }
 
   .hero {
@@ -128,7 +129,8 @@
      Mobile Scroll-Hide Nav Behavior (Slide Up / Slide Down)
      ====================== */
 
-  .nav-links.hide-nav {
+  .nav-links.hide-nav,
+  .nav-links.hide-nav .dark-toggle {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-40px);
