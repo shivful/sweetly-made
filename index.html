@@ -194,13 +194,15 @@
   });
 </script>
 
-
 <script>
   const navLinks = document.querySelector('.nav-links');
   let lastScrollY = window.scrollY;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY) {
+    const topThreshold = 100;
+    if (window.scrollY < topThreshold) {
+      navLinks.classList.remove('hide-nav');
+    } else if (window.scrollY > lastScrollY) {
       navLinks.classList.add('hide-nav');
     } else {
       navLinks.classList.remove('hide-nav');
@@ -208,6 +210,5 @@
     lastScrollY = window.scrollY;
   });
 </script>
-
 </body>
 </html>
