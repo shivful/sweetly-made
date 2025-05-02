@@ -115,7 +115,9 @@
     border-radius: 6px;
     display: block;
     transition: background 0.3s, color 0.3s;
-  }
+  
+  border: 1px solid #ff8fa3;
+}
 
   .nav-links a:hover {
     background: var(--accent);
@@ -136,7 +138,11 @@
     border: 1px solid #ff8fa3;
     background-color: #222 !important;
     color: #fff !important;
-  }
+  
+  border: 1px solid #ff8fa3;
+
+  border: 1px solid #ff8fa3 !important;
+}
 
   body.dark-mode .nav-links .dark-toggle {
     background-color: #333 !important;
