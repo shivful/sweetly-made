@@ -62,18 +62,17 @@
 
   .nav-links li.dark-toggle {
     grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
+    grid-row: 2;
+    justify-self: center;
     align-self: center;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
     background: transparent !important;
     border: none;
     box-shadow: none !important;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0;
-    margin-right: 4px;
+    justify-content: center;
   }
 
   .nav-links li.dark-toggle .dark-mode-toggle {
@@ -148,15 +147,18 @@
   }
 
   body.dark-mode .nav-links li.dark-toggle {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    padding: 0;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0;
-    margin-right: 4px;
-    margin-top: 0;
+    justify-content: center;
   }
 
   body.dark-mode .nav-links li.dark-toggle .dark-mode-toggle {
