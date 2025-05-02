@@ -9,7 +9,7 @@
   }
 
   section {
-    padding: 80px 20px;
+    padding: 40px 20px;
   }
 
   .nav-container {
@@ -171,5 +171,144 @@
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.dark-mode .nav-links a {
+    background: none !important;
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border: 1px solid #ff8fa3 !important;
+    font-weight: bold;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body.dark-mode .nav-links a:hover {
+    background-color: #ff8fa3 !important;
+    color: #ffffff !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.dark-mode {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode main,
+  body.dark-mode .hero,
+  body.dark-mode .section,
+  body.dark-mode footer {
+    background-color: inherit !important;
+  }
+
+  body.dark-mode .hero::after {
+    background-color: #121212 !important;
+  }
+
+  .hero::after {
+    height: 100px;
+    background-color: transparent !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode .hero,
+  body.dark-mode .hero::after,
+  body.dark-mode .hero::before,
+  body.dark-mode main,
+  body.dark-mode footer,
+  body.dark-mode .section {
+    background-color: #121212 !important;
+    background: #121212 !important;
+  }
+
+  .hero::after,
+  .hero::before {
+    background: none !important;
+    background-color: transparent !important;
+    height: 0 !important;
+  }
+
+  video.hero-video {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.dark-mode .hero,
+  body.dark-mode .hero::after,
+  body.dark-mode .hero::before,
+  body.dark-mode main,
+  body.dark-mode .section,
+  body.dark-mode #about,
+  body.dark-mode .glass-panel,
+  body.dark-mode .container {
+    background-color: #121212 !important;
+    background: #121212 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero::after,
+  .hero::before {
+    display: none !important;
+    background: none !important;
+    height: 0 !important;
+  }
+
+  body.dark-mode .glass-panel {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #121212;
+    z-index: 0;
+  }
+
+  .hero-video {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 100px 20px;
+  }
+
+  .glass-panel {
+    margin-bottom: 60px !important;
+  }
+
+  .section-title.decorated {
+    margin-bottom: 30px;
   }
 }
