@@ -388,3 +388,33 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-links li.dark-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ff8fa3;
+    border-radius: 12px;
+    background: var(--glass, rgba(255, 255, 255, 0.5));
+  }
+
+  body.dark-mode .nav-links li.dark-toggle {
+    background-color: #1e1e1e;
+    border-color: #ff8fa3;
+  }
+
+  body.dark-mode .dark-mode-toggle {
+    background-color: #ff8fa3;
+    color: white;
+  }
+}
