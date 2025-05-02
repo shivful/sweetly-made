@@ -176,12 +176,12 @@
 
 @media screen and (max-width: 768px) {
   body.dark-mode .nav-links a {
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(12px) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
     border: 2px solid #ff8fa3 !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-shadow: none !important;
   }
 
