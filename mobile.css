@@ -1,0 +1,89 @@
+/* ======================
+   Sweetly Made by Kay - mobile.css
+   Mobile-only layout fixes (≤768px)
+   ====================== */
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 8px 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px 40px;
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .orbit-container {
+    transform: scale(0.7);
+    width: 100%;
+    height: auto;
+  }
+
+  .orbit-container .orbit {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbit-container img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .contact form {
+    width: 100%;
+  }
+
+  .footer a[href*="instagram"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    word-break: break-word;
+  }
+
+  .order-now {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Optional: iOS-specific text scaling fix */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
