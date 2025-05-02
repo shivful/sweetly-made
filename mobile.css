@@ -18,7 +18,7 @@
     padding: 16px;
   }
 
-  /* Nav Layout + Scroll Animation */
+  /* Nav Grid + Animation */
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,20 +57,20 @@
     color: white;
   }
 
-  /* Transparent C2 Toggle */
+  /* Dark Mode Toggle in C2 — Transparent */
   .nav-links .dark-toggle {
     grid-column: 3;
-    background: transparent !important;
-    padding: 0;
-    margin: 0;
-    border: none;
-    box-shadow: none;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* Dark Mode Fixes */
+  /* Dark Mode Styling for Nav */
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
