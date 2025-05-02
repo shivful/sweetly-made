@@ -19,6 +19,16 @@
     border-bottom: 2px solid #ff8fa3;
   }
 
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ff8fa3;
+    align-self: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -54,19 +64,15 @@
   .nav-links li.dark-toggle {
     grid-column: 3;
     grid-row: 2;
-    justify-self: center;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent !important;
     border: none;
     box-shadow: none !important;
-  }
-
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #ff8fa3;
-    align-self: flex-start;
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .hero {
