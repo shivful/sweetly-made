@@ -128,8 +128,10 @@
   }
 
   .nav-links .dark-toggle {
-  grid-column: 3;
-  grid-row: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,8 +151,10 @@
 }
 
   body.dark-mode .nav-links .dark-toggle {
-  grid-column: 3;
-  grid-row: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: flex;
   justify-content: center;
   align-items: center;
