@@ -483,3 +483,31 @@
     display: none !important;
   }
 }
+
+/* S23 Ultra-specific enhancements */
+@media screen and (max-width: 430px) and (min-height: 850px) {
+  .section {
+    padding: 100px 24px !important;
+  }
+
+  .glass-panel {
+    margin: 1.5rem 0 !important;
+    padding: 1.25rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.4rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem !important;
+  }
+
+  .gallery-slider {
+    height: 425px !important;
+  }
+
+  .slides img {
+    height: 425px !important;
+  }
+}
