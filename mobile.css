@@ -180,3 +180,17 @@
     -webkit-text-size-adjust: 100%;
   }
 }
+
+.nav-links li:nth-child(-n+5) a {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid #ff8fa3;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
