@@ -14,19 +14,46 @@
 
   .nav-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 16px;
   }
 
   .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 8px;
+    text-align: center;
     width: 100%;
     margin-top: 10px;
   }
 
   .nav-links li {
-    margin: 8px 0;
+    margin: 0;
+  }
+
+  .nav-links a {
+    color: #3e2f2f;
+    font-weight: bold;
+    background: #fce4dc;
+    padding: 6px;
+    border-radius: 6px;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .nav-links a:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .nav-links .dark-toggle {
+    grid-column: span 1;
+    text-align: center;
+    padding: 6px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
   }
 
   .hero {
@@ -81,7 +108,23 @@
   }
 }
 
-/* Optional: iOS-specific text scaling fix */
+/* ======================
+   Mobile-specific Dark Mode Fixes
+   ====================== */
+
+@media screen and (max-width: 768px) {
+  body.dark-mode .nav-links a {
+    background-color: #222 !important;
+    color: #fff !important;
+  }
+
+  body.dark-mode .nav-links .dark-toggle {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+}
+
+/* iOS-specific adjustment */
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
