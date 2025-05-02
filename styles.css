@@ -1,3 +1,4 @@
+
 /* =============================
    Sweetly Made by Kay Styles
    ============================= */
@@ -418,72 +419,9 @@ body.dark-mode .menu-item {
   border: 1px solid #333;
 }
 
-@media screen and (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
+/* Desktop scroll lock for lightbox */
+@media screen and (min-width: 769px) {
+  body.lightbox-active {
+    overflow: hidden;
   }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .glass-panel {
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-  .gallery-slider {
-    height: 400px;
-  }
-
-  .slides img {
-    height: 400px;
-  }
-}
-
-
-/* ======================
-   Cursor behavior fixes
-   ====================== */
-body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
-  cursor: default;
-}
-
-a, button, .cta-button, .order-button, .nav-links a {
-  cursor: pointer;
-}
-
-/* Lightbox Styling Inside Gallery */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.5);
-}
-
-body.lightbox-open {
-  overflow: hidden;
 }
