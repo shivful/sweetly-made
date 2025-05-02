@@ -30,14 +30,18 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="dark-toggle">
+        <div class="dark-mode-toggle">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </span>
+          </label>
+        </div>
+      </li>
     </ul>
-    <label class="switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider round">
-        <span class="icon sun">☀️</span>
-        <span class="icon moon">🌙</span>
-      </span>
-    </label>
   </div>
 </nav>
 
@@ -192,12 +196,9 @@
     lightboxImg.src = '';
     lightboxImg.alt = '';
   });
-</script>
 
-<script>
   const navLinks = document.querySelector('.nav-links');
   let lastScrollY = window.scrollY;
-
   window.addEventListener('scroll', () => {
     const topThreshold = 100;
     if (window.scrollY < topThreshold) {
