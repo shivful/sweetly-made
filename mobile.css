@@ -129,14 +129,16 @@
 
   .nav-links .dark-toggle {
   grid-column: 3;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
   body.dark-mode .nav-links a {
@@ -147,14 +149,16 @@
 
   body.dark-mode .nav-links .dark-toggle {
   grid-column: 3;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 }
 
