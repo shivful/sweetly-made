@@ -18,7 +18,7 @@
     padding: 16px;
   }
 
-  /* Nav Grid Layout with Scroll Animation + Delay */
+  /* Nav Grid Layout with Smooth Scroll Animation + Delay */
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -50,6 +50,7 @@
     border-radius: 6px;
     display: block;
     transition: background 0.3s, color 0.3s;
+    border: 1px solid #ff8fa3; /* Thin pink border to match Order Now button */
   }
 
   .nav-links a:hover {
@@ -74,6 +75,7 @@
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
+    border-color: #ff8fa3 !important;
   }
 
   body.dark-mode .nav-links .dark-toggle {
