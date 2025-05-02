@@ -1,5 +1,5 @@
 /* =============================
-   Sweetly Made by Kay Styles
+   Sweetly Made by Kay Styles (Full with Dark Mode Support)
    ============================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap');
@@ -13,6 +13,7 @@
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Base */
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff5f3;
@@ -197,11 +198,6 @@ body.dark-mode .icon.moon {
   background-color: #fff5f3;
 }
 
-body.dark-mode .hero::before,
-body.dark-mode .hero::after {
-  background-color: #121212;
-}
-
 .hero-title {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
@@ -224,6 +220,7 @@ body.dark-mode .hero::after {
   margin-top: 2rem;
 }
 
+/* Buttons */
 .cta-button,
 .order-button {
   font-family: 'Open Sans', sans-serif;
@@ -250,6 +247,7 @@ body.dark-mode .hero::after {
   z-index: 999;
 }
 
+/* Sections */
 .section {
   padding: 60px 20px;
   text-align: center;
@@ -280,6 +278,7 @@ body.dark-mode .hero::after {
   border-radius: 2px;
 }
 
+/* Menu */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -300,6 +299,7 @@ body.dark-mode .hero::after {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
+/* Gallery */
 .gallery-slider {
   position: relative;
   overflow: hidden;
@@ -309,10 +309,6 @@ body.dark-mode .hero::after {
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   background: white;
-}
-
-body.dark-mode .gallery-slider {
-  background-color: #1e1e1e;
 }
 
 .slides {
@@ -357,14 +353,10 @@ body.dark-mode .gallery-slider {
   opacity: 1;
 }
 
-.prev {
-  left: 10px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
-.next {
-  right: 10px;
-}
-
+/* Scroll Reveal */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -376,6 +368,7 @@ body.dark-mode .gallery-slider {
   transform: translateY(0);
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -385,9 +378,15 @@ footer {
   z-index: 1;
 }
 
+/* Dark Mode Overrides */
 body.dark-mode {
   background-color: #121212;
   color: #ffffff;
+}
+
+body.dark-mode .hero::before,
+body.dark-mode .hero::after {
+  background-color: #121212;
 }
 
 body.dark-mode .hero-title,
@@ -418,6 +417,11 @@ body.dark-mode .menu-item {
   border: 1px solid #333;
 }
 
+body.dark-mode .gallery-slider {
+  background-color: #1e1e1e;
+}
+
+/* Mobile */
 @media screen and (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
