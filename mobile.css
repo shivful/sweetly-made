@@ -45,7 +45,7 @@
   .nav-links a {
     color: #3e2f2f;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(to bottom, #fff, #fdf4f2);
     border: 1px solid #ff8fa3;
     padding: 6px;
     border-radius: 8px;
