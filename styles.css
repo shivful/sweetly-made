@@ -1,4 +1,3 @@
-
 /* =============================
    Sweetly Made by Kay Styles
    ============================= */
@@ -377,6 +376,31 @@ body.dark-mode .gallery-slider {
   transform: translateY(0);
 }
 
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+body.lightbox-active {
+  overflow: hidden;
+}
+
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -419,7 +443,42 @@ body.dark-mode .menu-item {
   border: 1px solid #333;
 }
 
-/* Desktop scroll lock for lightbox */
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .glass-panel {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .gallery-slider {
+    height: 400px;
+  }
+
+  .slides img {
+    height: 400px;
+  }
+}
+
+body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
+  cursor: default;
+}
+
+a, button, .cta-button, .order-button, .nav-links a {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 769px) {
   body.lightbox-active {
     overflow: hidden;
