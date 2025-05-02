@@ -176,13 +176,13 @@
 
 @media screen and (max-width: 768px) {
   body.dark-mode .nav-links a {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(12px) !important;
+    background-color: #1e1e1e !important;
     color: #ffffff !important;
     font-weight: 600 !important;
     border: 2px solid #ff8fa3 !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: none !important;
     text-shadow: none !important;
+    backdrop-filter: none !important;
   }
 
   .hero::after {
