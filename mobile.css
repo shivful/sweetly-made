@@ -176,10 +176,12 @@
 
 @media screen and (max-width: 768px) {
   body.dark-mode .nav-links a {
-    background-color: rgba(20, 20, 20, 0.85) !important;
+    background-color: rgba(20, 20, 20, 0.95) !important;
     color: #ffffff !important;
-    border: 1px solid #ff8fa3 !important;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    font-weight: 700 !important;
+    border: 2px solid #ff8fa3 !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   }
 
   .hero::after {
