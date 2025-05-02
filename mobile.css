@@ -190,3 +190,25 @@
     color: #ffffff !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  body.dark-mode {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode main,
+  body.dark-mode .hero,
+  body.dark-mode .section,
+  body.dark-mode footer {
+    background-color: inherit !important;
+  }
+
+  body.dark-mode .hero::after {
+    background-color: #121212 !important;
+  }
+
+  .hero::after {
+    height: 100px;
+    background-color: transparent !important;
+  }
+}
