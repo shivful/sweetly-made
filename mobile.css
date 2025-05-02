@@ -1,3 +1,4 @@
+
 /* ======================
    Sweetly Made by Kay - mobile.css
    Mobile-only layout fixes (≤768px)
@@ -13,19 +14,10 @@
   }
 
   .nav-container {
+    border-bottom: 1px solid #ff8fa3;
     flex-direction: column;
     align-items: flex-start;
     padding: 16px;
-  }
-
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #ff8fa3;
-    align-self: flex-start;
-    width: fit-content;
-    margin-left: 8px;
   }
 
   .nav-links {
@@ -36,7 +28,15 @@
     text-align: center;
     width: 100%;
     margin-top: 10px;
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-links.hide-nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-40px);
   }
 
   .nav-links li {
@@ -44,41 +44,45 @@
   }
 
   .nav-links a {
-    color: #3e2f2f;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #fff, #fdf4f2);
-    border: 1px solid #ff8fa3;
-    padding: 6px;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px;
+    border-radius: 12px;
     display: block;
     transition: background 0.3s, color 0.3s;
+    border: 1px solid #ff8fa3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   }
 
-  .nav-links a:hover {
-    background: var(--accent);
-    color: white;
-  }
-
-  .nav-links li.dark-toggle {
+  .nav-links .dark-toggle {
     grid-column: 3;
     grid-row: 2;
-    justify-self: center;
-    align-self: center;
-    margin: 0;
-    padding: 0;
-    background: transparent !important;
-    border: none;
-    box-shadow: none !important;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 2;
   }
 
-  .nav-links li.dark-toggle .dark-mode-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  body.dark-mode .nav-links a {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    border: 1px solid #ff8fa3 !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+  }
+
+  body.dark-mode .hero::after {
+    background-color: #121212 !important;
   }
 
   .hero {
@@ -130,46 +134,5 @@
     right: 16px;
     padding: 12px 16px;
     font-size: 0.9rem;
-  }
-
-  .nav-links.hide-nav {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body.dark-mode .nav-links a {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    color: #fff !important;
-    backdrop-filter: blur(10px);
-  }
-
-  body.dark-mode .nav-links li.dark-toggle {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: center;
-    align-self: center;
-    margin: 0;
-    padding: 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  body.dark-mode .nav-links li.dark-toggle .dark-mode-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  body {
-    -webkit-text-size-adjust: 100%;
   }
 }
