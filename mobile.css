@@ -247,3 +247,31 @@
     object-fit: cover;
   }
 }
+
+@media screen and (max-width: 768px) {
+  body.dark-mode .hero,
+  body.dark-mode .hero::after,
+  body.dark-mode .hero::before,
+  body.dark-mode main,
+  body.dark-mode .section,
+  body.dark-mode #about,
+  body.dark-mode .glass-panel,
+  body.dark-mode .container {
+    background-color: #121212 !important;
+    background: #121212 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero::after,
+  .hero::before {
+    display: none !important;
+    background: none !important;
+    height: 0 !important;
+  }
+
+  body.dark-mode .glass-panel {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+}
