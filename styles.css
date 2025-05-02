@@ -5,7 +5,6 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap');
 
-/* Root Variables */
 :root {
   --bg: linear-gradient(135deg, #fffaf5, #fde3da);
   --primary: #fddbcf;
@@ -26,8 +25,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff5f3;
   color: #333;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -36,7 +33,10 @@ a {
   color: inherit;
 }
 
-/* Sticky Nav Bar */
+/* ======================
+   Desktop Styles
+   ====================== */
+
 .sticky-nav {
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -82,7 +82,6 @@ a {
   color: var(--accent);
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   justify-content: space-between;
@@ -113,12 +112,10 @@ a {
   box-shadow: var(--shadow);
 }
 
-/* Section Styles */
 section {
   padding: 80px 60px;
 }
 
-/* Orbit Gallery */
 .orbit-container {
   position: relative;
   width: 400px;
@@ -142,29 +139,10 @@ section {
   animation: rotate 20s linear infinite;
 }
 
-.orbit img:nth-child(1) {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.orbit img:nth-child(2) {
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.orbit img:nth-child(3) {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.orbit img:nth-child(4) {
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
+.orbit img:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.orbit img:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
+.orbit img:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.orbit img:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
 
 @keyframes orbit {
   0% { transform: rotate(0deg); }
@@ -176,7 +154,6 @@ section {
   100% { transform: rotate(-360deg); }
 }
 
-/* Testimonials */
 .testimonial {
   background-color: var(--primary);
   border-radius: 12px;
@@ -186,7 +163,6 @@ section {
   color: var(--text);
 }
 
-/* Contact */
 .contact form {
   display: flex;
   flex-direction: column;
@@ -217,7 +193,6 @@ section {
   background-color: #ff6f89;
 }
 
-/* Footer */
 footer {
   background-color: #fce4dc;
   text-align: center;
@@ -226,7 +201,6 @@ footer {
   color: #555;
 }
 
-/* Floating Order Button */
 .order-now {
   position: fixed;
   bottom: 20px;
@@ -246,7 +220,6 @@ footer {
   background-color: #ff6f89;
 }
 
-/* Scroll Reveal Animations */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -258,7 +231,6 @@ footer {
   transform: translateY(0);
 }
 
-/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #1e1e1e;
@@ -312,21 +284,17 @@ footer {
 }
 
 /* ======================
-   📱 Mobile View Fixes
+   📱 Mobile-Only Fixes
    ====================== */
 @media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
   section {
-    padding: 40px 16px;
+    padding: 40px 20px;
   }
 
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px 16px;
+    padding: 16px;
   }
 
   .nav-links {
@@ -347,14 +315,15 @@ footer {
   }
 
   .hero img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    margin-top: 16px;
+    margin-top: 20px;
   }
 
   .orbit-container {
     transform: scale(0.7);
-    margin: 0 auto;
+    width: 100%;
+    height: auto;
   }
 
   .orbit-container .orbit {
@@ -382,9 +351,16 @@ footer {
     gap: 8px;
     word-break: break-word;
   }
+
+  .order-now {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
 }
 
-/* 🧠 iOS-specific adjustment */
+/* iOS WebKit Fix */
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
