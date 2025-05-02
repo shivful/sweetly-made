@@ -25,6 +25,7 @@
     border-bottom: 2px solid #ff8fa3;
     align-self: flex-start;
     width: fit-content;
+    margin-left: 8px;
   }
 
   .nav-links {
@@ -67,6 +68,11 @@
     background: transparent !important;
     border: none;
     box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
   }
 
   .hero {
@@ -138,6 +144,11 @@
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
   }
 }
 
