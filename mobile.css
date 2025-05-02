@@ -223,3 +223,18 @@
     color: #ffffff !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav-links li.dark-toggle {
+    padding: 0;
+    border: none !important;
+    background: none !important;
+  }
+
+  .dark-mode-toggle {
+    padding: 10px;
+    border: none !important;
+    background: none !important;
+    width: auto;
+  }
+}
