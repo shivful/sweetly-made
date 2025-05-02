@@ -107,15 +107,14 @@
   }
 
   .nav-links a {
-    border: 1px solid #ff8fa3;
-    color: #3e2f2f;
-    font-weight: bold;
-    background: #fce4dc;
-    padding: 6px;
-    border-radius: 6px;
-    display: block;
-    transition: background 0.3s, color 0.3s;
-  
+  color: #3e2f2f;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 6px;
+  border-radius: 6px;
+  display: block;
+  transition: background 0.3s, color 0.3s;
   border: 1px solid #ff8fa3;
 }
 
@@ -134,13 +133,8 @@
   }
 
   body.dark-mode .nav-links a {
-    border-color: #ff8fa3 !important;
-    border: 1px solid #ff8fa3;
-    background-color: #222 !important;
-    color: #fff !important;
-  
-  border: 1px solid #ff8fa3;
-
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: white !important;
   border: 1px solid #ff8fa3 !important;
 }
 
