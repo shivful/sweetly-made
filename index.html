@@ -32,7 +32,6 @@
 </span>
 </label></li>
 </ul>
-
 </div>
 </nav>
 <!-- Hero Section -->
@@ -178,5 +177,18 @@
     lightboxImg.alt = '';
   });
 </script>
-</body>
+<script>
+    let scrollTimer;
+    const nav = document.querySelector('.nav-links');
+
+    window.addEventListener('scroll', () => {
+      if (!nav) return;
+      nav.classList.add('hide-nav');
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        nav.classList.remove('hide-nav');
+      }, 200);
+    });
+    </script></body>
 </html>
