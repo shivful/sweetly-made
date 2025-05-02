@@ -18,7 +18,7 @@
     padding: 16px;
   }
 
-  /* Nav Grid Layout with Smooth Animation */
+  /* Nav Grid Layout with Scroll Animation + Delay */
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,7 +27,7 @@
     text-align: center;
     width: 100%;
     margin-top: 10px;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
     transform: translateY(0);
     opacity: 1;
   }
