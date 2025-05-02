@@ -18,7 +18,7 @@
     padding: 16px;
   }
 
-  /* ===== Updated Nav to 3x2 Grid with Scroll Behavior ===== */
+  /* Nav Layout + Scroll Animation */
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,24 +57,27 @@
     color: white;
   }
 
+  /* Transparent C2 Toggle */
   .nav-links .dark-toggle {
-    grid-column: 3; /* C2 position */
-    background: #e0e0e0;
-    padding: 6px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    transition: background 0.3s, color 0.3s;
+    grid-column: 3;
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* ===== Dark Mode Readability Fixes ===== */
+  /* Dark Mode Fixes */
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
   }
 
   body.dark-mode .nav-links .dark-toggle {
-    background-color: #333 !important;
-    color: #fff !important;
+    background-color: transparent !important;
   }
 
   .hero {
@@ -129,7 +132,9 @@
   }
 }
 
-/* Optional: iOS-specific text scaling fix */
+/* ======================
+   iOS-specific adjustment
+   ====================== */
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
