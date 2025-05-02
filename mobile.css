@@ -212,3 +212,38 @@
     background-color: transparent !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode {
+    background-color: #121212 !important;
+  }
+
+  body.dark-mode .hero,
+  body.dark-mode .hero::after,
+  body.dark-mode .hero::before,
+  body.dark-mode main,
+  body.dark-mode footer,
+  body.dark-mode .section {
+    background-color: #121212 !important;
+    background: #121212 !important;
+  }
+
+  .hero::after,
+  .hero::before {
+    background: none !important;
+    background-color: transparent !important;
+    height: 0 !important;
+  }
+
+  video.hero-video {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
