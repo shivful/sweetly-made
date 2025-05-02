@@ -1,5 +1,5 @@
 
-/* =====================
+/* ======================
    Sweetly Made by Kay - mobile.css
    Mobile-only layout fixes (≤768px)
    ====================== */
@@ -129,13 +129,13 @@
 
   .nav-links .dark-toggle {
   grid-column: 3;
+  grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -149,13 +149,13 @@
 
   body.dark-mode .nav-links .dark-toggle {
   grid-column: 3;
+  grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
