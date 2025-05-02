@@ -137,6 +137,23 @@
     pointer-events: none;
     transform: translateY(-20px);
   }
+
+  /* Ensure the dark toggle stays in C2 and centers properly */
+  .nav-links li.dark-toggle {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links li.dark-toggle .dark-mode-toggle {
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -158,6 +175,7 @@
   }
 
   body.dark-mode .nav-links li.dark-toggle .dark-mode-toggle {
+    margin-top: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
