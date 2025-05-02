@@ -211,5 +211,37 @@
     lastScrollY = window.scrollY;
   });
 </script>
+<script>
+  const toggle = document.getElementById("darkModeToggle");
+  toggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  const triggers = document.querySelectorAll(".lightbox-trigger");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+  const body = document.body;
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = trigger.src;
+      body.classList.add("lightbox-open"); // lock scroll
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+    body.classList.remove("lightbox-open"); // unlock scroll
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+      body.classList.remove("lightbox-open");
+    }
+  });
+</script>
 </body>
 </html>
