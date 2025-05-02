@@ -31,6 +31,12 @@
     opacity: 1;
   }
 
+  .nav-links.hide-nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-40px);
+  }
+
   .nav-links li {
     margin: 0;
   }
@@ -114,7 +120,6 @@
   /* ======================
      Mobile-specific Dark Mode Fixes
      ====================== */
-
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
@@ -124,23 +129,11 @@
     background-color: #333 !important;
     color: #fff !important;
   }
-
-  /* ======================
-     Mobile Scroll-Hide Nav Behavior (Slide Up / Slide Down)
-     ====================== */
-
-  .nav-links.hide-nav,
-  .nav-links.hide-nav .dark-toggle {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-40px);
-  }
 }
 
 /* ======================
    iOS-specific adjustment
    ====================== */
-
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
