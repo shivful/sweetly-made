@@ -18,7 +18,7 @@
     padding: 16px;
   }
 
-  /* Nav Grid + Animation */
+  /* Nav Grid Layout */
   .nav-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,7 +57,7 @@
     color: white;
   }
 
-  /* Dark Mode Toggle in C2 — Transparent */
+  /* Transparent Dark Mode Toggle in C2 */
   .nav-links .dark-toggle {
     grid-column: 3;
     background: none !important;
@@ -70,7 +70,7 @@
     align-items: center;
   }
 
-  /* Dark Mode Styling for Nav */
+  /* Dark Mode Readability */
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
