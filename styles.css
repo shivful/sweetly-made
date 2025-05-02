@@ -376,31 +376,6 @@ body.dark-mode .gallery-slider {
   transform: translateY(0);
 }
 
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  padding: 20px;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-body.lightbox-active {
-  overflow: hidden;
-}
-
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -471,16 +446,14 @@ body.dark-mode .menu-item {
   }
 }
 
+
+/* ======================
+   Cursor behavior fixes
+   ====================== */
 body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
   cursor: default;
 }
 
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
-}
-
-@media screen and (min-width: 769px) {
-  body.lightbox-active {
-    overflow: hidden;
-  }
 }
