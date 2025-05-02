@@ -201,11 +201,12 @@
   border-bottom: 1px solid #ff8fa3;
   padding-bottom: 6px;
   margin-bottom: 6px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
   body:not(.dark-mode) .nav-links li:nth-child(-n+5) a {
-    background-color: rgba(255, 250, 245, 0.7) !important;
-    color: #3e2f2f !important;
-  }
+  background-color: #fef4f1 !important;
+  color: #3e2f2f !important;
+}
 }
