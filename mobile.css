@@ -26,7 +26,9 @@
     text-align: center;
     width: 100%;
     margin-top: 10px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(0);
+    opacity: 1;
   }
 
   .nav-links li {
@@ -107,13 +109,11 @@
     padding: 12px 16px;
     font-size: 0.9rem;
   }
-}
 
-/* ======================
-   Mobile-specific Dark Mode Fixes
-   ====================== */
+  /* ======================
+     Mobile-specific Dark Mode Fixes
+     ====================== */
 
-@media screen and (max-width: 768px) {
   body.dark-mode .nav-links a {
     background-color: #222 !important;
     color: #fff !important;
@@ -123,17 +123,15 @@
     background-color: #333 !important;
     color: #fff !important;
   }
-}
 
-/* ======================
-   Mobile Scroll-Hide Nav Behavior
-   ====================== */
+  /* ======================
+     Mobile Scroll-Hide Nav Behavior (Slide Up / Slide Down)
+     ====================== */
 
-@media screen and (max-width: 768px) {
   .nav-links.hide-nav {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-20px);
+    transform: translateY(-40px);
   }
 }
 
