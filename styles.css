@@ -457,3 +457,38 @@ body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
 }
+
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  font-size: 1.1rem;
+  color: var(--accent);
+  text-decoration: none;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+body.dark-mode .social-links a {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+body.dark-mode .social-links a:hover {
+  background-color: var(--accent);
+  color: white;
+}
