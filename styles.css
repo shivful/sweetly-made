@@ -537,32 +537,42 @@ body.dark-mode .instagram-pill {
   border: 1px solid #333;
 }
 
-.instagram-pill-menu {
-  width: fit-content;
-  padding: 0.5rem 1rem;
+.instagram-square {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.instagram-link-pill {
-  display: inline-flex;
+.instagram-square:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  background-color: var(--accent);
+}
+
+.instagram-link-square {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  font-size: 1rem;
   text-decoration: none;
   color: var(--accent);
   font-weight: bold;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
-.instagram-link-pill:hover {
+.instagram-square:hover .instagram-link-square {
   color: white;
 }
 
-.icon-img-pill {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-}
-
-body.dark-mode .instagram-link-pill {
-  color: white;
+.icon-img-square {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
 }
