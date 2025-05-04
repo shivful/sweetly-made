@@ -511,3 +511,17 @@
     height: 425px !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .social-links a {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
