@@ -524,3 +524,12 @@
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav-links a.active {
+    background: none !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    border-color: #ff8fa3 !important;
+  }
+}
