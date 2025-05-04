@@ -527,9 +527,10 @@
 
 @media screen and (max-width: 768px) {
   .nav-links a.active {
-    background: none !important;
+    background-color: transparent !important;
     color: inherit !important;
+    border: 2px solid #fddbcf !important;
     box-shadow: none !important;
-    border-color: #ff8fa3 !important;
+    font-weight: inherit !important;
   }
 }
