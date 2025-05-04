@@ -260,40 +260,5 @@
     document.body.classList.remove('lightbox-active');
   });
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    function updateActiveLink() {
-      let closestSection = null;
-      let closestOffset = Infinity;
-      const viewportCenter = window.innerHeight / 2;
-
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const sectionCenter = rect.top + rect.height / 2;
-        const offset = Math.abs(viewportCenter - sectionCenter);
-        if (offset < closestOffset) {
-          closestOffset = offset;
-          closestSection = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + closestSection) {
-          link.classList.add("active");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", updateActiveLink);
-    window.addEventListener("resize", updateActiveLink);
-    window.addEventListener("load", updateActiveLink);
-  });
-</script>
-
 </body>
 </html>
