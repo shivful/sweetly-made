@@ -562,13 +562,14 @@ body.dark-mode .instagram-pill {
 .instagram-pill-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background-color: white; /* maintain white background */
+  color: var(--accent);     /* maintain original text color */
 }
 
-.icon-img-lift {
-  width: 22px;
-  height: 22px;
-  object-fit: cover;
-  border-radius: 4px;
+.emoji-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+  line-height: 1;
 }
 
 body.dark-mode .instagram-pill-lift {
@@ -579,10 +580,4 @@ body.dark-mode .instagram-pill-lift {
 body.dark-mode .instagram-pill-lift:hover {
   background-color: #1e1e1e;
   color: white;
-}
-
-.emoji-icon {
-  font-size: 1.2rem;
-  margin-right: 8px;
-  line-height: 1;
 }
