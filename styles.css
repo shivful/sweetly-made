@@ -537,9 +537,10 @@ body.dark-mode .instagram-pill {
   border: 1px solid #333;
 }
 
-.social-links-centered {
+.social-links {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
@@ -547,9 +548,9 @@ body.dark-mode .instagram-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: white;
-  border-radius: 999px;
+  border-radius: 30px;
   box-shadow: var(--shadow);
   text-decoration: none;
   font-size: 1rem;
@@ -559,13 +560,14 @@ body.dark-mode .instagram-pill {
 }
 
 .instagram-pill-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .icon-img-lift {
   width: 22px;
   height: 22px;
+  object-fit: cover;
   border-radius: 4px;
 }
 
