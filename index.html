@@ -262,7 +262,29 @@
 </script>
 
 <script>
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  window.addEventListener("scroll", () => {
+    let currentSection = "";
+    let minOffset = window.innerHeight;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < minOffset) {
+        minOffset = rect.top;
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + currentSection) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
   const navLinks = document.querySelectorAll('.nav-links a');
 
   function onScroll() {
