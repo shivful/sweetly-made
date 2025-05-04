@@ -537,45 +537,44 @@ body.dark-mode .instagram-pill {
   border: 1px solid #333;
 }
 
-.social-links {
+.social-links-centered {
   display: flex;
   justify-content: center;
-  gap: 20px;
   margin-top: 1rem;
 }
 
-.instagram-pill-final {
+.instagram-pill-lift {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
   background-color: white;
-  border-radius: 30px;
+  border-radius: 999px;
   box-shadow: var(--shadow);
   text-decoration: none;
   font-size: 1rem;
   color: var(--accent);
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.instagram-pill-final:hover {
-  background-color: var(--accent);
-  color: white;
+.instagram-pill-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.icon-img-final {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
+.icon-img-lift {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
 }
 
-body.dark-mode .instagram-pill-final {
+body.dark-mode .instagram-pill-lift {
   background-color: #1e1e1e;
   color: white;
 }
 
-body.dark-mode .instagram-pill-final:hover {
-  background-color: var(--accent);
+body.dark-mode .instagram-pill-lift:hover {
+  background-color: #1e1e1e;
   color: white;
 }
