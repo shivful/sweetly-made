@@ -537,22 +537,32 @@ body.dark-mode .instagram-pill {
   border: 1px solid #333;
 }
 
-.instagram-link {
-  display: flex;
-  flex-direction: column;
+.instagram-pill-menu {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+.instagram-link-pill {
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
+  font-size: 1rem;
   text-decoration: none;
   color: var(--accent);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-.instagram-link:hover {
+.instagram-link-pill:hover {
   color: white;
 }
 
-.icon-img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+.icon-img-pill {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+body.dark-mode .instagram-link-pill {
+  color: white;
 }
