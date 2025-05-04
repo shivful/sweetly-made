@@ -266,24 +266,32 @@
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50% 0px -50% 0px",
-      threshold: 0
-    };
+    function updateActiveLink() {
+      let closestSection = null;
+      let closestOffset = Infinity;
+      const viewportCenter = window.innerHeight / 2;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const id = entry.target.getAttribute("id");
-        const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove("active"));
-          if (navLink) navLink.classList.add("active");
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const offset = Math.abs(viewportCenter - sectionCenter);
+        if (offset < closestOffset) {
+          closestOffset = offset;
+          closestSection = section.getAttribute("id");
         }
       });
-    }, observerOptions);
 
-    sections.forEach((section) => observer.observe(section));
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + closestSection) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveLink);
+    window.addEventListener("resize", updateActiveLink);
+    window.addEventListener("load", updateActiveLink);
   });
 </script>
 
