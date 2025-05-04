@@ -492,3 +492,89 @@ body.dark-mode .social-links a:hover {
   background-color: var(--accent);
   color: white;
 }
+
+.social-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.05);
+}
+
+.instagram-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: var(--accent);
+  text-decoration: none;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.instagram-pill:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: scale(1.03);
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+body.dark-mode .instagram-pill {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+.instagram-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--accent);
+  text-decoration: none;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+
+.instagram-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  background-color: var(--accent);
+  color: white;
+}
+
+.icon-img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
+}
+
+body.dark-mode .instagram-pill {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+body.dark-mode .instagram-pill:hover {
+  background-color: var(--accent);
+  color: white;
+}
