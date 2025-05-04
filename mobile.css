@@ -512,16 +512,15 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+/* Responsive tweaks for social media pills */
+@media only screen and (max-width: 768px) {
   .social-links {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .social-links a {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    font-size: 1rem;
+  .instagram-pill-lift {
+    width: 80%;
+    justify-content: center;
   }
 }
