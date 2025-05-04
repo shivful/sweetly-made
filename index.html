@@ -167,86 +167,124 @@
 
 <a href="#contact" class="order-button">Order Now</a>
 
-
 <script>
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-links a");
-
-  function getActiveSection() {
-    let closestSection = null;
-    let closestDistance = Infinity;
-    const viewportCenter = window.innerHeight / 2;
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const sectionCenter = rect.top + rect.height / 2;
-      const distanceToCenter = Math.abs(viewportCenter - sectionCenter);
-
-      if (distanceToCenter < closestDistance) {
-        closestDistance = distanceToCenter;
-        closestSection = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + closestSection) {
-        link.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", getActiveSection);
-  window.addEventListener("resize", getActiveSection);
-  window.addEventListener("load", getActiveSection);
-</script>
-
-
-<script>
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-links a");
-
-  window.addEventListener("scroll", () => {
-    let currentSection = "";
-    let minOffset = window.innerHeight;
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top < minOffset) {
-        minOffset = rect.top;
-        currentSection = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + currentSection) {
-        link.classList.add("active");
+  const sections = document.querySelectorAll('.section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      const trigger = window.innerHeight * 0.8;
+      if (top < trigger) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
       }
     });
   });
-</script>
-  const navLinks = document.querySelectorAll('.nav-links a');
 
-  function onScroll() {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      if (pageYOffset >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute("id");
-      }
-    });
+  const navLinks = document.querySelector('.nav-links');
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const topThreshold = 100;
+    if (window.scrollY < topThreshold) {
+      navLinks.classList.remove('hide-nav');
+    } else if (window.scrollY > lastScrollY) {
+      navLinks.classList.add('hide-nav');
+    } else {
+      navLinks.classList.remove('hide-nav');
+    }
+    lastScrollY = window.scrollY;
+  });
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slides img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+
+  function showSlide(index) {
+    const slideWidth = slides[0].clientWidth;
+    document.querySelector('.slides').style.transform = `translateX(${-index * slideWidth}px)`;
   }
 
-  window.addEventListener("scroll", onScroll);
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+  window.addEventListener('resize', () => showSlide(slideIndex));
+  showSlide(slideIndex);
+
+  let autoSlideInterval = setInterval(nextSlide, 4000);
+  const gallerySlider = document.querySelector('.gallery-slider');
+  gallerySlider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+  gallerySlider.addEventListener('mouseleave', () => {
+    autoSlideInterval = setInterval(nextSlide, 4000);
+  });
+
+  const toggleSwitch = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+  }
+  toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  slides.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      document.body.classList.add('lightbox-active');
+    });
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+    lightboxImg.alt = '';
+    document.body.classList.remove('lightbox-active');
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          if (navLink) navLink.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+  });
 </script>
 
 </body>
