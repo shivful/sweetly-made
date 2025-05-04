@@ -492,3 +492,15 @@ body.dark-mode .social-links a:hover {
   background-color: var(--accent);
   color: white;
 }
+
+.social-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.05);
+}
