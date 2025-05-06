@@ -534,3 +534,43 @@
     font-weight: inherit !important;
   }
 }
+
+
+
+/* Intro Overlay for Mobile */
+#intro-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: white;
+  padding: 40px 20px;
+  font-family: 'Playfair Display', serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.overlay-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.overlay-message {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #3e2f2f;
+  margin-bottom: 2rem;
+}
+
+#enter-btn {
+  padding: 12px 24px;
+  background-color: #ff8fa3;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+}
