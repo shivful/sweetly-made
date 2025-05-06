@@ -44,6 +44,25 @@
 </head>
 <body id="top">
 
+<!-- Intro Overlay (Mobile Only) -->
+<div id="intro-overlay">
+  <div class="overlay-content">
+    <p class="overlay-message">
+      <strong>Mom,</strong><br><br>
+      You’ve always been the steady hand and the caring heart —<br>
+      lifting others up, creating beauty in the simplest things,<br>
+      and pouring love into everything you do.<br><br>
+      Your passion, patience, and love inspire me more than you know.<br><br>
+      This website is my way of saying thank you —<br>
+      for your love, your example, and the joy you bring into the world.<br><br>
+      I hope it reminds you just how proud I am to be your son.<br><br>
+      — Austin 💛
+    </p>
+    <button id="enter-btn">Click to Enter</button>
+  </div>
+</div>
+
+
 <!-- Navigation Bar -->
 <nav class="sticky-nav">
   <div class="nav-container">
@@ -260,5 +279,20 @@
     document.body.classList.remove('lightbox-active');
   });
 </script>
+
+<script>
+  const overlay = document.getElementById('intro-overlay');
+  const enterBtn = document.getElementById('enter-btn');
+  if (window.innerWidth <= 768 && !sessionStorage.getItem('overlayDismissed')) {
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  enterBtn?.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+    sessionStorage.setItem('overlayDismissed', 'true');
+  });
+</script>
+
 </body>
 </html>
