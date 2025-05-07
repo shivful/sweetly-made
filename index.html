@@ -242,6 +242,7 @@
 </script>
 
 
+
 <script>
   if (window.innerWidth <= 768 && !sessionStorage.getItem('overlayDismissed')) {
     const style = document.createElement('style');
@@ -260,9 +261,14 @@
         overflow-y: auto;
         flex-direction: column;
       }
-      .overlay-content {
+      .overlay-content.glass-panel {
         max-width: 600px;
         margin: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
       }
       .overlay-message {
         font-size: 1.1rem;
@@ -286,7 +292,7 @@
     const overlay = document.createElement('div');
     overlay.id = 'intro-overlay';
     overlay.innerHTML = `
-      <div class="overlay-content">
+      <div class="overlay-content glass-panel">
         <p class="overlay-message">
           <strong>Mom,</strong><br><br>
           You’ve always been the steady hand and the caring heart —<br>
@@ -312,6 +318,7 @@
     });
   }
 </script>
+
 
 </body>
 </html>
