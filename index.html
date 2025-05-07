@@ -271,8 +271,6 @@
         border-radius: 1rem;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         padding: 2rem;
-        transform: perspective(1000px);
-        transition: transform 0.1s ease-out;
       }
       .overlay-message {
         font-size: 1.05rem;
@@ -317,25 +315,6 @@
     `;
     document.body.appendChild(overlay);
     document.body.style.overflow = 'hidden';
-
-    const panel = overlay.querySelector('.overlay-content.glass-panel');
-    function handleOrientation(e) {
-      const x = e.gamma;
-      const y = e.beta;
-      if (panel) {
-        panel.style.transform = \`perspective(1000px) rotateY(\${x / 15}deg) rotateX(\${y / 25 - 1}deg)\`;
-      }
-    }
-
-    if (typeof DeviceMotionEvent?.requestPermission === 'function') {
-      DeviceMotionEvent.requestPermission().then(response => {
-        if (response === 'granted') {
-          window.addEventListener('deviceorientation', handleOrientation);
-        }
-      }).catch(console.error);
-    } else {
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
 
     overlay.querySelector('#enter-btn').addEventListener('click', () => {
       overlay.style.display = 'none';
