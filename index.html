@@ -324,5 +324,107 @@
   }
 </script>
 
+
+<script>
+  if (window.innerWidth <= 768 && !sessionStorage.getItem('overlayDismissed')) {
+    const style = document.createElement('style');
+    style.textContent = `
+      #intro-overlay {
+        display: flex;
+        position: fixed;
+        z-index: 9999;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: white;
+        padding: 40px 20px;
+        font-family: 'Playfair Display', serif;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow-y: auto;
+        flex-direction: column;
+      }
+      .overlay-content.glass-panel {
+        max-width: 600px;
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border-radius: 1rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        transform: perspective(1000px);
+        transition: transform 0.1s ease-out;
+      }
+      .overlay-message {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #3e2f2f;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+        text-align: left;
+        white-space: normal;
+      }
+      .overlay-message p {
+        margin-bottom: 1rem;
+      }
+      #enter-btn {
+        padding: 12px 24px;
+        background-color: #ff8fa3;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        cursor: pointer;
+      }
+    `;
+    document.head.appendChild(style);
+
+    const overlay = document.createElement('div');
+    overlay.id = 'intro-overlay';
+    overlay.innerHTML = `
+      <div class="overlay-content glass-panel">
+        <div class="overlay-message">
+          <p><strong>Mom,</strong></p>
+          <p>You’ve always been the steady hand and the caring heart — lifting others up, creating beauty in the simplest things, and pouring love into everything you do.</p>
+          <p>Your passion, patience, and love inspire me more than you know.</p>
+          <p>This website is my way of saying thank you — for your love, your example, and the joy you bring into the world.</p>
+          <p>I hope it reminds you just how proud I am to be your son.</p>
+          <p>Here's to a very special day — Happy Birthday, Mom!</p>
+          <p>— Austin</p>
+        </div>
+        <button id="enter-btn">Click to Enter</button>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+
+    overlay.querySelector('#enter-btn').addEventListener('click', () => {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+      sessionStorage.setItem('overlayDismissed', 'true');
+    });
+
+    // Apply tilt effect after overlay is created
+    const panel = overlay.querySelector('.overlay-content.glass-panel');
+    function handleTilt(e) {
+      const x = e.gamma;
+      const y = e.beta;
+      panel.style.transform = \`perspective(1000px) rotateY(\${x / 15}deg) rotateX(\${y / 25 - 1}deg)\`;
+    }
+
+    if (typeof DeviceMotionEvent?.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then(response => {
+          if (response === 'granted') {
+            window.addEventListener('deviceorientation', handleTilt);
+          }
+        })
+        .catch(console.error);
+    } else {
+      window.addEventListener('deviceorientation', handleTilt);
+    }
+  }
+</script>
+
 </body>
 </html>
