@@ -446,10 +446,6 @@ body.dark-mode .menu-item {
   }
 }
 
-
-/* ======================
-   Cursor behavior fixes
-   ====================== */
 body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
   cursor: default;
 }
@@ -493,57 +489,6 @@ body.dark-mode .social-links a:hover {
   color: white;
 }
 
-.social-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.05);
-}
-
-.instagram-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  color: var(--accent);
-  text-decoration: none;
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.instagram-pill:hover {
-  background-color: var(--accent);
-  color: white;
-  transform: scale(1.03);
-}
-
-.icon-img {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-}
-
-body.dark-mode .instagram-pill {
-  background-color: #1e1e1e;
-  color: white;
-  border: 1px solid #333;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
-
 .instagram-pill-lift {
   display: inline-flex;
   align-items: center;
@@ -582,14 +527,16 @@ body.dark-mode .instagram-pill-lift:hover {
   color: white;
 }
 
-
 /* ===========================
    Fix: Navbar links in dark mode
    =========================== */
-body.dark-mode .nav-links a {
-  color: #ffffff;
+body.dark-mode .sticky-nav,
+body.dark-mode .nav-links a,
+body.dark-mode .logo a {
+  color: #ffffff !important;
 }
 
-body.dark-mode .nav-links a:hover {
-  color: var(--accent);
+body.dark-mode .nav-links a:hover,
+body.dark-mode .logo a:hover {
+  color: var(--accent) !important;
 }
