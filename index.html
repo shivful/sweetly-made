@@ -74,10 +74,12 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
+          <img alt="Booth" src="booth.jpg"/>
           <img alt="Apple Pie" src="apple-pie.jpg"/>
           <img alt="Cherry Pie" src="cherry-pie.jpg"/>
           <img alt="Pond Cake" src="pond-cake.jpg"/>
           <img alt="Booth" src="booth.jpg"/>
+          <img alt="Apple Pie" src="apple-pie.jpg"/>
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -125,29 +127,54 @@
 </footer>
 
 <script>
-  const slides = document.querySelectorAll('.slides img');
   const slidesContainer = document.querySelector('.slides');
+  let slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
   const gallerySlider = document.querySelector('.gallery-slider');
-  let slideIndex = 0;
-  let autoSlideInterval;
 
-  function showSlide(index) {
-    const slideWidth = slides[0].clientWidth;
-    slidesContainer.style.transition = 'transform 1.2s ease';
-    slidesContainer.style.transform = `translateX(${-index * slideWidth}px)`;
+  let slideIndex = 1;
+  let autoSlideInterval;
+  let slideWidth = slides[0].clientWidth;
+
+  slidesContainer.style.transition = 'transform 1s ease-in-out';
+  slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+
+  function updateSlideWidth() {
+    slideWidth = slides[0].clientWidth;
+    slidesContainer.style.transition = 'none';
+    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  }
+
+  function moveToSlide(index) {
+    slidesContainer.style.transition = 'transform 1s ease-in-out';
+    slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
   }
 
   function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlide(slideIndex);
+    if (slideIndex >= slides.length - 1) return;
+    slideIndex++;
+    moveToSlide(slideIndex);
   }
 
   function prevSlide() {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlide(slideIndex);
+    if (slideIndex <= 0) return;
+    slideIndex--;
+    moveToSlide(slideIndex);
   }
+
+  slidesContainer.addEventListener('transitionend', () => {
+    if (slides[slideIndex].alt === "Apple Pie" && slideIndex === slides.length - 1) {
+      slidesContainer.style.transition = 'none';
+      slideIndex = 1;
+      slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+    }
+    if (slides[slideIndex].alt === "Booth" && slideIndex === 0) {
+      slidesContainer.style.transition = 'none';
+      slideIndex = slides.length - 2;
+      slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+    }
+  });
 
   function startAutoSlide() {
     autoSlideInterval = setInterval(nextSlide, 4000);
@@ -161,9 +188,9 @@
   prevBtn.addEventListener('click', prevSlide);
   gallerySlider.addEventListener('mouseenter', stopAutoSlide);
   gallerySlider.addEventListener('mouseleave', startAutoSlide);
-  window.addEventListener('resize', () => showSlide(slideIndex));
+  window.addEventListener('resize', updateSlideWidth);
 
-  showSlide(slideIndex);
+  updateSlideWidth();
   startAutoSlide();
 
   const sections = document.querySelectorAll('.section');
@@ -211,7 +238,7 @@
 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
-  slides.forEach(img => {
+  document.querySelectorAll('.slides img').forEach(img => {
     img.addEventListener('click', () => {
       lightbox.classList.add('active');
       lightboxImg.src = img.src;
