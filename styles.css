@@ -446,101 +446,14 @@ body.dark-mode .menu-item {
   }
 }
 
+
+/* ======================
+   Cursor behavior fixes
+   ====================== */
 body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
   cursor: default;
 }
 
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
-}
-
-.social-links {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.social-links a {
-  font-size: 1.1rem;
-  color: var(--accent);
-  text-decoration: none;
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
-  transition: background 0.3s ease;
-}
-
-.social-links a:hover {
-  background-color: var(--accent);
-  color: white;
-}
-
-body.dark-mode .social-links a {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  color: #fff;
-}
-
-body.dark-mode .social-links a:hover {
-  background-color: var(--accent);
-  color: white;
-}
-
-.instagram-pill-lift {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  font-size: 1rem;
-  color: var(--accent);
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.instagram-pill-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  color: var(--accent);
-}
-
-.emoji-icon {
-  font-size: 1.2rem;
-  margin-right: 8px;
-  line-height: 1;
-}
-
-body.dark-mode .instagram-pill-lift {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-body.dark-mode .instagram-pill-lift:hover {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-/* ===========================
-   Fix: Navbar links in dark mode
-   =========================== */
-body.dark-mode .sticky-nav {
-  background-color: rgba(18, 18, 18, 0.9);
-}
-
-body.dark-mode .nav-links a,
-body.dark-mode .logo,
-body.dark-mode .logo a {
-  color: #ff8fa3 !important;
-}
-
-body.dark-mode .nav-links a:hover,
-body.dark-mode .logo a:hover {
-  color: #ff8fa3 !important;
 }
