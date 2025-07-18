@@ -282,57 +282,178 @@ body.dark-mode .hero::after {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .menu-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  background: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.menu-item img {
-  width: 100%;
-  height: 225px;
-  object-fit: cover;
-  display: block;
-}
-
-.menu-item-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: white;
+  border-radius: 10px;
   padding: 1rem;
-  box-sizing: border-box;
-}
-
-.menu-item h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.menu-item p {
-  margin: 4px 0 0;
-  font-size: 0.95rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .menu-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-/* ... keep all previous unchanged styles such as gallery, footer, dark-mode, etc ... */
+.gallery-slider {
+  position: relative;
+  overflow: hidden;
+  height: 625px;
+  max-width: 875px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: white;
+}
 
-/* Social Links */
+body.dark-mode .gallery-slider {
+  background-color: #1e1e1e;
+}
+
+.slides {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: 100%;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: 625px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.slides img:hover {
+  transform: scale(1.02);
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-slider:hover .prev,
+.gallery-slider:hover .next {
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--primary);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle {
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+body.dark-mode .glass-panel {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+body.dark-mode .cta-button,
+body.dark-mode .order-button {
+  background: #ff8fa3;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .menu-item {
+  color: white;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .glass-panel {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .gallery-slider {
+    height: 400px;
+  }
+
+  .slides img {
+    height: 400px;
+  }
+}
+
+body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
+  cursor: default;
+}
+
+a, button, .cta-button, .order-button, .nav-links a {
+  cursor: pointer;
+}
+
 .social-links {
   margin-top: 1.5rem;
   display: flex;
@@ -353,6 +474,17 @@ body.dark-mode .hero::after {
 }
 
 .social-links a:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+body.dark-mode .social-links a {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+body.dark-mode .social-links a:hover {
   background-color: var(--accent);
   color: white;
 }
@@ -385,44 +517,6 @@ body.dark-mode .hero::after {
   line-height: 1;
 }
 
-/* Dark Mode Overrides */
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.dark-mode .hero-title,
-body.dark-mode .hero-subtitle {
-  color: #ffffff;
-  text-shadow: 0 0 10px var(--accent);
-}
-
-body.dark-mode .glass-panel {
-  background-color: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-}
-
-body.dark-mode .cta-button,
-body.dark-mode .order-button {
-  background: #ff8fa3;
-  color: #ffffff;
-}
-
-body.dark-mode footer {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-body.dark-mode .menu-item-content {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-body.dark-mode .menu-item {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-}
-
 body.dark-mode .instagram-pill-lift {
   background-color: #1e1e1e;
   color: white;
@@ -431,6 +525,13 @@ body.dark-mode .instagram-pill-lift {
 body.dark-mode .instagram-pill-lift:hover {
   background-color: #1e1e1e;
   color: white;
+}
+
+/* ===========================
+   Fix: Navbar links in dark mode
+   =========================== */
+body.dark-mode .sticky-nav {
+  background-color: rgba(18, 18, 18, 0.9);
 }
 
 body.dark-mode .nav-links a,
