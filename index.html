@@ -12,6 +12,10 @@
       overflow: hidden;
     }
 
+    .gallery-slider.upgraded-gallery {
+      position: relative;
+    }
+
     .lightbox {
       position: absolute;
       top: 0;
@@ -33,15 +37,11 @@
     }
 
     .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
+      width: 65%;
+      height: 65%;
       object-fit: contain;
       border-radius: 12px;
       box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    }
-
-    .gallery-slider.upgraded-gallery {
-      position: relative;
     }
   </style>
 </head>
@@ -250,7 +250,7 @@ function updateSlideWidth() {
 }
 
 function moveToSlide(index) {
-  slidesContainer.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
+  slidesContainer.style.transition = 'transform 1.5s ease';
   slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
 }
 
