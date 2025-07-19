@@ -191,19 +191,30 @@
 </footer>
 
 <script>
-// Gallery Logic
+// =======================
+// Gallery Slideshow Logic
+// =======================
 const slidesContainer = document.querySelector('.slides');
 let slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 const gallerySlider = document.querySelector('.gallery-slider');
 
-let slideIndex = 1;
-let autoSlideInterval;
-let slideWidth = slides[0].clientWidth;
+// Clone first and last slides
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+firstClone.setAttribute('data-clone', 'first');
+lastClone.setAttribute('data-clone', 'last');
 
-slidesContainer.style.transition = 'transform 1s ease-in-out';
-slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+// Append/prepend clones
+slidesContainer.appendChild(firstClone);
+slidesContainer.insertBefore(lastClone, slides[0]);
+
+slides = document.querySelectorAll('.slides img'); // refresh NodeList
+
+let slideIndex = 1;
+let slideWidth = slides[0].clientWidth;
+let autoSlideInterval;
 
 function updateSlideWidth() {
   slideWidth = slides[0].clientWidth;
@@ -212,7 +223,7 @@ function updateSlideWidth() {
 }
 
 function moveToSlide(index) {
-  slidesContainer.style.transition = 'transform 1s ease-in-out';
+  slidesContainer.style.transition = 'transform 0.6s ease-in-out';
   slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
 }
 
@@ -229,38 +240,41 @@ function prevSlide() {
 }
 
 slidesContainer.addEventListener('transitionend', () => {
-  if (slides[slideIndex].alt === "Apple Pie" && slideIndex === slides.length - 1) {
-    slidesContainer.style.transition = 'none';
-    slideIndex = 1;
-    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-  }
-  if (slides[slideIndex].alt === "Booth" && slideIndex === 0) {
+  if (slides[slideIndex].getAttribute('data-clone') === 'last') {
     slidesContainer.style.transition = 'none';
     slideIndex = slides.length - 2;
+    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  }
+  if (slides[slideIndex].getAttribute('data-clone') === 'first') {
+    slidesContainer.style.transition = 'none';
+    slideIndex = 1;
     slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
   }
 });
 
 function startAutoSlide() {
-  autoSlideInterval = setInterval(nextSlide, 6000); // ← changed from 4000 to 6000
+  stopAutoSlide();
+  autoSlideInterval = setInterval(nextSlide, 5000); // every 5s
 }
 
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-// Make sure event listeners are properly bound
-gallerySlider.addEventListener('mouseenter', stopAutoSlide);
-gallerySlider.addEventListener('mouseleave', startAutoSlide);
-
+// Button & Hover Events
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
+gallerySlider.addEventListener('mouseenter', stopAutoSlide);
+gallerySlider.addEventListener('mouseleave', startAutoSlide);
 window.addEventListener('resize', updateSlideWidth);
 
+// Initialize
 updateSlideWidth();
 startAutoSlide();
 
-// Scroll Reveal
+// =======================
+// Scroll Reveal Animation
+// =======================
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
@@ -274,7 +288,9 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Nav Scroll Hide
+// =======================
+// Hide Nav on Scroll Down
+// =======================
 const navLinks = document.querySelector('.nav-links');
 let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
@@ -289,7 +305,9 @@ window.addEventListener('scroll', () => {
   lastScrollY = window.scrollY;
 });
 
+// =======================
 // Dark Mode Toggle
+// =======================
 const toggleSwitch = document.getElementById('theme-toggle');
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'dark') {
@@ -306,11 +324,15 @@ toggleSwitch.addEventListener('change', () => {
   }
 });
 
+// =======================
 // Lightbox Behavior
+// =======================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
+
 document.querySelectorAll('.slides img').forEach(img => {
   img.addEventListener('click', () => {
+    if (img.getAttribute('data-clone')) return; // skip clones
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
@@ -318,6 +340,7 @@ document.querySelectorAll('.slides img').forEach(img => {
     stopAutoSlide();
   });
 });
+
 lightbox.addEventListener('click', () => {
   lightbox.classList.remove('active');
   lightboxImg.src = '';
@@ -326,6 +349,7 @@ lightbox.addEventListener('click', () => {
   startAutoSlide();
 });
 </script>
+
 
 </body>
 </html>
