@@ -1,205 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Sweetly Made by Kay</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mobile.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="mobile.css" media="only screen and (max-width: 768px)" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="sticky-nav">
-    <div class="nav-container">
-      <div class="logo"><a href="#top">Sweetly Made</a></div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
+<!-- Navigation Bar -->
+<nav class="sticky-nav">
+  <div class="nav-container">
+    <div class="logo"><a href="#top">Sweetly Made by Kay</a></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#social-media">Social Media</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="dark-toggle">
+        <div class="dark-mode-toggle">
           <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <span class="slider round"></span>
-            <span class="icon sun">☀</span>
-            <span class="icon moon">🌙</span>
+            <input id="theme-toggle" type="checkbox"/>
+            <span class="slider round">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </span>
           </label>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="top">
-    <video class="hero-video" autoplay muted loop>
-      <source src="bakery-tour-full.mp4" type="video/mp4" />
-    </video>
+<!-- Hero Section -->
+<header class="hero">
+  <video autoplay class="hero-video" loop muted playsinline>
+    <source src="bakery-tour-full.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-content glass-panel">
     <h1 class="hero-title">Sweetly Made by Kay</h1>
-    <p class="hero-subtitle">Baked from the heart — for every occasion</p>
-    <div class="glass-panel">
-      <p>Explore homemade treats that bring joy to every bite. Whether you’re craving cupcakes, pies, or custom cakes — I’ve got you covered.</p>
-      <a href="#menu" class="cta-button">Explore Our Menu</a>
+    <p class="hero-subtitle">Homemade treats, crafted with love to make every moment sweeter. Taste the difference in every bite!</p>
+    <a class="cta-button" href="#menu">Explore Our Menu</a>
+  </div>
+</header>
+
+<main>
+  <section class="section reveal" id="about">
+    <div class="container glass-panel">
+      <h2 class="section-title decorated">About Me</h2>
+      <p>I’m a passionate home baker dedicated to creating desserts that bring joy to every occasion. From cookies to custom cakes, every batch is made with love and care.</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section reveal">
-    <div class="container">
-      <h2 class="section-title decorated">About Kay</h2>
-      <p>Kay is a retired nurse turned full-time baker with a love for crafting joy through desserts. Located in East Texas, she serves smiles by the dozen through custom-made treats baked fresh with love.</p>
-    </div>
-  </section>
-
-  <!-- Menu Section -->
-  <section id="menu" class="section reveal">
-    <div class="container">
+  <section class="section reveal" id="menu">
+    <div class="container glass-panel">
       <h2 class="section-title decorated">Menu</h2>
       <div class="menu-grid">
-        <div class="menu-item" style="background-image: url('lemon-almond-cake.jpg');">
-          <div class="menu-footer">
-            <h3>Lemon Almond Cake</h3>
-            <div class="price">$28</div>
-            <div class="description">Light almond sponge with zesty lemon glaze.</div>
-          </div>
-        </div>
         <div class="menu-item" style="background-image: url('pecan-pie-delights.jpg');">
           <div class="menu-footer">
             <h3>Pecan Pie Delights</h3>
-            <div class="price">$20/dozen</div>
-            <div class="description">Mini pies with gooey pecan filling and buttery crust.</div>
+            <p class="price">Mini box (qty3) $7<br>Full sheet pan $40</p>
+            <p class="description">Buttery, sweet, and packed with pecans – a bite of Southern comfort.</p>
           </div>
         </div>
-        <div class="menu-item" style="background-image: url('apple-pie.jpg');">
+
+        <div class="menu-item" style="background-image: url('Strawberry-lemonade-cake-mini.jpg');">
           <div class="menu-footer">
-            <h3>Classic Apple Pie</h3>
-            <div class="price">$30</div>
-            <div class="description">Warm cinnamon apples baked into a golden lattice crust.</div>
+            <h3>Strawberry Lemonade Mini Cake</h3>
+            <p class="price">$8</p>
+            <p class="description">Bright, zesty flavor in a perfectly sized individual cake.</p>
           </div>
         </div>
-        <div class="menu-item" style="background-image: url('pond cake.jpg');">
+
+        <div class="menu-item" style="background-image: url('Strawberry-lemonade-cake-full.jpg');">
           <div class="menu-footer">
-            <h3>Pond Cake</h3>
-            <div class="price">$50</div>
-            <div class="description">Custom frog-themed cake for birthdays or laughs.</div>
+            <h3>Strawberry Lemonade Full Cake</h3>
+            <p class="price">$35</p>
+            <p class="description">A sweet and tangy showstopper for any celebration.</p>
+          </div>
+        </div>
+
+        <div class="menu-item" style="background-image: url('Strawberry-lemonade-cake-cut.jpg');">
+          <div class="menu-footer">
+            <h3>Strawberry Lemonade Cut Cake</h3>
+            <p class="price">$70</p>
+            <p class="description">Two full Strawberry Lemonade Cakes cut individually.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="section reveal">
-    <div class="container">
+  <section class="section reveal" id="gallery">
+    <div class="container glass-panel">
       <h2 class="section-title decorated">Gallery</h2>
-      <div class="gallery-slider" id="gallerySlider">
+      <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img src="Strawberry-lemonade-cake-full.jpg" alt="Strawberry Full" />
-          <img src="Strawberry-lemonade-cake-mini.jpg" alt="Strawberry Mini" />
-          <img src="Strawberry-lemonade-cake-cut.jpg" alt="Strawberry Cut" />
-          <img src="booth.jpg" alt="Booth Display" />
-          <img src="customized-mini-cupcakes.jpg" alt="Mini Cupcakes" />
-          <img src="mini-pies.jpg" alt="Mini Pies" />
-          <img src="pond cake.jpg" alt="Pond Cake" />
+          <img alt="Booth" src="booth.jpg"/>
+          <img alt="Apple Pie" src="apple-pie.jpg"/>
+          <img alt="Cherry Pie" src="cherry-pie.jpg"/>
+          <img alt="Pond Cake" src="pond-cake.jpg"/>
+          <img alt="Booth" src="booth.jpg"/>
+          <img alt="Apple Pie" src="apple-pie.jpg"/>
         </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+        <div class="lightbox" id="lightbox">
+          <img alt="lightbox image" src=""/>
+        </div>
       </div>
     </div>
-    <div class="lightbox" id="lightbox">
-      <img src="" alt="Enlarged Image" />
-    </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="section reveal">
-    <div class="container">
-      <h2 class="section-title decorated">Testimonials</h2>
-      <p>“Kay’s cupcakes made our baby shower unforgettable!” – Amanda</p>
-      <p>“I’ve never had a better pecan pie in my life.” – Jason</p>
-      <p>“The strawberry lemonade cake is to die for!” – Brooke</p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section reveal">
-    <div class="container">
-      <h2 class="section-title decorated">Get In Touch</h2>
-      <p>Have an event or special request? Let's chat!</p>
+  <section class="section reveal" id="social-media">
+    <div class="container glass-panel">
+      <h2 class="section-title decorated">Social Media</h2>
+      <p>Follow us for the latest treats, behind-the-scenes baking, and customer favorites!</p>
       <div class="social-links">
-        <a href="https://facebook.com" target="_blank" class="instagram-pill-lift">Facebook</a>
-        <a href="https://instagram.com" target="_blank" class="instagram-pill-lift">Instagram</a>
+        <a class="instagram-pill-lift" href="https://www.instagram.com/sweetlyhomemadebykay/?igsh=bjI5bm56aDFrZ2sx" target="_blank">
+          <span class="emoji-icon">📷</span>
+          <span>Instagram</span>
+        </a>
+        <a class="instagram-pill-lift" href="https://www.facebook.com/profile.php?id=61575388042044" target="_blank">
+          <span class="emoji-icon">📘</span>
+          <span>Facebook</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="section reveal">
-    <div class="container">
-      <p>&copy; 2025 Sweetly Made by Kay. All rights reserved.</p>
+  <section class="section reveal" id="testimonials">
+    <div class="container glass-panel">
+      <h2 class="section-title decorated">Testimonials</h2>
+      <blockquote>“The cupcakes were heavenly! Sweetly Made by Kay truly knows how to make every treat special.”</blockquote>
     </div>
-  </footer>
+  </section>
 
-  <a href="#contact" class="order-button">Order Now</a>
+  <section class="section reveal" id="contact">
+    <div class="container glass-panel">
+      <h2 class="section-title decorated">Contact</h2>
+      <p>Email: <a href="mailto:sweetlymadebakes@gmail.com" style="color:#007bff; text-decoration:none;">sweetlymadebakes@gmail.com</a></p>
+    </div>
+  </section>
+</main>
 
-  <script>
-    // Dark Mode Toggle
-    const toggle = document.getElementById("darkModeToggle");
-    toggle.addEventListener("change", () => {
-      document.body.classList.toggle("dark-mode");
-    });
+<footer>
+  <p>© 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
+</footer>
 
-    // Gallery slider
-    let slideIndex = 0;
-    const slides = document.querySelector(".slides");
-    const images = document.querySelectorAll(".slides img");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+<script>
+const slidesContainer = document.querySelector('.slides');
+let slides = document.querySelectorAll('.slides img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const gallerySlider = document.querySelector('.gallery-slider');
 
-    function showSlide(index) {
-      slideIndex = (index + images.length) % images.length;
-      slides.style.transform = "translateX(" + (-slideIndex * 100) + "%)";
+let slideIndex = 1;
+let autoSlideInterval;
+let slideWidth = slides[0].clientWidth;
+
+slidesContainer.style.transition = 'transform 1s ease-in-out';
+slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+
+function updateSlideWidth() {
+  slideWidth = slides[0].clientWidth;
+  slidesContainer.style.transition = 'none';
+  slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+}
+
+function moveToSlide(index) {
+  slidesContainer.style.transition = 'transform 1s ease-in-out';
+  slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
+}
+
+function nextSlide() {
+  if (slideIndex >= slides.length - 1) return;
+  slideIndex++;
+  moveToSlide(slideIndex);
+}
+
+function prevSlide() {
+  if (slideIndex <= 0) return;
+  slideIndex--;
+  moveToSlide(slideIndex);
+}
+
+slidesContainer.addEventListener('transitionend', () => {
+  if (slides[slideIndex].alt === "Apple Pie" && slideIndex === slides.length - 1) {
+    slidesContainer.style.transition = 'none';
+    slideIndex = 1;
+    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  }
+  if (slides[slideIndex].alt === "Booth" && slideIndex === 0) {
+    slidesContainer.style.transition = 'none';
+    slideIndex = slides.length - 2;
+    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  }
+});
+
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+gallerySlider.addEventListener('mouseenter', stopAutoSlide);
+gallerySlider.addEventListener('mouseleave', startAutoSlide);
+window.addEventListener('resize', updateSlideWidth);
+
+updateSlideWidth();
+startAutoSlide();
+
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+    if (top < trigger) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
     }
+  });
+});
 
-    let sliderInterval = setInterval(() => showSlide(slideIndex + 1), 3000);
+const navLinks = document.querySelector('.nav-links');
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const topThreshold = 100;
+  if (window.scrollY < topThreshold) {
+    navLinks.classList.remove('hide-nav');
+  } else if (window.scrollY > lastScrollY) {
+    navLinks.classList.add('hide-nav');
+  } else {
+    navLinks.classList.remove('hide-nav');
+  }
+  lastScrollY = window.scrollY;
+});
 
-    document.querySelector(".gallery-slider").addEventListener("mouseover", () => clearInterval(sliderInterval));
-    document.querySelector(".gallery-slider").addEventListener("mouseout", () => {
-      sliderInterval = setInterval(() => showSlide(slideIndex + 1), 3000);
-    });
+const toggleSwitch = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+  document.body.classList.add('dark-mode');
+  toggleSwitch.checked = true;
+}
+toggleSwitch.addEventListener('change', () => {
+  if (toggleSwitch.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+  }
+});
 
-    prevBtn.addEventListener("click", () => showSlide(slideIndex - 1));
-    nextBtn.addEventListener("click", () => showSlide(slideIndex + 1));
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+document.querySelectorAll('.slides img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.classList.add('active');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    document.body.classList.add('lightbox-active');
+  });
+});
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightboxImg.src = '';
+  lightboxImg.alt = '';
+  document.body.classList.remove('lightbox-active');
+});
+</script>
 
-    // Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    images.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.classList.add("active");
-        lightboxImg.src = img.src;
-      });
-    });
-    lightbox.addEventListener("click", () => {
-      lightbox.classList.remove("active");
-      lightboxImg.src = "";
-    });
-
-    // Scroll Reveal
-    const reveals = document.querySelectorAll(".reveal");
-    function revealOnScroll() {
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        if (elementTop < windowHeight - 50) {
-          reveals[i].classList.add("visible");
-        }
-      }
-    }
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-  </script>
 </body>
 </html>
