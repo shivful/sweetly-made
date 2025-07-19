@@ -312,7 +312,7 @@ body.dark-mode .section-title.decorated::after {
 }
 
 /* =====================
-   Menu Card Styling (Overlay Style)
+   Menu Grid & Cards (Bottom-Pinned Pills)
    ===================== */
 .menu-grid {
   display: grid;
@@ -326,7 +326,7 @@ body.dark-mode .section-title.decorated::after {
   height: 420px;
   border-radius: 12px;
   overflow: hidden;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #ffffff;
@@ -334,6 +334,7 @@ body.dark-mode .section-title.decorated::after {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 .menu-item:hover {
@@ -341,23 +342,16 @@ body.dark-mode .section-title.decorated::after {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.menu-image {
-  flex: 1;
-  width: 100%;
-  background-size: cover;
-  background-position: top center;
-}
-
 .menu-footer {
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 1rem 0.75rem;
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   text-align: center;
   line-height: 1.4;
-  padding: 0.5rem 1rem 0.6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .menu-footer h3 {
@@ -373,15 +367,15 @@ body.dark-mode .section-title.decorated::after {
 .menu-footer .price {
   font-weight: bold;
   margin: 0.2rem 0 0.1rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text);
 }
 
 .menu-footer .description {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-style: italic;
   color: #444;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
 }
 
 body.dark-mode .menu-item {
@@ -402,7 +396,7 @@ body.dark-mode .menu-footer .description {
 }
 
 /* =====================
-   Gallery Section
+   Gallery
    ===================== */
 .gallery-slider {
   position: relative;
