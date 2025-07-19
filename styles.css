@@ -457,3 +457,24 @@ body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
 }
+
+
+/* =============================
+   Dark Mode Navbar Fix
+   ============================= */
+body.dark-mode .sticky-nav {
+  background-color: rgba(18, 18, 18, 0.9);
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-links a {
+  color: #ffffff;
+}
+
+body.dark-mode .logo a {
+  color: #ffffff;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #ff8fa3;
+}
