@@ -242,17 +242,19 @@ slidesContainer.addEventListener('transitionend', () => {
 });
 
 function startAutoSlide() {
-  autoSlideInterval = setInterval(nextSlide, 4000);
+  autoSlideInterval = setInterval(nextSlide, 6000); // ← changed from 4000 to 6000
 }
 
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+// Make sure event listeners are properly bound
 gallerySlider.addEventListener('mouseenter', stopAutoSlide);
 gallerySlider.addEventListener('mouseleave', startAutoSlide);
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
 window.addEventListener('resize', updateSlideWidth);
 
 updateSlideWidth();
