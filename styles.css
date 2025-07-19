@@ -312,7 +312,7 @@ body.dark-mode .section-title.decorated::after {
 }
 
 /* =====================
-   Menu Card Styling (Overlay Style)
+   Menu Cards - Transparent Pill Overlay
    ===================== */
 .menu-grid {
   display: grid;
@@ -327,20 +327,23 @@ body.dark-mode .section-title.decorated::after {
   border-radius: 12px;
   overflow: hidden;
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #ffffff;
   box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .menu-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 0.8rem;
+  background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
   text-align: center;
-  padding: 0.5rem 1rem 0.6rem;
   line-height: 1.4;
 }
 
@@ -348,6 +351,7 @@ body.dark-mode .section-title.decorated::after {
   margin: 0.2rem 0;
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
+  line-height: 1.4;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
   padding-bottom: 2px;
@@ -355,16 +359,17 @@ body.dark-mode .section-title.decorated::after {
 
 .menu-footer .price {
   font-weight: bold;
-  margin: 0.2rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text);
+  margin-top: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .menu-footer .description {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-style: italic;
   color: #444;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
 }
 
 body.dark-mode .menu-item {
