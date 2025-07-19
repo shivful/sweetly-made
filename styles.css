@@ -463,12 +463,17 @@ body.dark-mode .menu-footer .description {
 }
 
 .lightbox img {
+  width: auto;
+  height: auto;
   max-width: 90vw;
-  max-height: 75vh;
-  object-fit: contain;
+  max-height: 85vh;
+  object-fit: scale-down;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  display: block;
+  margin: auto;
 }
+
 
 /* =====================
    Social Buttons
