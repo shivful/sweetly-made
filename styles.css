@@ -202,16 +202,18 @@ body {
 .slides {
   display: flex;
   transition: transform 0.8s ease-in-out;
-  width: 100%;
+  width: max-content;
 }
 
 .slides img {
-  min-width: 100vw;
-  height: auto;
+  width: 300px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 12px;
+  margin: 0 8px;
+  flex-shrink: 0;
   user-select: none;
   pointer-events: auto;
-  border-radius: 12px;
 }
 
 .gallery-slider button.prev,
