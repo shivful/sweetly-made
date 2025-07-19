@@ -547,3 +547,8 @@ body.dark-mode .logo a {
 body.dark-mode .nav-links a:hover {
   color: #ff8fa3;
 }
+
+body.lightbox-active {
+  overflow: hidden;
+}
+
