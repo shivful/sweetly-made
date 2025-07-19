@@ -20,12 +20,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-body.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -44,7 +39,6 @@ a {
   right: 0;
   z-index: 1000;
   height: 60px;
-  transition: background-color 0.4s ease;
 }
 
 .nav-container {
@@ -80,21 +74,6 @@ a {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   padding: 4px 8px;
-}
-
-/* Dark Mode Navbar Fix */
-body.dark-mode .sticky-nav {
-  background-color: rgba(18, 18, 18, 0.9);
-  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .nav-links a,
-body.dark-mode .logo a {
-  color: #ffffff;
-}
-
-body.dark-mode .nav-links a:hover {
-  color: var(--accent);
 }
 
 /* Toggle Switch */
@@ -165,6 +144,11 @@ input:checked + .slider.round:before {
   opacity: 0.4;
 }
 
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
 body.dark-mode .icon.sun {
   opacity: 0.4;
 }
@@ -194,8 +178,6 @@ body.dark-mode .icon.moon {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
 }
 
 .hero::before,
@@ -272,12 +254,21 @@ body.dark-mode .hero::after {
   z-index: 999;
 }
 
+/* Section Styles */
 .section {
   padding: 100px 20px;
   text-align: center;
   scroll-margin-top: 120px;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .container {
@@ -302,9 +293,7 @@ body.dark-mode .hero::after {
   border-radius: 2px;
 }
 
-/* ================
-   Menu Card Styling
-   ================ */
+/* Menu Card Grid */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -375,9 +364,7 @@ body.dark-mode .menu-footer .description {
   color: #ccc;
 }
 
-/* ========================
-   Gallery Styling
-   ======================== */
+/* Gallery */
 .gallery-slider {
   position: relative;
   width: 100%;
@@ -394,7 +381,6 @@ body.dark-mode .menu-footer .description {
 
 .slides img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 12px;
   cursor: pointer;
@@ -448,9 +434,7 @@ body.dark-mode .menu-footer .description {
   max-height: 90%;
 }
 
-/* ========================
-   Responsive Fixes
-   ======================== */
+/* Responsive Fixes */
 @media screen and (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
@@ -466,21 +450,43 @@ body.dark-mode .menu-footer .description {
   }
 
   .gallery-slider {
-    height: 300px;
+    height: 350px;
   }
 
   .slides img {
-    height: 300px;
+    height: 350px;
   }
 }
 
-/* ======================
-   Cursor behavior fixes
-   ====================== */
+/* Cursor behavior fixes */
 body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
   cursor: default;
 }
 
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
+}
+
+/* Dark Mode Full Fix */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .glass-panel {
+  background-color: rgba(40, 40, 40, 0.5);
+}
+
+body.dark-mode .section-title.decorated::after {
+  background-color: #ff8fa3;
+}
+
+body.dark-mode .prev,
+body.dark-mode .next {
+  background-color: rgba(50, 50, 50, 0.6);
+  color: white;
+}
+
+body.dark-mode footer {
+  color: #aaa;
 }
