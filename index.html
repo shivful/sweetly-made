@@ -61,6 +61,7 @@
     <div class="container glass-panel">
       <h2 class="section-title decorated">Menu</h2>
       <div class="menu-grid">
+
         <div class="menu-item" style="background-image: url('pecan-pie-delights.jpg');">
           <div class="menu-footer">
             <h3>Pecan Pie Delights</h3>
@@ -92,6 +93,7 @@
             <p class="description">Two full Strawberry Lemonade Cakes cut individually.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -101,17 +103,17 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
-          <img alt="Cherry Pie" src="cherry-pie.jpg"/>
-          <img alt="Pond Cake" src="pond-cake.jpg"/>
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
+          <img alt="Booth" src="booth.jpg" />
+          <img alt="Apple Pie" src="apple-pie.jpg" />
+          <img alt="Cherry Pie" src="cherry-pie.jpg" />
+          <img alt="Pond Cake" src="pond-cake.jpg" />
+          <img alt="Booth" src="booth.jpg" />
+          <img alt="Apple Pie" src="apple-pie.jpg" />
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
         <div class="lightbox" id="lightbox">
-          <img alt="lightbox image" src=""/>
+          <img alt="lightbox image" src="" />
         </div>
       </div>
     </div>
@@ -154,32 +156,27 @@
 </footer>
 
 <script>
-const slidesContainer = document.querySelector('.slides');
-let slides = document.querySelectorAll('.slides img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const gallerySlider = document.querySelector('.gallery-slider');
-
+const slidesContainer = document.querySelector(".slides");
+const slideImages = document.querySelectorAll(".slides img");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const gallerySlider = document.querySelector(".gallery-slider");
 let slideIndex = 1;
 let autoSlideInterval;
-let slideWidth = slides[0].clientWidth;
 
-slidesContainer.style.transition = 'transform 1s ease-in-out';
-slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-
-function updateSlideWidth() {
-  slideWidth = slides[0].clientWidth;
-  slidesContainer.style.transition = 'none';
-  slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+function updateSlidePosition() {
+  const slideWidth = slideImages[0].clientWidth;
+  slidesContainer.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
 }
 
 function moveToSlide(index) {
-  slidesContainer.style.transition = 'transform 1s ease-in-out';
-  slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
+  const slideWidth = slideImages[0].clientWidth;
+  slidesContainer.style.transition = "transform 0.8s ease";
+  slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
 function nextSlide() {
-  if (slideIndex >= slides.length - 1) return;
+  if (slideIndex >= slideImages.length - 1) return;
   slideIndex++;
   moveToSlide(slideIndex);
 }
@@ -190,16 +187,16 @@ function prevSlide() {
   moveToSlide(slideIndex);
 }
 
-slidesContainer.addEventListener('transitionend', () => {
-  if (slides[slideIndex].alt === "Apple Pie" && slideIndex === slides.length - 1) {
-    slidesContainer.style.transition = 'none';
+slidesContainer.addEventListener("transitionend", () => {
+  if (slideImages[slideIndex].alt === "Booth" && slideIndex === slideImages.length - 1) {
+    slidesContainer.style.transition = "none";
     slideIndex = 1;
-    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+    updateSlidePosition();
   }
-  if (slides[slideIndex].alt === "Booth" && slideIndex === 0) {
-    slidesContainer.style.transition = 'none';
-    slideIndex = slides.length - 2;
-    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+  if (slideImages[slideIndex].alt === "Apple Pie" && slideIndex === 0) {
+    slidesContainer.style.transition = "none";
+    slideIndex = slideImages.length - 2;
+    updateSlidePosition();
   }
 });
 
@@ -211,74 +208,14 @@ function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
-gallerySlider.addEventListener('mouseenter', stopAutoSlide);
-gallerySlider.addEventListener('mouseleave', startAutoSlide);
-window.addEventListener('resize', updateSlideWidth);
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+gallerySlider.addEventListener("mouseenter", stopAutoSlide);
+gallerySlider.addEventListener("mouseleave", startAutoSlide);
+window.addEventListener("resize", updateSlidePosition);
 
-updateSlideWidth();
+updateSlidePosition();
 startAutoSlide();
-
-const sections = document.querySelectorAll('.section');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
-  });
-});
-
-const navLinks = document.querySelector('.nav-links');
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const topThreshold = 100;
-  if (window.scrollY < topThreshold) {
-    navLinks.classList.remove('hide-nav');
-  } else if (window.scrollY > lastScrollY) {
-    navLinks.classList.add('hide-nav');
-  } else {
-    navLinks.classList.remove('hide-nav');
-  }
-  lastScrollY = window.scrollY;
-});
-
-const toggleSwitch = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-  document.body.classList.add('dark-mode');
-  toggleSwitch.checked = true;
-}
-toggleSwitch.addEventListener('change', () => {
-  if (toggleSwitch.checked) {
-    document.body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light');
-  }
-});
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-document.querySelectorAll('.slides img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    document.body.classList.add('lightbox-active');
-  });
-});
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightboxImg.src = '';
-  lightboxImg.alt = '';
-  document.body.classList.remove('lightbox-active');
-});
 </script>
 
 </body>
