@@ -96,22 +96,23 @@
     </div>
   </section>
 
+  <!-- Updated Gallery Section -->
   <section class="section reveal" id="gallery">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
-          <img alt="Cherry Pie" src="cherry-pie.jpg"/>
-          <img alt="Pond Cake" src="pond-cake.jpg"/>
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
+          <img src="booth.jpg" alt="Booth" />
+          <img src="apple-pie.jpg" alt="Apple Pie" />
+          <img src="pond cake.jpg" alt="Pond Cake" />
+          <img src="image1.jpg" alt="Display Table" />
+          <img src="image2.jpg" alt="Closeup" />
+          <img src="image3.jpg" alt="Baked Goods" />
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
         <div class="lightbox" id="lightbox">
-          <img alt="lightbox image" src=""/>
+          <img alt="lightbox image" src="" />
         </div>
       </div>
     </div>
@@ -153,119 +154,40 @@
   <p>© 2025 Sweetly Made by Kay | Baked with love in every batch.</p>
 </footer>
 
+<!-- Gallery & Theme Scripts -->
 <script>
+// Gallery auto-scroll and navigation
 const slidesContainer = document.querySelector('.slides');
-let slides = document.querySelectorAll('.slides img');
+const slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
-const gallerySlider = document.querySelector('.gallery-slider');
+let index = 0;
 
-let slideIndex = 1;
-let autoSlideInterval;
-let slideWidth = slides[0].clientWidth;
-
-slidesContainer.style.transition = 'transform 1s ease-in-out';
-slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-
-function updateSlideWidth() {
-  slideWidth = slides[0].clientWidth;
-  slidesContainer.style.transition = 'none';
-  slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-}
-
-function moveToSlide(index) {
-  slidesContainer.style.transition = 'transform 1s ease-in-out';
-  slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
+function updateGallery() {
+  const slideWidth = slides[0].clientWidth;
+  slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
 }
 
 function nextSlide() {
-  if (slideIndex >= slides.length - 1) return;
-  slideIndex++;
-  moveToSlide(slideIndex);
+  index = (index + 1) % slides.length;
+  updateGallery();
 }
 
-function prevSlide() {
-  if (slideIndex <= 0) return;
-  slideIndex--;
-  moveToSlide(slideIndex);
-}
-
-slidesContainer.addEventListener('transitionend', () => {
-  if (slides[slideIndex].alt === "Apple Pie" && slideIndex === slides.length - 1) {
-    slidesContainer.style.transition = 'none';
-    slideIndex = 1;
-    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-  }
-  if (slides[slideIndex].alt === "Booth" && slideIndex === 0) {
-    slidesContainer.style.transition = 'none';
-    slideIndex = slides.length - 2;
-    slidesContainer.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-  }
-});
-
-function startAutoSlide() {
-  autoSlideInterval = setInterval(nextSlide, 4000);
-}
-
-function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
+function prevSlideFunc() {
+  index = (index - 1 + slides.length) % slides.length;
+  updateGallery();
 }
 
 nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
-gallerySlider.addEventListener('mouseenter', stopAutoSlide);
-gallerySlider.addEventListener('mouseleave', startAutoSlide);
-window.addEventListener('resize', updateSlideWidth);
+prevBtn.addEventListener('click', prevSlideFunc);
+setInterval(nextSlide, 4000);
+window.addEventListener('resize', updateGallery);
+updateGallery();
 
-updateSlideWidth();
-startAutoSlide();
-
-const sections = document.querySelectorAll('.section');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-    if (top < trigger) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
-  });
-});
-
-const navLinks = document.querySelector('.nav-links');
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const topThreshold = 100;
-  if (window.scrollY < topThreshold) {
-    navLinks.classList.remove('hide-nav');
-  } else if (window.scrollY > lastScrollY) {
-    navLinks.classList.add('hide-nav');
-  } else {
-    navLinks.classList.remove('hide-nav');
-  }
-  lastScrollY = window.scrollY;
-});
-
-const toggleSwitch = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-  document.body.classList.add('dark-mode');
-  toggleSwitch.checked = true;
-}
-toggleSwitch.addEventListener('change', () => {
-  if (toggleSwitch.checked) {
-    document.body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light');
-  }
-});
-
+// Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
-document.querySelectorAll('.slides img').forEach(img => {
+slides.forEach(img => {
   img.addEventListener('click', () => {
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
@@ -278,6 +200,28 @@ lightbox.addEventListener('click', () => {
   lightboxImg.src = '';
   lightboxImg.alt = '';
   document.body.classList.remove('lightbox-active');
+});
+
+// Reveal sections
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+    section.classList.toggle('visible', top < trigger);
+  });
+});
+
+// Dark mode toggle
+const toggleSwitch = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+  document.body.classList.add('dark-mode');
+  toggleSwitch.checked = true;
+}
+toggleSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode', toggleSwitch.checked);
+  localStorage.setItem('theme', toggleSwitch.checked ? 'dark' : 'light');
 });
 </script>
 
