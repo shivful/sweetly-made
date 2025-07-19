@@ -103,12 +103,13 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
+          <img alt="Clone End" src="apple-pie.jpg" />
           <img alt="Booth" src="booth.jpg" />
           <img alt="Apple Pie" src="apple-pie.jpg" />
           <img alt="Cherry Pie" src="cherry-pie.jpg" />
           <img alt="Pond Cake" src="pond-cake.jpg" />
           <img alt="Booth" src="booth.jpg" />
-          <img alt="Apple Pie" src="apple-pie.jpg" />
+          <img alt="Clone Start" src="apple-pie.jpg" />
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -188,12 +189,12 @@ function prevSlide() {
 }
 
 slidesContainer.addEventListener("transitionend", () => {
-  if (slideImages[slideIndex].alt === "Booth" && slideIndex === slideImages.length - 1) {
+  if (slideImages[slideIndex].alt === "Clone Start") {
     slidesContainer.style.transition = "none";
     slideIndex = 1;
     updateSlidePosition();
   }
-  if (slideImages[slideIndex].alt === "Apple Pie" && slideIndex === 0) {
+  if (slideImages[slideIndex].alt === "Clone End") {
     slidesContainer.style.transition = "none";
     slideIndex = slideImages.length - 2;
     updateSlidePosition();
