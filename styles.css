@@ -402,6 +402,7 @@ body.dark-mode .menu-footer .description {
   border-radius: 20px;
   box-shadow: var(--shadow);
   background: white;
+  z-index: 1;
 }
 
 .slides {
@@ -455,7 +456,7 @@ body.dark-mode .menu-footer .description {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 9999;
 }
 
 .lightbox.active {
@@ -463,17 +464,12 @@ body.dark-mode .menu-footer .description {
 }
 
 .lightbox img {
-  width: auto;
-  height: auto;
   max-width: 90vw;
-  max-height: 85vh;
-  object-fit: scale-down;
+  max-height: 90vh;
+  object-fit: contain;
   border-radius: 12px;
   box-shadow: var(--shadow);
-  display: block;
-  margin: auto;
 }
-
 
 /* =====================
    Social Buttons
@@ -518,6 +514,11 @@ body.dark-mode .menu-footer .description {
   .slides img {
     height: 350px;
   }
+
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
 }
 
 /* =====================
@@ -548,7 +549,9 @@ body.dark-mode .nav-links a:hover {
   color: #ff8fa3;
 }
 
+/* =============================
+   Lightbox Scroll Lock
+   ============================= */
 body.lightbox-active {
   overflow: hidden;
 }
-
