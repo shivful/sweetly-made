@@ -312,7 +312,7 @@ body.dark-mode .section-title.decorated::after {
 }
 
 /* =====================
-   Menu Cards
+   Menu Cards - Transparent Pill Overlay
    ===================== */
 .menu-grid {
   display: grid;
@@ -329,6 +329,7 @@ body.dark-mode .section-title.decorated::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #ffffff;
   box-shadow: var(--shadow);
   display: flex;
   justify-content: center;
@@ -338,12 +339,11 @@ body.dark-mode .section-title.decorated::after {
 .menu-footer {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 0.6rem 1rem 0.4rem;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
+  text-align: center;
   line-height: 1.4;
 }
 
@@ -362,15 +362,19 @@ body.dark-mode .section-title.decorated::after {
   font-size: 0.9rem;
   color: var(--text);
   margin-top: 0.25rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
 }
 
 .menu-footer .description {
   font-size: 0.8rem;
   font-style: italic;
   color: #444;
-  margin: 0;
-  padding: 0;
+  margin-top: 0.1rem;
+}
+
+body.dark-mode .menu-item {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
 }
 
 body.dark-mode .menu-footer {
@@ -465,7 +469,6 @@ body.dark-mode .menu-footer .description {
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
-
 
 /* =====================
    Social Buttons
