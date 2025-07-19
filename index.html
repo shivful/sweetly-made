@@ -11,6 +11,38 @@
     body.lightbox-active {
       overflow: hidden;
     }
+
+    .lightbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .gallery-slider.upgraded-gallery {
+      position: relative;
+    }
   </style>
 </head>
 <body id="top">
@@ -137,8 +169,6 @@
           <img alt="Customized Mini Cupcakes Sample" src="customized-mini-cupcakes-sample.jpg"/>
           <img alt="Pond Cake" src="pond-cake.jpg"/>
           <img alt="Strawberry Lemonade" src="Strawberry-lemonade-cake-full.jpg"/>
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -205,12 +235,9 @@ const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[slides.length - 1].cloneNode(true);
 firstClone.setAttribute('data-clone', 'first');
 lastClone.setAttribute('data-clone', 'last');
-
-// Append/prepend clones
 slidesContainer.appendChild(firstClone);
 slidesContainer.insertBefore(lastClone, slides[0]);
-
-slides = document.querySelectorAll('.slides img'); // refresh NodeList
+slides = document.querySelectorAll('.slides img');
 
 let slideIndex = 1;
 let slideWidth = slides[0].clientWidth;
@@ -223,7 +250,7 @@ function updateSlideWidth() {
 }
 
 function moveToSlide(index) {
-  slidesContainer.style.transition = 'transform 0.6s ease-in-out';
+  slidesContainer.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
   slidesContainer.style.transform = `translateX(${-slideWidth * index}px)`;
 }
 
@@ -254,21 +281,19 @@ slidesContainer.addEventListener('transitionend', () => {
 
 function startAutoSlide() {
   stopAutoSlide();
-  autoSlideInterval = setInterval(nextSlide, 5000); // every 5s
+  autoSlideInterval = setInterval(nextSlide, 5000);
 }
 
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-// Button & Hover Events
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 gallerySlider.addEventListener('mouseenter', stopAutoSlide);
 gallerySlider.addEventListener('mouseleave', startAutoSlide);
 window.addEventListener('resize', updateSlideWidth);
 
-// Initialize
 updateSlideWidth();
 startAutoSlide();
 
@@ -329,10 +354,9 @@ toggleSwitch.addEventListener('change', () => {
 // =======================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
-
 document.querySelectorAll('.slides img').forEach(img => {
   img.addEventListener('click', () => {
-    if (img.getAttribute('data-clone')) return; // skip clones
+    if (img.getAttribute('data-clone')) return;
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
@@ -340,7 +364,6 @@ document.querySelectorAll('.slides img').forEach(img => {
     stopAutoSlide();
   });
 });
-
 lightbox.addEventListener('click', () => {
   lightbox.classList.remove('active');
   lightboxImg.src = '';
@@ -349,7 +372,6 @@ lightbox.addEventListener('click', () => {
   startAutoSlide();
 });
 </script>
-
 
 </body>
 </html>
