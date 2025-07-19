@@ -154,7 +154,7 @@
       <h2 class="section-title decorated">Social Media</h2>
       <p>Follow us for the latest treats, behind-the-scenes baking, and customer favorites!</p>
       <div class="social-links">
-        <a class="instagram-pill-lift" href="https://www.instagram.com/sweetlyhomemadebykay/?igsh=bjI5bm56aDFrZ2sx" target="_blank">
+        <a class="instagram-pill-lift" href="https://www.instagram.com/sweetlyhomemadebykay" target="_blank">
           <span class="emoji-icon">📷</span>
           <span>Instagram</span>
         </a>
@@ -304,7 +304,7 @@ toggleSwitch.addEventListener('change', () => {
   }
 });
 
-// Lightbox
+// Lightbox Behavior
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 document.querySelectorAll('.slides img').forEach(img => {
@@ -313,6 +313,7 @@ document.querySelectorAll('.slides img').forEach(img => {
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
     document.body.classList.add('lightbox-active');
+    stopAutoSlide();
   });
 });
 lightbox.addEventListener('click', () => {
@@ -320,6 +321,7 @@ lightbox.addEventListener('click', () => {
   lightboxImg.src = '';
   lightboxImg.alt = '';
   document.body.classList.remove('lightbox-active');
+  startAutoSlide();
 });
 </script>
 
