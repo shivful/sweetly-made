@@ -144,12 +144,12 @@
   <section class="section reveal" id="contact">
     <div class="container glass-panel">
       <h2 class="section-title decorated">Contact</h2>
-      <div class="social-links">
-        <a class="instagram-pill-lift" href="mailto:sweetlymadebakes@gmail.com" target="_blank">
-          <span class="emoji-icon">📧</span>
-          <span>Email</span>
+      <p>
+        <span class="emoji-icon">✉️</span>
+        <a href="mailto:sweetlymadebakes@gmail.com" style="color:#007bff; text-decoration:none;">
+          sweetlymadebakes@gmail.com
         </a>
-      </div>
+      </p>
     </div>
   </section>
 </main>
@@ -159,6 +159,7 @@
 </footer>
 
 <script>
+// Gallery Logic
 const slidesContainer = document.querySelector('.slides');
 let slides = document.querySelectorAll('.slides img');
 const prevBtn = document.querySelector('.prev');
@@ -225,6 +226,7 @@ window.addEventListener('resize', updateSlideWidth);
 updateSlideWidth();
 startAutoSlide();
 
+// Scroll Reveal
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
@@ -238,6 +240,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Nav Scroll Hide
 const navLinks = document.querySelector('.nav-links');
 let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
@@ -252,6 +255,7 @@ window.addEventListener('scroll', () => {
   lastScrollY = window.scrollY;
 });
 
+// Dark Mode Toggle
 const toggleSwitch = document.getElementById('theme-toggle');
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'dark') {
@@ -268,6 +272,7 @@ toggleSwitch.addEventListener('change', () => {
   }
 });
 
+// Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 document.querySelectorAll('.slides img').forEach(img => {
