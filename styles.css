@@ -462,16 +462,13 @@ body.dark-mode .menu-footer .description {
   display: flex;
 }
 
-body.lightbox-active {
-  overflow: hidden;
-}
-
 .lightbox img {
-  max-width: 55vw;
-  max-height: 55vh;
+  max-width: 65%;
+  max-height: 65%;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease-in-out;
 }
 
 /* =====================
@@ -516,6 +513,11 @@ body.lightbox-active {
 
   .slides img {
     height: 350px;
+  }
+
+  .lightbox img {
+    max-width: 85%;
+    max-height: 70%;
   }
 }
 
