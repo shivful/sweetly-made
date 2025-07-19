@@ -280,26 +280,59 @@ body.dark-mode .hero::after {
   border-radius: 2px;
 }
 
+/* ================
+   Menu Card Styling
+   ================ */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .menu-item {
   background-color: white;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+.menu-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-info {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.menu-info h3 {
+  margin: 0.25rem 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.menu-info .price {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.menu-info .description {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* ================
+   Gallery Slider
+   ================ */
 .gallery-slider {
   position: relative;
   overflow: hidden;
@@ -385,6 +418,9 @@ footer {
   z-index: 1;
 }
 
+/* ========================
+   Dark Mode Custom Styles
+   ======================== */
 body.dark-mode {
   background-color: #121212;
   color: #ffffff;
@@ -413,11 +449,21 @@ body.dark-mode footer {
 }
 
 body.dark-mode .menu-item {
-  color: white;
   background-color: #1e1e1e;
   border: 1px solid #333;
 }
 
+body.dark-mode .menu-info {
+  background-color: rgba(30, 30, 30, 0.95);
+}
+
+body.dark-mode .menu-info .description {
+  color: #ccc;
+}
+
+/* ========================
+   Responsive Mobile Fixes
+   ======================== */
 @media screen and (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
@@ -446,7 +492,6 @@ body.dark-mode .menu-item {
   }
 }
 
-
 /* ======================
    Cursor behavior fixes
    ====================== */
@@ -457,7 +502,6 @@ body, section, div, p, h1, h2, h3, h4, h5, h6, .hero-text {
 a, button, .cta-button, .order-button, .nav-links a {
   cursor: pointer;
 }
-
 
 /* =============================
    Dark Mode Navbar Fix
