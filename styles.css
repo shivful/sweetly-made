@@ -202,12 +202,12 @@ body {
 .slides {
   display: flex;
   transition: transform 0.8s ease-in-out;
-  width: max-content;
+  width: 100%;
 }
 
 .slides img {
-  width: 100%;
-  max-width: 100%;
+  min-width: 100vw;
+  height: auto;
   object-fit: cover;
   user-select: none;
   pointer-events: auto;
