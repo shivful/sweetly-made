@@ -459,10 +459,13 @@ body.dark-mode .menu-footer .description {
 }
 
 .lightbox img {
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 90vw;
+  max-height: 75vh;
   object-fit: contain;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
+
 
 /* =====================
    Social Buttons
