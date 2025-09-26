@@ -7,6 +7,7 @@
   <link href="styles.css" rel="stylesheet"/>
   <link href="mobile.css" media="only screen and (max-width: 768px)" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link rel="preload" href="shorter-hero.mp4" as="video" type="video/mp4">
   <style>
     body.lightbox-active {
       overflow: hidden;
@@ -75,8 +76,8 @@
 
 <!-- Hero Section -->
 <header class="hero">
-  <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="hero-video">
-    <source src="bakery-tour-full.mp4" type="video/mp4"/>
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="bakery-hero2.jpg" class="hero-video">
+    <source src="shorter-hero.mp4" type="video/mp4"/>
     Your browser does not support the video tag.
   </video>
   <div class="hero-content glass-panel">
@@ -189,13 +190,13 @@
       <h2 class="section-title decorated">Gallery</h2>
       <div class="gallery-slider upgraded-gallery">
         <div class="slides">
-          <img alt="Booth" src="booth.jpg"/>
-          <img alt="Apple Pie" src="apple-pie.jpg"/>
-          <img alt="Customized Mini Cupcakes Sample" src="customized-mini-cupcakes-sample.jpg"/>
-          <img alt="Pond Cake" src="pond-cake.jpg"/>
-          <img alt="Strawberry Lemonade" src="Strawberry-lemonade-cake-full.jpg"/>
-          <img alt="Happy Birthday Cake" src="hb-chocolate-cake.jpg"/>
-          <img alt="Baby Shower Cake" src="baby-shower-cake.jpg"/>
+          <img loading="lazy" alt="Booth" src="booth.jpg"/>
+          <img loading="lazy" alt="Apple Pie" src="apple-pie.jpg"/>
+          <img loading="lazy" alt="Customized Mini Cupcakes Sample" src="customized-mini-cupcakes-sample.jpg"/>
+          <img loading="lazy" alt="Pond Cake" src="pond-cake.jpg"/>
+          <img loading="lazy" alt="Strawberry Lemonade" src="Strawberry-lemonade-cake-full.jpg"/>
+          <img loading="lazy" alt="Happy Birthday Cake" src="hb-chocolate-cake.jpg"/>
+          <img loading="lazy" alt="Baby Shower Cake" src="baby-shower-cake.jpg"/>
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
