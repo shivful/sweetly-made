@@ -10,6 +10,22 @@
   ------------------------*/
   html, body {
     overflow-x: hidden;
+    min-height: 100%;
+    min-height: -webkit-fill-available; /* iOS Safari */
+  }
+
+  :root {
+    height: -webkit-fill-available;     /* iOS address bar collapse fix */
+  }
+
+  /* Safer viewport units on iOS (fallbacks below) */
+  @supports (height: 1svh) {
+    .hero,
+    .hero-video,
+    .gallery-slider {
+      min-height: 62svh;
+      height: 62svh;
+    }
   }
 
   .container,
@@ -28,19 +44,25 @@
     word-break: break-word;
   }
 
-  /* Slightly larger tap targets on mobile */
   a, button, .cta-button {
-    min-height: 44px;
+    min-height: 44px;                   /* better tap targets */
   }
 
   /* -----------------------
-     Sticky Nav
+     Sticky Nav (FIXES: wrap + background)
   ------------------------*/
   .sticky-nav {
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 245, 243, 0.92);        /* light background so it doesn't overlay hero */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  body.dark-mode .sticky-nav {
+    background: rgba(18,18,18,0.7);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
 
   .sticky-nav .nav-container {
@@ -48,7 +70,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 12px 16px;
+    flex-wrap: wrap;                                   /* key: allow links to move to next line */
+    padding: calc(env(safe-area-inset-top, 0) + 8px) 16px 8px 16px;
   }
 
   .sticky-nav .logo a {
@@ -57,12 +80,13 @@
     display: inline-block;
   }
 
-  /* Stack links; keep them inline-scrollable to avoid wrapping overflow */
+  /* Links go full-width on their own row and can scroll horizontally */
   .sticky-nav .nav-links {
     display: flex;
+    width: 100%;                                       /* key: take whole row */
     gap: 12px;
     margin: 0;
-    padding: 8px 0 0;
+    padding: 8px 0 10px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     list-style: none;
@@ -78,6 +102,7 @@
     border-radius: 999px;
   }
 
+  /* Keep toggle with the links at the end on the same row */
   .sticky-nav .dark-toggle {
     margin-left: auto;
   }
@@ -90,7 +115,7 @@
      Hero
   ------------------------*/
   .hero {
-    min-height: 62vh;
+    min-height: 62vh; /* fallback */
     display: grid;
     place-items: center;
     padding: 0;
@@ -100,7 +125,7 @@
 
   .hero-video {
     width: 100%;
-    height: 62vh;
+    height: 62vh; /* fallback */
     object-fit: cover;
   }
 
@@ -147,24 +172,22 @@
     gap: 16px;
   }
 
-  /* Keep images visible without harsh crop */
   .menu-item {
     position: relative;
-    background-size: cover;          /* preserves visual look */
-    background-position: center;     /* center subject */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    min-height: 340px;               /* taller to showcase photo */
+    min-height: 340px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
 
-  /* Transparent pill footer pinned to bottom with tighter spacing */
   .menu-footer {
     position: absolute;
     left: 10px;
     right: 10px;
-    bottom: 10px;                     /* touches near bottom */
+    bottom: 10px;
     padding: 10px 12px;
     border-radius: 14px;
     backdrop-filter: blur(8px);
@@ -173,7 +196,6 @@
     color: #2b2b2b;
     line-height: 1.35;
   }
-
   body.dark-mode .menu-footer {
     background: rgba(25, 25, 25, 0.55);
     color: #efefef;
@@ -183,7 +205,7 @@
     font-size: 16px;
     margin: 0 0 6px;
     line-height: 1.2;
-    text-decoration: underline;       /* pink accent via inherited link color */
+    text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
   }
@@ -191,7 +213,7 @@
   .menu-footer .price {
     margin: 0 0 4px;
     font-size: 14px;
-    white-space: nowrap;              /* keep on one line when possible */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -202,7 +224,7 @@
   }
 
   /* -----------------------
-     Gallery (Orbiting/Slider)
+     Gallery
   ------------------------*/
   #gallery .container {
     padding: 16px;
@@ -211,7 +233,7 @@
   .gallery-slider {
     position: relative;
     width: 100%;
-    height: 56vh;                     /* taller so images breathe */
+    height: 56vh;                     /* fallback */
     min-height: 320px;
     border-radius: 16px;
     overflow: hidden;
@@ -227,10 +249,9 @@
   .gallery-slider .slides img {
     width: 100%;
     height: 100%;
-    object-fit: cover;                 /* consistent fill */
+    object-fit: cover;
   }
 
-  /* Prev/Next buttons sizing */
   .gallery-slider .control,
   .gallery-slider .prev,
   .gallery-slider .next {
@@ -240,7 +261,6 @@
     line-height: 40px;
   }
 
-  /* Dots */
   .gallery-dots {
     gap: 8px;
     bottom: 10px;
@@ -273,7 +293,7 @@
   }
   .lightbox .close {
     position: absolute;
-    top: 10px;
+    top: env(safe-area-inset-top, 10px);
     right: 10px;
     min-width: 36px;
     min-height: 36px;
@@ -281,6 +301,12 @@
     line-height: 36px;
     text-align: center;
     border-radius: 999px;
+  }
+
+  /* Stop background scroll when lightbox is open */
+  body.lightbox-active {
+    overflow: hidden;
+    height: 100%;
   }
 
   /* -----------------------
@@ -380,29 +406,18 @@
   }
 
   /* -----------------------
-     Misc spacing polish
+     Misc
   ------------------------*/
-  .decorated {
-    padding-bottom: 6px;
-    margin-bottom: 16px;
-  }
-
-  /* Ensure any images in content scale correctly */
-  img,
-  video {
+  img, video {
     max-width: 100%;
     height: auto;
   }
 
-  /* -----------------------
-     Edge cases / Helpers
-  ------------------------*/
-  /* Prevent double scroll in gallery/lightbox area */
   #gallery, .gallery-slider {
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Prevent horizontal jitter on iOS when using blurred panels */
   .glass-panel {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
