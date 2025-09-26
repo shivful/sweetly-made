@@ -1,6 +1,6 @@
 /* ============================================================
    Sweetly Made by Kay — Mobile Styles (<= 768px)
-   These are MOBILE-ONLY overrides. Desktop remains unchanged.
+   MOBILE-ONLY overrides. Desktop remains unchanged.
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -14,11 +14,9 @@
     min-height: -webkit-fill-available; /* iOS Safari */
   }
 
-  :root {
-    height: -webkit-fill-available;     /* iOS address bar collapse fix */
-  }
+  :root { height: -webkit-fill-available; }
 
-  /* Safer viewport units on iOS (fallbacks below) */
+  /* Safe viewport units for iOS; fall back to vh below */
   @supports (height: 1svh) {
     .hero,
     .hero-video,
@@ -28,36 +26,25 @@
     }
   }
 
-  .container,
-  .glass-panel {
-    padding: 16px;
-    border-radius: 14px;
-  }
-
-  .section {
-    padding: 48px 14px;
-  }
-
-  .section-title,
-  .section .section-title,
-  h1, h2, h3 {
-    word-break: break-word;
-  }
-
-  a, button, .cta-button {
-    min-height: 44px;                   /* better tap targets */
-  }
+  .section { padding: 48px 14px; }
+  .container, .glass-panel { padding: 16px; border-radius: 14px; }
+  a, button, .cta-button { min-height: 44px; } /* tap targets */
 
   /* -----------------------
-     Sticky Nav (FIX: 2-row grid + nowrap links)
+     Sticky Nav — MATCH SCREENSHOTS
+     - 2-row layout
+     - Underline under title
+     - 3-across pill buttons (About / Menu / Gallery)
+     - Row 2: Testimonials / Contact / Toggle
+     - Hide Social Media on phones (keeps structure on desktop)
   ------------------------*/
   .sticky-nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: rgba(255, 245, 243, 0.96);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    background: rgba(255, 245, 243, 0.96);  /* prevent hero showing through */
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
   body.dark-mode .sticky-nav {
@@ -65,126 +52,120 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
 
-  /* 2-row grid:
-     Row 1: logo | toggle
-     Row 2: links (full width, scrollable) */
+  /* Grid container: row1 = logo; row2 = links (grid) */
   .sticky-nav .nav-container {
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "logo toggle"
-      "links links";
-    align-items: center;
-    gap: 8px 12px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 8px;
     padding: calc(env(safe-area-inset-top, 0) + 8px) 16px 10px 16px;
   }
 
-  .sticky-nav .logo { grid-area: logo; }
+  /* Logo with underline like your screenshots */
+  .sticky-nav .logo { align-self: end; }
   .sticky-nav .logo a {
-    font-size: 18px;
+    display: inline-block;
+    font-size: 28px;
     line-height: 1.2;
-    display: inline-block;
+    padding-bottom: 6px;
+    border-bottom: 4px solid #e79aa9; /* pink underline */
   }
+  body.dark-mode .sticky-nav .logo a { border-bottom-color: #e79aa9; }
 
-  .sticky-nav .dark-toggle { 
-    grid-area: toggle; 
-    justify-self: end; 
-  }
-  .dark-mode-toggle .switch { transform: scale(0.9); }
-
-  /* Single-row, horizontally scrollable nav links */
+  /* Links as a 3-across grid of pills */
   .sticky-nav .nav-links {
-    grid-area: links;
-    display: flex;
-    flex-wrap: nowrap !important;             /* force single line */
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 14px;
     margin: 0;
-    padding: 8px 0 2px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 0;
     list-style: none;
-    border-top: 1px solid rgba(0,0,0,0.06);
   }
 
-  .sticky-nav .nav-links li { white-space: nowrap; }
-  .sticky-nav .nav-links a {
-    display: inline-block;
-    padding: 8px 10px;
-    border-radius: 999px;
+  /* Hide Social Media on phones to match your mobile layout */
+  .sticky-nav .nav-links li:nth-child(4) { display: none; } /* Social Media */
+
+  /* Put the dark-mode toggle at row 2, right-most cell */
+  .sticky-nav .nav-links .dark-toggle {
+    grid-column: 3;
+    justify-self: end;
   }
+  /* If your toggle sits OUTSIDE the <ul>, keep a fallback */
+  .sticky-nav .dark-toggle:not(li) { justify-self: end; }
+
+  /* Pill look for nav buttons (matches your screenshots) */
+  .sticky-nav .nav-links a {
+    display: grid;
+    place-items: center;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 2px solid #e79aa9;
+    background: linear-gradient(180deg, #fff 0%, #ffecec 100%);
+    color: #2b2b2b;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset,
+                0 1px 6px rgba(0,0,0,0.05);
+  }
+  .sticky-nav .nav-links a:active {
+    transform: translateY(1px);
+  }
+  body.dark-mode .sticky-nav .nav-links a {
+    background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+    color: #f2f2f2;
+    border-color: #e79aa9;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset,
+                0 1px 6px rgba(0,0,0,0.25);
+  }
+
+  /* Make toggle a bit smaller so it fits the grid nicely */
+  .dark-mode-toggle .switch { transform: scale(0.9); }
 
   /* -----------------------
      Hero
   ------------------------*/
   .hero {
-    min-height: 62vh; /* fallback */
+    min-height: 62vh; /* fallback for non-supporting browsers */
     display: grid;
     place-items: center;
     padding: 0;
     position: relative;
     overflow: hidden;
   }
-
   .hero-video {
     width: 100%;
-    height: 62vh; /* fallback */
+    height: 62vh;          /* fallback */
     object-fit: cover;
   }
-
   .hero-content {
     position: absolute;
-    inset: auto 12px 16px 12px; /* anchored lower for better composition */
+    inset: auto 12px 16px 12px; /* lower anchor */
     padding: 14px;
     text-align: center;
     gap: 10px;
   }
-
-  .hero-title {
-    font-size: clamp(22px, 6vw, 28px);
-    margin: 0 0 6px;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(14px, 3.8vw, 16px);
-    line-height: 1.35;
-    margin: 0 0 10px;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 10px 14px;
-    font-size: 14px;
-    border-radius: 999px;
-  }
+  .hero-title { font-size: clamp(26px, 8vw, 40px); margin: 0 0 6px; }
+  .hero-subtitle { font-size: clamp(14px, 3.8vw, 16px); line-height: 1.35; margin: 0 0 10px; }
+  .cta-button { padding: 10px 14px; font-size: 14px; border-radius: 999px; }
 
   /* -----------------------
-     About
-  ------------------------*/
-  #about p {
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  /* -----------------------
-     Menu Grid / Cards
+     Menu (keep photo-first look)
   ------------------------*/
   .menu-grid {
     display: grid;
-    grid-template-columns: 1fr; /* single column on mobile */
+    grid-template-columns: 1fr;
     gap: 16px;
   }
-
   .menu-item {
     position: relative;
+    min-height: 340px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 340px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
-
   .menu-footer {
     position: absolute;
     left: 10px;
@@ -199,10 +180,9 @@
     line-height: 1.35;
   }
   body.dark-mode .menu-footer {
-    background: rgba(25, 25, 25, 0.55);
+    background: rgba(25,25,25,0.55);
     color: #efefef;
   }
-
   .menu-footer h3 {
     font-size: 16px;
     margin: 0 0 6px;
@@ -211,7 +191,6 @@
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
   }
-
   .menu-footer .price {
     margin: 0 0 4px;
     font-size: 14px;
@@ -219,60 +198,35 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .menu-footer .description {
-    margin: 0;
-    font-size: 13px;
-  }
+  .menu-footer .description { margin: 0; font-size: 13px; }
 
   /* -----------------------
      Gallery
   ------------------------*/
-  #gallery .container {
-    padding: 16px;
-  }
-
+  #gallery .container { padding: 16px; }
   .gallery-slider {
     position: relative;
     width: 100%;
-    height: 56vh;                     /* fallback */
+    height: 56vh;         /* fallback */
     min-height: 320px;
     border-radius: 16px;
     overflow: hidden;
   }
-
   .gallery-slider .slides,
-  .gallery-slider .slide {
-    width: 100%;
-    height: 100%;
-  }
-
+  .gallery-slider .slide { width: 100%; height: 100%; }
   .gallery-slider .slide img,
   .gallery-slider .slides img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
   }
-
   .gallery-slider .control,
   .gallery-slider .prev,
   .gallery-slider .next {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    line-height: 40px;
+    width: 40px; height: 40px; font-size: 18px; line-height: 40px;
   }
+  .gallery-dots { gap: 8px; bottom: 10px; }
+  .gallery-dot { width: 8px; height: 8px; }
 
-  .gallery-dots {
-    gap: 8px;
-    bottom: 10px;
-  }
-  .gallery-dot {
-    width: 8px;
-    height: 8px;
-  }
-
-  /* Lightbox inside gallery; keep centered and within bounds */
+  /* Lightbox contained inside gallery */
   .lightbox {
     position: absolute !important;
     inset: 0 !important;
@@ -286,111 +240,50 @@
   }
   .lightbox.active { display: flex; }
   .lightbox img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
+    max-width: 100%; max-height: 100%;
+    object-fit: contain; border-radius: 10px;
   }
   .lightbox .close {
     position: absolute;
     top: env(safe-area-inset-top, 10px);
     right: 10px;
-    min-width: 36px;
-    min-height: 36px;
-    font-size: 18px;
-    line-height: 36px;
-    text-align: center;
+    min-width: 36px; min-height: 36px;
+    font-size: 18px; line-height: 36px; text-align: center;
     border-radius: 999px;
   }
-
-  /* Stop background scroll when lightbox is open */
-  body.lightbox-active {
-    overflow: hidden;
-    height: 100%;
-  }
+  body.lightbox-active { overflow: hidden; height: 100%; }
 
   /* -----------------------
-     Testimonials
+     Testimonials / Contact / Social
   ------------------------*/
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .testimonial-card { padding: 14px; border-radius: 14px; }
 
-  .testimonial-card {
-    padding: 14px;
-    border-radius: 14px;
+  #contact .container { padding: 16px; }
+  form input, form textarea, form select {
+    font-size: 16px; padding: 12px 14px; border-radius: 10px;
   }
+  form .form-row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  form button[type="submit"] { padding: 12px 16px; font-size: 16px; border-radius: 999px; }
 
-  /* -----------------------
-     Contact
-  ------------------------*/
-  #contact .container {
-    padding: 16px;
-  }
-
-  form input,
-  form textarea,
-  form select {
-    font-size: 16px; /* iOS zoom prevention */
-    padding: 12px 14px;
-    border-radius: 10px;
-  }
-
-  form .form-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  form button[type="submit"] {
-    padding: 12px 16px;
-    font-size: 16px;
-    border-radius: 999px;
-  }
-
-  /* -----------------------
-     Social Media
-  ------------------------*/
-  #social-media .social-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2-up grid on mobile */
-    gap: 12px;
-  }
-
-  #social-media .social-card {
-    padding: 12px;
-    border-radius: 14px;
-  }
+  #social-media .social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  #social-media .social-card { padding: 12px; border-radius: 14px; }
 
   /* -----------------------
      Floating "Order Now"
   ------------------------*/
   .order-now {
     position: fixed;
-    right: 14px;
-    bottom: 14px;
-    z-index: 999;
-    padding: 12px 16px;
-    border-radius: 999px;
-    font-size: 14px;
+    right: 14px; bottom: 14px; z-index: 999;
+    padding: 12px 16px; border-radius: 999px; font-size: 14px;
     box-shadow: 0 8px 18px rgba(0,0,0,0.15);
   }
 
   /* -----------------------
      Footer
   ------------------------*/
-  footer {
-    padding: 24px 14px;
-    text-align: center;
-  }
-
-  footer .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  footer { padding: 24px 14px; text-align: center; }
+  footer .footer-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
 
   /* -----------------------
      Reveal / Animations
@@ -400,23 +293,12 @@
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
-  .reveal.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  .reveal.visible { transform: translateY(0); opacity: 1; }
 
   /* -----------------------
-     Misc
+     Helpers
   ------------------------*/
   img, video { max-width: 100%; height: auto; }
-
-  #gallery, .gallery-slider {
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .glass-panel {
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-  }
+  #gallery, .gallery-slider { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .glass-panel { -webkit-transform: translateZ(0); transform: translateZ(0); }
 }
