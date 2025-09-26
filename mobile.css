@@ -262,6 +262,44 @@
   }
 }
 
+/* ──────────────────────────────────────────────
+   HERO / ABOUT GAP FIX (applies to light & dark)
+   ────────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
+  /* Remove overlay strips that can cause seams */
+  .hero::before,
+  .hero::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Make sure the video slightly overfills to avoid a seam */
+  .hero {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: transparent !important;
+    overflow: hidden !important;
+  }
+
+  .hero-video {
+    position: absolute !important;
+    top: -2px !important;               /* nudge up to tuck under header strip */
+    left: 0;
+    width: 100vw !important;
+    height: calc(100vh + 4px) !important; /* overfill by 2px top/bottom */
+    object-fit: cover !important;
+    z-index: -2 !important;
+    transform: translateZ(0);
+  }
+
+  /* Pull the next section up by 1–2px so there’s zero visual gap */
+  .hero + section,
+  .hero + .section {
+    margin-top: -2px !important;
+  }
+}
+
+/* Existing hero/dark-mode blocks kept for compatibility */
 @media screen and (max-width: 768px) {
   body.dark-mode .hero::after {
     content: "";
@@ -497,7 +535,7 @@
 
   .hero { margin-bottom: 0 !important; padding-bottom: 0 !important; }
   .hero + section,
-  .hero + .section { margin-top: 0 !important; }
+  .hero + .section { margin-top: -2px !important; } /* keep seam hidden */
 
   body.dark-mode,
   body.dark-mode main { background-color: #121212 !important; }
