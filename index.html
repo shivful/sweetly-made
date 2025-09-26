@@ -76,7 +76,8 @@
 
 <!-- Hero Section -->
 <header class="hero">
-  <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="hero-video">
+  <!-- removed loop to control ping-pong playback via JS -->
+  <video autoplay muted playsinline webkit-playsinline preload="auto" class="hero-video">
     <source src="bakery-tour-full.mp4" type="video/mp4"/>
     Your browser does not support the video tag.
   </video>
@@ -398,6 +399,62 @@ lightbox.addEventListener('click', () => {
   lightboxImg.alt = '';
   document.body.classList.remove('lightbox-active');
   startAutoSlide();
+});
+
+// =======================
+// Hero Video Ping-Pong (forward → reverse → forward…)
+// =======================
+const heroVideo = document.querySelector('.hero-video');
+let reversing = false;
+let reverseRaf;
+
+function playForward() {
+  reversing = false;
+  cancelAnimationFrame(reverseRaf);
+  heroVideo.play().catch(()=>{});
+}
+
+function playReverseOnce() {
+  reversing = true;
+  heroVideo.pause();
+  const fps = 30;                // match your encode
+  const step = 1 / fps;          // seconds to step back each frame
+
+  const stepBack = () => {
+    if (!reversing) return;
+    // stop at (or near) 0, then play forward again
+    if (heroVideo.currentTime <= 0.03) {
+      heroVideo.currentTime = 0;
+      playForward();
+      return;
+    }
+    heroVideo.currentTime = Math.max(0, heroVideo.currentTime - step);
+    reverseRaf = requestAnimationFrame(stepBack);
+  };
+
+  reverseRaf = requestAnimationFrame(stepBack);
+}
+
+// Ensure autoplay inline on iOS
+heroVideo.addEventListener('loadedmetadata', () => {
+  heroVideo.muted = true;
+  playForward();
+});
+
+// When forward playback ends, run a smooth reverse back to start
+heroVideo.addEventListener('ended', () => {
+  if (!reversing) playReverseOnce();
+});
+
+// If user navigates away and back, keep logic sane
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    cancelAnimationFrame(reverseRaf);
+  } else if (reversing) {
+    playReverseOnce();
+  } else {
+    playForward();
+  }
 });
 </script>
 
