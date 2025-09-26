@@ -485,12 +485,10 @@
 }
 
 /* ----------------------------------------------------------
-   Dark-mode hero black-bar FIX (append-only, safe)
-   - Remove dark overlays that created the black strip
-   - Use modern viewport units so video truly fills the screen
+   Dark-mode hero white/black-bar FIX
    ---------------------------------------------------------- */
-@media screen and (max-width: 768px) {
-  /* Kill all overlays that were adding dark blocks */
+@media (max-width: 768px) {
+  /* Remove any overlays that add blocks */
   body.dark-mode::after,
   body.dark-mode .hero::before,
   body.dark-mode .hero::after {
@@ -498,27 +496,39 @@
     content: none !important;
   }
 
-  /* Ensure hero/video truly fill the mobile viewport */
+  /* Ensure hero/video truly fill */
   body.dark-mode .hero {
     background: transparent !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
     min-height: 100vh;
   }
+
+  body.dark-mode .hero + section,
+  body.dark-mode .hero + .section {
+    margin-top: 0 !important;
+  }
+
   body.dark-mode .hero-video {
     position: absolute !important;
-    inset: 0 !important;
+    inset: -1px 0 0 0 !important;
     width: 100vw !important;
-    height: 100vh !important;
+    height: calc(100vh + 2px) !important;
     object-fit: cover !important;
     z-index: -1 !important;
   }
 
-  /* Prefer dynamic/small viewport units on iOS */
+  body.dark-mode {
+    background-color: #121212 !important;
+  }
+
   @supports (height: 100svh) {
     body.dark-mode .hero { min-height: 100svh !important; }
-    body.dark-mode .hero-video { height: 100svh !important; }
+    body.dark-mode .hero-video { height: calc(100svh + 2px) !important; }
   }
+
   @supports (height: 100dvh) {
     body.dark-mode .hero { min-height: 100dvh !important; }
-    body.dark-mode .hero-video { height: 100dvh !important; }
+    body.dark-mode .hero-video { height: calc(100dvh + 2px) !important; }
   }
 }
