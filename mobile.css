@@ -485,10 +485,9 @@
 }
 
 /* ----------------------------------------------------------
-   Dark-mode hero white/black-bar FIX
+   FINAL FIX — removes the white strip in dark mode
    ---------------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Remove any overlays that add blocks */
   body.dark-mode::after,
   body.dark-mode .hero::before,
   body.dark-mode .hero::after {
@@ -496,39 +495,29 @@
     content: none !important;
   }
 
-  /* Ensure hero/video truly fill */
-  body.dark-mode .hero {
-    background: transparent !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    min-height: 100vh;
-  }
+  .hero { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+  .hero + section,
+  .hero + .section { margin-top: 0 !important; }
 
-  body.dark-mode .hero + section,
-  body.dark-mode .hero + .section {
-    margin-top: 0 !important;
-  }
+  body.dark-mode,
+  body.dark-mode main { background-color: #121212 !important; }
+  body.dark-mode section,
+  body.dark-mode .section { background: transparent !important; }
 
   body.dark-mode .hero-video {
     position: absolute !important;
-    inset: -1px 0 0 0 !important;
+    inset: -2px 0 -2px 0 !important;
     width: 100vw !important;
-    height: calc(100vh + 2px) !important;
+    height: calc(100vh + 4px) !important;
     object-fit: cover !important;
     z-index: -1 !important;
-  }
-
-  body.dark-mode {
-    background-color: #121212 !important;
-  }
-
-  @supports (height: 100svh) {
-    body.dark-mode .hero { min-height: 100svh !important; }
-    body.dark-mode .hero-video { height: calc(100svh + 2px) !important; }
+    transform: translateZ(0);
   }
 
   @supports (height: 100dvh) {
-    body.dark-mode .hero { min-height: 100dvh !important; }
-    body.dark-mode .hero-video { height: calc(100dvh + 2px) !important; }
+    body.dark-mode .hero-video { height: calc(100dvh + 4px) !important; }
+  }
+  @supports (height: 100svh) {
+    body.dark-mode .hero-video { height: calc(100svh + 4px) !important; }
   }
 }
