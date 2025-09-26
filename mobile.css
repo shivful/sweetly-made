@@ -1,485 +1,410 @@
-/* ======================
-   Sweetly Made by Kay - mobile.css
-   Mobile-only layout fixes (≤768px)
-   ====================== */
+/* ============================================================
+   Sweetly Made by Kay — Mobile Styles (<= 768px)
+   These are MOBILE-ONLY overrides. Desktop remains unchanged.
+   ============================================================ */
 
-@media screen and (max-width: 768px) {
-  body {
+@media (max-width: 768px) {
+
+  /* -----------------------
+     Global / Utilities
+  ------------------------*/
+  html, body {
     overflow-x: hidden;
   }
 
-  section {
-    padding: 40px 20px;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .container,
+  .glass-panel {
     padding: 16px;
+    border-radius: 14px;
   }
 
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #ff8fa3;
-    align-self: flex-start;
-    width: fit-content;
-    margin-left: 8px;
+  .section {
+    padding: 48px 14px;
   }
 
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 8px;
-    text-align: center;
-    width: 100%;
-    margin-top: 10px;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .nav-links li {
-    margin: 0;
-  }
-
-  .nav-links a {
-    color: #3e2f2f;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #fff, #fdf4f2);
-    border: 1px solid #ff8fa3;
-    padding: 6px;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    display: block;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  .nav-links a:hover {
-    background: var(--accent);
-    color: white;
-  }
-
-  .nav-links li.dark-toggle {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: center;
-    align-self: center;
-    margin: 0;
-    padding: 0;
-    background: transparent !important;
-    border: none;
-    box-shadow: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-links li.dark-toggle .dark-mode-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 80px 20px 40px;
-  }
-
-  .hero img {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-
-  .orbit-container {
-    transform: scale(0.7);
-    width: 100%;
-    height: auto;
-  }
-
-  .orbit-container .orbit {
-    width: 250px;
-    height: 250px;
-  }
-
-  .orbit-container img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .testimonial {
-    padding: 20px;
-    font-size: 0.95rem;
-  }
-
-  .contact form {
-    width: 100%;
-  }
-
-  .footer a[href*="instagram"] {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  .section-title,
+  .section .section-title,
+  h1, h2, h3 {
     word-break: break-word;
   }
 
-  .order-now {
-    bottom: 16px;
-    right: 16px;
+  /* Slightly larger tap targets on mobile */
+  a, button, .cta-button {
+    min-height: 44px;
+  }
+
+  /* -----------------------
+     Sticky Nav
+  ------------------------*/
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+  }
+
+  .sticky-nav .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     padding: 12px 16px;
-    font-size: 0.9rem;
   }
 
-  .nav-links.hide-nav {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body.dark-mode .nav-links a {
-    background-color: rgba(0, 0, 0, 0.6) !important;
-    color: #fff !important;
-    backdrop-filter: blur(10px);
+  .sticky-nav .logo a {
+    font-size: 18px;
+    line-height: 1.2;
+    display: inline-block;
   }
 
-  body.dark-mode .nav-links li.dark-toggle {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: center;
-    align-self: center;
+  /* Stack links; keep them inline-scrollable to avoid wrapping overflow */
+  .sticky-nav .nav-links {
+    display: flex;
+    gap: 12px;
     margin: 0;
-    padding: 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8px 0 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    list-style: none;
   }
 
-  body.dark-mode .nav-links li.dark-toggle .dark-mode-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .sticky-nav .nav-links li {
+    white-space: nowrap;
   }
-}
 
-@supports (-webkit-touch-callout: none) {
-  body {
-    -webkit-text-size-adjust: 100%;
+  .sticky-nav .nav-links a {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 999px;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .nav-links {
+  .sticky-nav .dark-toggle {
+    margin-left: auto;
+  }
+
+  .dark-mode-toggle .switch {
+    transform: scale(0.9);
+  }
+
+  /* -----------------------
+     Hero
+  ------------------------*/
+  .hero {
+    min-height: 62vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
-    width: 100%;
+    place-items: center;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
   }
 
-  .nav-links li {
-    display: flex;
+  .hero-video {
+    width: 100%;
+    height: 62vh;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: auto 12px 16px 12px; /* anchored lower for better composition */
+    padding: 14px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .hero-title {
+    font-size: clamp(22px, 6vw, 28px);
+    margin: 0 0 6px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.35;
+    margin: 0 0 10px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 999px;
+  }
+
+  /* -----------------------
+     About
+  ------------------------*/
+  #about p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* -----------------------
+     Menu Grid / Cards
+  ------------------------*/
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* single column on mobile */
+    gap: 16px;
+  }
+
+  /* Keep images visible without harsh crop */
+  .menu-item {
+    position: relative;
+    background-size: cover;          /* preserves visual look */
+    background-position: center;     /* center subject */
+    background-repeat: no-repeat;
+    min-height: 340px;               /* taller to showcase photo */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  /* Transparent pill footer pinned to bottom with tighter spacing */
+  .menu-footer {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;                     /* touches near bottom */
+    padding: 10px 12px;
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.55);
+    color: #2b2b2b;
+    line-height: 1.35;
+  }
+
+  body.dark-mode .menu-footer {
+    background: rgba(25, 25, 25, 0.55);
+    color: #efefef;
+  }
+
+  .menu-footer h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+    line-height: 1.2;
+    text-decoration: underline;       /* pink accent via inherited link color */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .menu-footer .price {
+    margin: 0 0 4px;
+    font-size: 14px;
+    white-space: nowrap;              /* keep on one line when possible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .menu-footer .description {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  /* -----------------------
+     Gallery (Orbiting/Slider)
+  ------------------------*/
+  #gallery .container {
+    padding: 16px;
+  }
+
+  .gallery-slider {
+    position: relative;
+    width: 100%;
+    height: 56vh;                     /* taller so images breathe */
+    min-height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .gallery-slider .slides,
+  .gallery-slider .slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-slider .slide img,
+  .gallery-slider .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                 /* consistent fill */
+  }
+
+  /* Prev/Next buttons sizing */
+  .gallery-slider .control,
+  .gallery-slider .prev,
+  .gallery-slider .next {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  /* Dots */
+  .gallery-dots {
+    gap: 8px;
+    bottom: 10px;
+  }
+  .gallery-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Lightbox inside gallery; keep centered and within bounds */
+  .lightbox {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: 0 !important;
+    display: none;
     align-items: center;
     justify-content: center;
-  }
-
-  .nav-links a,
-  .dark-mode-toggle {
-    display: block;
-    width: 100%;
     padding: 10px;
-    border-radius: 12px;
-    font-weight: 600;
+    background: rgba(0,0,0,0.9);
+    border-radius: 16px;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  .lightbox .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 18px;
+    line-height: 36px;
     text-align: center;
-    border: 1px solid #ff8fa3;
+    border-radius: 999px;
   }
 
-  .nav-links a {
-    background: linear-gradient(to bottom, #fff, #fdf4f2);
-    color: #3e2f2f;
+  /* -----------------------
+     Testimonials
+  ------------------------*/
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .nav-links li.dark-toggle {
-    padding: 0;
+  .testimonial-card {
+    padding: 14px;
+    border-radius: 14px;
   }
 
-  .dark-mode-toggle {
-    background: linear-gradient(to bottom, #fff, #fdf4f2);
+  /* -----------------------
+     Contact
+  ------------------------*/
+  #contact .container {
+    padding: 16px;
   }
 
-  body.dark-mode .nav-links a {
-    background: #1e1e1e !important;
-    color: #ffffff !important;
+  form input,
+  form textarea,
+  form select {
+    font-size: 16px; /* iOS zoom prevention */
+    padding: 12px 14px;
+    border-radius: 10px;
   }
 
-  body.dark-mode .dark-mode-toggle {
-    background: #1e1e1e !important;
-    color: #ffffff !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .nav-links li.dark-toggle {
-    padding: 0;
-    border: none !important;
-    background: none !important;
+  form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .dark-mode-toggle {
-    padding: 10px;
-    border: none !important;
-    background: none !important;
-    width: auto;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .nav-links li.dark-toggle {
-    padding: 0 !important;
-    border: none !important;
-    background: transparent !important;
+  form button[type="submit"] {
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 999px;
   }
 
-  .dark-mode-toggle {
-    padding: 10px;
-    border: none !important;
-    background: transparent !important;
-    width: auto;
+  /* -----------------------
+     Social Media
+  ------------------------*/
+  #social-media .social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2-up grid on mobile */
+    gap: 12px;
   }
 
-  body.dark-mode .nav-links li.dark-toggle {
-    background: transparent !important;
+  #social-media .social-card {
+    padding: 12px;
+    border-radius: 14px;
   }
 
-  body.dark-mode .dark-mode-toggle {
-    background: transparent !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body.dark-mode .hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #121212;
-    z-index: -2;
-  }
-
-  body.dark-mode .hero {
-    background-color: #121212 !important;
-  }
-
-  .hero-video {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body.dark-mode::after {
-    content: "";
+  /* -----------------------
+     Floating "Order Now"
+  ------------------------*/
+  .order-now {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #121212;
-    z-index: -10;
-    pointer-events: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body.dark-mode .hero {
-    position: relative;
-    background-color: #121212 !important;
-    z-index: -2;
+    right: 14px;
+    bottom: 14px;
+    z-index: 999;
+    padding: 12px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
   }
 
-  body.dark-mode .hero::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background-color: #121212;
-    z-index: -1;
+  /* -----------------------
+     Footer
+  ------------------------*/
+  footer {
+    padding: 24px 14px;
+    text-align: center;
   }
 
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -2;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    position: relative;
-    background-color: #121212;
-    overflow: hidden;
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%;
-    width: 100vw;
-    object-fit: cover;
-    z-index: -2;
+  /* -----------------------
+     Reveal / Animations
+  ------------------------*/
+  .reveal {
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  .reveal.visible {
+    transform: translateY(0);
+    opacity: 1;
   }
 
-  body.dark-mode {
-    background-color: #121212 !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    position: relative;
-    background-color: transparent;
-    overflow: hidden;
+  /* -----------------------
+     Misc spacing polish
+  ------------------------*/
+  .decorated {
+    padding-bottom: 6px;
+    margin-bottom: 16px;
   }
 
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    z-index: -2;
+  /* Ensure any images in content scale correctly */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
   }
 
-  body.dark-mode .hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background-color: #121212;
-    z-index: -1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    position: relative;
-    background-color: transparent !important;
-    overflow: hidden;
+  /* -----------------------
+     Edge cases / Helpers
+  ------------------------*/
+  /* Prevent double scroll in gallery/lightbox area */
+  #gallery, .gallery-slider {
+    overscroll-behavior: contain;
   }
 
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    z-index: -2;
-  }
-
-  body.dark-mode .hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background-color: #121212;
-    z-index: -1;
-  }
-
-  body.dark-mode {
-    background-color: #121212 !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    position: relative;
-    background-color: transparent !important;
-    overflow: hidden;
-  }
-
-  .hero-video {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    height: calc(100vh + 1px);
-    width: 100vw;
-    object-fit: cover;
-    z-index: -2;
-  }
-
-  body.dark-mode .hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background-color: #121212;
-    z-index: -1;
-  }
-
-  body.dark-mode {
-    background-color: #121212 !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero {
-    position: relative;
-    background-color: transparent !important;
-    overflow: hidden;
-  }
-
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    z-index: -2;
-  }
-
-  body.dark-mode .hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background-color: #121212;
-    z-index: -1;
-  }
-
-  body.dark-mode {
-    background-color: #121212 !important;
-  }
-
-  body.dark-mode .hero::before {
-    display: none !important;
+  /* Prevent horizontal jitter on iOS when using blurred panels */
+  .glass-panel {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
   }
 }
