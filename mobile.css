@@ -483,3 +483,42 @@
     display: none !important;
   }
 }
+
+/* ----------------------------------------------------------
+   Dark-mode hero black-bar FIX (append-only, safe)
+   - Remove dark overlays that created the black strip
+   - Use modern viewport units so video truly fills the screen
+   ---------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  /* Kill all overlays that were adding dark blocks */
+  body.dark-mode::after,
+  body.dark-mode .hero::before,
+  body.dark-mode .hero::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Ensure hero/video truly fill the mobile viewport */
+  body.dark-mode .hero {
+    background: transparent !important;
+    min-height: 100vh;
+  }
+  body.dark-mode .hero-video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -1 !important;
+  }
+
+  /* Prefer dynamic/small viewport units on iOS */
+  @supports (height: 100svh) {
+    body.dark-mode .hero { min-height: 100svh !important; }
+    body.dark-mode .hero-video { height: 100svh !important; }
+  }
+  @supports (height: 100dvh) {
+    body.dark-mode .hero { min-height: 100dvh !important; }
+    body.dark-mode .hero-video { height: 100dvh !important; }
+  }
+}
